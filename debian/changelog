@@ -1,5 +1,9 @@
-make-snake (1.0-1) UNRELEASED; urgency=low
+make-snake (1.0-1.1) unstable; urgency=low
 
+  [ root ]
   * Initial release. (Closes: #XXXXXX)
 
- -- root <root@Kano>  Mon, 21 Oct 2013 17:00:06 +0100
+  [ Team Kano ]
+  * Package rebuilt, updated to revision d249be6b.
+
+ -- Team Kano <hello@kano.me>  Mon, 21 Oct 2013 17:05:55 +0100
