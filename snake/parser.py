@@ -18,7 +18,7 @@ def init():
                       help="Play fullscreen")
 
     parser.add_option("-t", "--theme",
-                      action="store", dest="theme", default='classic',
+                      action="store", dest="theme", default='minimal',
                       help="Game theme (classic | minimal | jungle | custom)")
 
     (options, args) = parser.parse_args()
