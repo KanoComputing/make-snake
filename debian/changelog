@@ -1,0 +1,5 @@
+make-snake (1.0-1) UNRELEASED; urgency=low
+
+  * Initial release. (Closes: #XXXXXX)
+
+ -- root <root@Kano>  Mon, 21 Oct 2013 17:00:06 +0100
