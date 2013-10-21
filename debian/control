@@ -1,0 +1,11 @@
+Source: make-snake
+Maintainer: Alejandro Simon <alejandro@kano.me>
+Section: admin
+Priority: optional
+Standards-Version: 3.9.4
+Build-Depends: debhelper (>=8.0.0)
+
+Package: make-snake
+Architecture: all
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Lightweight, configurable snake game running in the console

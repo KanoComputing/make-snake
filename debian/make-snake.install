@@ -1,0 +1,2 @@
+./snake/* /usr/share/make-snake/
+./bin/make-snake.sh /usr/sbin
