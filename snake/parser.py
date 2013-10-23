@@ -19,6 +19,10 @@ def init():
 
     parser.add_option("-t", "--theme",
                       action="store", dest="theme", default='minimal',
-                      help="Game theme (classic | minimal | jungle | custom)")
+                      help="Game theme (classic | minimal | jungle | 80s)")
+
+    parser.add_option("-m", "--ModeTutorial",
+                      action="store_true", dest="tutorial", default=False,
+                      help="Close game after game over")
 
     (options, args) = parser.parse_args()

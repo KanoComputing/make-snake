@@ -49,7 +49,7 @@ if [ "$stage" -le 1 ]; then
    typewriter_echo "Type 'python snake' then [ENTER] - press [Q] to quit" 0 1
    
    inputLoop 'python snake'
-   python -B $dir
+   python -B $dir -m
 fi
 
 header
@@ -60,7 +60,7 @@ if [ "$stage" -le 2 ]; then
    typewriter_echo "Use 'python snake -f' to play FULLSCREEN" 0 2
 
    inputLoop 'python snake -f'
-   python -B $dir -s m
+   python -B $dir -ms m
 fi
 
 header
@@ -70,7 +70,7 @@ if [ "$stage" -le 3 ]; then
    typewriter_echo "You can make the board smaller with 'python snake -s s'" 0 2
 
    inputLoop 'python snake -s s'
-   python -B $dir -s s
+   python -B $dir -ms s
 fi
 
 header
@@ -80,7 +80,7 @@ if [ "$stage" -le 4 ]; then
    typewriter_echo "Type 'python snake -t classic'" 0 2
 
    inputLoop 'python snake -t classic'
-   python -B $dir -t classic
+   python -B $dir -mt classic
 fi
 
 header
@@ -88,7 +88,7 @@ if [ "$stage" -le 5 ]; then
    typewriter_echo "You can also use '-t jungle' to play Amazon style!" 0 2
 
    inputLoop 'python snake -t jungle'
-   python -B $dir -t jungle
+   python -B $dir -mt jungle
 fi
 
 header
@@ -100,7 +100,7 @@ if [ "$stage" -le 6 ]; then
    python -B $dir --help
    echo -ne "\n"
    sleep 2
-   typewriter_echo "Great! You completed Make Snake!" 0 2
+   typewriter_echo "Great! You've completed Make Snake!" 0 2
    read
    exit
 fi
