@@ -1,9 +1,20 @@
 #!/bin/bash
 
+dir="/usr/share/make-snake/__main__.py"
 function header
 {
    clear
-   echo "S N A K E"
+   echo ".-----------------------------------------------------------."
+   echo "|  .---._____     ______     ______     ______     _____    |"
+   echo "| (  8  ____ \___/ ____ \___/ ____ \___/ ____ \___/ ____\`=- |"
+   echo "|  '---'    \_____/    \_____/    \_____/    \_____/        |"
+   echo "|   __  __       _            ____              _           |"
+   echo "|  |  \/  | __ _| | _____    / ___| _ __   __ _| | _____    |"
+   echo "|  | |\/| |/ _\` | |/ / _ \   \___ \| '_ \ / _\` | |/ / _ \   |"
+   echo "|  | |  | | (_| |   <  __/    ___) | | | | (_| |   <  __/   |"
+   echo "|  |_|  |_|\__,_|_|\_\___|   |____/|_| |_|\__,_|_|\_\___|   |"
+   echo "|                                                           |"
+   echo "'-----------------------------------------------------------'"
    echo -ne "\n"
    sleep 1
 }
@@ -38,7 +49,7 @@ if [ "$stage" -le 1 ]; then
    typewriter_echo "Type 'python snake' then [ENTER] - press [Q] to quit" 0 1
    
    inputLoop 'python snake'
-   python -B Snake/__main__.py
+   python -B $dir
 fi
 
 header
@@ -49,7 +60,7 @@ if [ "$stage" -le 2 ]; then
    typewriter_echo "Use 'python snake -f' to play FULLSCREEN" 0 2
 
    inputLoop 'python snake -f'
-   python -B Snake/__main__.py -s m
+   python -B $dir -s m
 fi
 
 header
@@ -59,7 +70,7 @@ if [ "$stage" -le 3 ]; then
    typewriter_echo "You can make the board smaller with 'python snake -s s'" 0 2
 
    inputLoop 'python snake -s s'
-   python -B Snake/__main__.py -s s
+   python -B $dir -s s
 fi
 
 header
@@ -69,7 +80,7 @@ if [ "$stage" -le 4 ]; then
    typewriter_echo "Type 'python snake -t classic'" 0 2
 
    inputLoop 'python snake -t classic'
-   python -B Snake/__main__.py -t classic
+   python -B $dir -t classic
 fi
 
 header
@@ -77,7 +88,7 @@ if [ "$stage" -le 5 ]; then
    typewriter_echo "You can also use '-t jungle' to play Amazon style!" 0 2
 
    inputLoop 'python snake -t jungle'
-   python -B Snake/__main__.py -t jungle
+   python -B $dir -t jungle
 fi
 
 header
@@ -86,7 +97,7 @@ if [ "$stage" -le 6 ]; then
    typewriter_echo "Type 'python snake --help' to get help." 0 2
 
    inputLoop 'python snake --help'
-   python -B Snake/__main__.py --help
+   python -B $dir --help
    echo -ne "\n"
    sleep 2
    typewriter_echo "Great! You completed Make Snake!" 0 2
