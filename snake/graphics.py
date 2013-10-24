@@ -19,7 +19,7 @@ def drawTile(x, y, tile='', color=None):
 
 
 def drawGameOver():
-    drawTile(-4, -2, "  GAME OVER ", theme.get_color('border'))
+    drawTile(-4, -2, "  GAME OVER  ", theme.get_color('border'))
     drawTile(-4, 2, " Press ENTER ", theme.get_color('border'))
 
 
