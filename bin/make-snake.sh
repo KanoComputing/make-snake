@@ -1,6 +1,12 @@
 #!/bin/bash
 
 dir="/usr/share/make-snake/__main__.py"
+
+function breakline
+{
+   echo -ne "\n"
+}
+
 function header
 {
    clear
@@ -15,7 +21,7 @@ function header
    echo "|  |_|  |_|\__,_|_|\_\___|   |____/|_| |_|\__,_|_|\_\___|   |"
    echo "|                                                           |"
    echo "'-----------------------------------------------------------'"
-   echo -ne "\n"
+   breakline
    sleep 1
 }
 
@@ -51,7 +57,6 @@ if [ "$stage" -le 1 ]; then
    inputLoop 'python snake'
    python -B $dir -m
 fi
-
 
 header
 if [ "$stage" -le 2 ]; then
@@ -89,9 +94,33 @@ if [ "$stage" -le 5 ]; then
 
    inputLoop 'python snake --help'
    python -B $dir --help
-   echo -ne "\n"
+   breakline
    sleep 2
-   typewriter_echo "Great! You've completed Make Snake!" 0 2
-   read
-   exit
+   typewriter_echo "Great! You've completed Make Snake!" 1 2
+fi
+
+header
+echo "Playground mode!"
+typewriter_echo "Try what you have learnt" 0 2
+if [ "$stage" -le 6 ]; then
+   while true; do
+      read -e command
+      if [ "$command" == "exit" ]; then
+         exit
+      fi
+      array=($command)
+      len="${#array[@]}"
+      if [ $len -ge 2 ] && [ ${array[0]} == "python" ] && [ ${array[1]} == "snake" ]; then
+          param=""
+          space=" "
+          for (( index=2; index<$len; index++ )); do
+              param=${param}${array[$index]}${space}
+          done
+          python -B $dir $param
+          header
+          echo "Playground mode!"
+      else
+          typewriter_echo "Need help? Type 'python snake --help' or 'exit' to finish" 0 2
+      fi
+   done
 fi
