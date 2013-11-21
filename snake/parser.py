@@ -13,6 +13,10 @@ def init():
                       action="store", dest="size", default='l',
                       help="Game size (s | m | l)")
 
+    parser.add_option("-v", "--velocity",
+                      action="store", dest="speed", default='m',
+                      help="Game speed (s | m | f)")
+
     parser.add_option("-f", "--fullscreen",
                       action="store_true", dest="fullscreen", default=False,
                       help="Play fullscreen")
@@ -23,6 +27,6 @@ def init():
 
     parser.add_option("-m", "--ModeTutorial",
                       action="store_true", dest="tutorial", default=False,
-                      help="Close game after game over")
+                      help="Closes game after game over")
 
     (options, args) = parser.parse_args()

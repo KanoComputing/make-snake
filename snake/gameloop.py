@@ -4,10 +4,12 @@ import graphics
 import game
 import config
 import controls
+import parser
 
 last_update = None
 playing = False
 state = 0
+speed = 0
 
 
 def update():
@@ -16,7 +18,7 @@ def update():
 
 
 def step():
-    global last_update
+    global last_update, speed
 
     cur_time = time.time()
 
@@ -25,12 +27,12 @@ def step():
     else:
         elapsed = 0
 
-    if not elapsed or elapsed > config.frame_len:
+    if not elapsed or elapsed > speed:
 
         if not elapsed:
-            until_next = config.frame_len
+            until_next = speed
         else:
-            until_next = elapsed - config.frame_len
+            until_next = elapsed - speed
             time.sleep(until_next)
 
         update()
@@ -58,11 +60,12 @@ def stop():
 
 
 def init():
-    global state
+    global state, speed
 
     game.init()
     graphics.drawGame()
     state = 0
+    speed = config.game_speed[parser.options.speed]
 
 
 def reset():

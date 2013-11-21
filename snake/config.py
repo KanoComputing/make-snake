@@ -1,5 +1,9 @@
 
-frame_len = .1
+game_speed = {
+    's': 0.2,
+    'm': .15,
+    'f': 0.1,
+}
 
 keys = {
     'DOWN': 0x42,
