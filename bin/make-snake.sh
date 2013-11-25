@@ -106,16 +106,19 @@ if [ "$stage" -le 6 ]; then
    breakline
    sleep 2
    typewriter_echo "Great! You've completed Make Snake!" 1 2
+   typewriter_echo "Press [ENTER] to continue" 0 2
+   read
 fi
 
 header
 echo "Playground mode!"
 typewriter_echo "Try what you have learnt" 0 2
-if [ "$stage" -le 6 ]; then
+echo $stage
+if [ "$stage" -le 7 ]; then
    while true; do
       read -e command
       if [ "$command" == "exit" ]; then
-         exit
+         exit 0
       fi
       array=($command)
       len="${#array[@]}"
@@ -133,3 +136,5 @@ if [ "$stage" -le 6 ]; then
       fi
    done
 fi
+
+exit 0
