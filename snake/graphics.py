@@ -18,9 +18,14 @@ def drawTile(x, y, tile='', color=None):
         screen.addstr(y, x + 1, tile, color)
 
 
+def drawInitGame():
+    drawTile(-4, -2, "  welcome to SNAKE  ", theme.get_color('border'))
+    drawTile(-4, 2, " Press [ENTER] ", theme.get_color('border'))
+
+
 def drawGameOver():
     drawTile(-4, -2, "  GAME OVER  ", theme.get_color('border'))
-    drawTile(-4, 2, " Press ENTER ", theme.get_color('border'))
+    drawTile(-4, 2, " Press [ENTER] ", theme.get_color('border'))
 
 
 def drawScore():

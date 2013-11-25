@@ -39,9 +39,12 @@ def update():
             __main__.exit()
             exit()
 
-        elif gameloop.state == 1 and key == keys['ENTER']:
+        elif gameloop.state == 2 and key == keys['ENTER']:
             if parser.options.tutorial:
                 __main__.exit()
                 exit()
             else:
-                gameloop.init()
+                gameloop.init(0)
+
+        elif gameloop.state == 0 and key == keys['ENTER']:
+            gameloop.init(1)

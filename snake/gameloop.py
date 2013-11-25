@@ -44,12 +44,13 @@ def start():
 
     playing = True
 
-    init()
     while playing:
         controls.update()
-        if state == 0:
+        if state == 1:
             step()
-        elif state == 1:
+        elif state == 0:
+            graphics.drawInitGame()
+        elif state == 2:
             graphics.drawGameOver()
 
 
@@ -64,7 +65,7 @@ def init():
 
     game.init()
     graphics.drawGame()
-    state = 0
+    state = 1
     speed = config.game_speed[parser.options.speed]
 
 
