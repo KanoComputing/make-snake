@@ -1,4 +1,3 @@
-
 import __main__
 import parser
 import graphics
@@ -44,7 +43,7 @@ def update():
                 __main__.exit()
                 exit()
             else:
-                gameloop.init(0)
+                gameloop.init()
 
         elif gameloop.state == 0 and key == keys['ENTER']:
-            gameloop.init(1)
+            gameloop.init()
