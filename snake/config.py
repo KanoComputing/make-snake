@@ -23,7 +23,7 @@ food_values = {
 game_sizes = {
     's': (25, 20),
     'm': (35, 30),
-    'l': (50, 40),
+    'l': (46, 40),
 }
 
 initial_size = 4

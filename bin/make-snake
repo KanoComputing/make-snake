@@ -113,7 +113,6 @@ fi
 header
 echo "Playground mode!"
 typewriter_echo "Try what you have learnt" 0 2
-echo $stage
 if [ "$stage" -le 7 ]; then
    while true; do
       read -e command
