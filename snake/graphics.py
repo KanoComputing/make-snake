@@ -19,7 +19,7 @@ def drawTile(x, y, tile='', color=None):
 
 
 def drawInitGame():
-    drawTile(-4, -2, "  welcome to SNAKE  ", theme.get_color('border'))
+    drawTile(-5, -2, "  Welcome to SNAKE ", theme.get_color('border'))
     drawTile(-4, 2, " Press [ENTER] ", theme.get_color('border'))
 
 

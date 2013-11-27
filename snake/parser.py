@@ -9,11 +9,11 @@ def init():
 
     parser = OptionParser()
 
-    parser.add_option("-s", "--size",
-                      action="store", dest="size", default='l',
-                      help="Game size (s | m | l)")
+    parser.add_option("-b", "--board",
+                      action="store", dest="board", default='l',
+                      help="Board size (s | m | l)")
 
-    parser.add_option("-v", "--velocity",
+    parser.add_option("-s", "--speed",
                       action="store", dest="speed", default='m',
                       help="Game speed (s | m | f)")
 

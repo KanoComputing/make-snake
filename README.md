@@ -6,23 +6,28 @@
 
 ### Usage
 
-1. `git clone git@github.com:tancredi/python-console-snake.git`
-2. `cd python-console-snake`
-3. `python snake`
+1. `git clone git@github.com:KanoComputing/Snake.git`
+2. `cd snake`
+3. `python __main__.py`
 
 ### Options
 
-Run `python snake -help` for list of options
+Run `python snake --help` for list of options
 
 ```
 Usage: snake [options]
 
 Options:
   -h, --help            show this help message and exit
-  -s SIZE, --size=SIZE  Game size (s | m | l)
+  -b BOARD, --board=BOARD
+                        Board size (s | m | l)
+  -s SPEED, --speed=SPEED
+                        Game speed (s | m | f)
   -f, --fullscreen      Play fullscreen
   -t THEME, --theme=THEME
-                        Game theme (classic | minimal | jungle | custom)
+                        Game theme (classic | minimal | jungle | 80s)
+  -m, --ModeTutorial    Closes game after game over
+
 ```
 
 ### Themes

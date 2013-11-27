@@ -10,7 +10,7 @@ def init():
     global size, width, height, padding, boundaries, chosen_theme
 
     available_size = (width, height) = console.getTerminalSize()
-    chosen_size = config.game_sizes[parser.options.size]
+    chosen_size = config.game_sizes[parser.options.board]
 
     if parser.options.fullscreen:
         chosen_size = config.game_sizes['l']

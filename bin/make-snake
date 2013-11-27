@@ -63,19 +63,19 @@ if [ "$stage" -le 2 ]; then
    typewriter_echo "Nice!" 0 2
    typewriter_echo "Want to make the game tougher?" 0 2
    typewriter_echo "'python snake' launches the game. Change it by writing parameters after 'python snake'." 0 2
-   typewriter_echo "You can make the board smaller with 'python snake -s m'" 0 2
+   typewriter_echo "You can make the board smaller with 'python snake -b m'" 0 2
 
-   inputLoop 'python snake -s m' 'python snake --size m'
-   python -B $dir -ms m
+   inputLoop 'python snake -b m' 'python snake --board m'
+   python -B $dir -mb m
 fi
 
 header
 if [ "$stage" -le 3 ]; then
    typewriter_echo "Another way to increase difficulty is changing the speed" 0 2
-   typewriter_echo "Let's try a fast game! 'python snake -v f'" 0 2
+   typewriter_echo "Let's try a fast game! 'python snake -s f'" 0 2
 
-   inputLoop 'python snake -v f' 'python snake --velocity f'
-   python -B $dir -mv f
+   inputLoop 'python snake -s f' 'python snake --speed f'
+   python -B $dir -ms f
 fi
 
 header
