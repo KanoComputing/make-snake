@@ -1,5 +1,11 @@
 #!/bin/bash
 
+# make-snake
+#
+# Copyright (C) 2013 Kano Computing Ltd.
+# License:   http://www.gnu.org/licenses/gpl-2.0.txt GNU General Public License v2
+#
+
 dir="/usr/share/make-snake/__main__.py"
 
 function breakline
@@ -51,6 +57,7 @@ xdotool windowsize $window 1024 709
 
 stage=1
 
+# Exercise 1: 'python snake'
 header
 if [ "$stage" -le 1 ]; then
    typewriter_echo "Snake is one of the oldest and coolest games." 0 2
@@ -62,6 +69,7 @@ if [ "$stage" -le 1 ]; then
    python -B $dir -m
 fi
 
+# Exercise 2: 'python snake -b m'
 header
 if [ "$stage" -le 2 ]; then
    typewriter_echo "Nice!" 0 2
@@ -73,6 +81,7 @@ if [ "$stage" -le 2 ]; then
    python -B $dir -mb m
 fi
 
+# Exercise 3: 'python snake -s f'
 header
 if [ "$stage" -le 3 ]; then
    typewriter_echo "Another way to increase difficulty is changing the speed" 0 2
@@ -82,6 +91,7 @@ if [ "$stage" -le 3 ]; then
    python -B $dir -ms f
 fi
 
+# Exercise 4: 'python snake -t classic'
 header
 if [ "$stage" -le 4 ]; then
    typewriter_echo "Awesome! You've changed Snake using computer commands." 0 2
@@ -92,6 +102,7 @@ if [ "$stage" -le 4 ]; then
    python -B $dir -mt classic
 fi
 
+# Exercise 5: 'python snake -t jungle'
 header
 if [ "$stage" -le 5 ]; then
    typewriter_echo "You can also use '-t jungle' to play Amazon style!" 0 2
@@ -100,6 +111,7 @@ if [ "$stage" -le 5 ]; then
    python -B $dir -mt jungle
 fi
 
+# Exercise 6: 'python snake --help'
 header
 if [ "$stage" -le 6 ]; then
    typewriter_echo "Use the help option to learn all the different spells." 0 2
@@ -114,6 +126,7 @@ if [ "$stage" -le 6 ]; then
    read
 fi
 
+# Playground 
 header
 echo "Playground mode!"
 typewriter_echo "Try what you have learnt" 0 2
