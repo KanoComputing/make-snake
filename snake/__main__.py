@@ -12,6 +12,7 @@ import gameloop
 import game
 import parser
 import stage
+import os
 
 
 def exit():
@@ -20,11 +21,17 @@ def exit():
 
 def run():
     try:
+        # Resize the window
+        os.system('xdotool windowsize $(xdotool getactivewindow) 1024 709')
+        
+        # Init the game
         parser.init()
         stage.init()
         graphics.init()
         theme.init()
         game.reset()
+
+        # Start the game
         gameloop.start()
 
     except KeyboardInterrupt:

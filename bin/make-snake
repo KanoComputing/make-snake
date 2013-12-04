@@ -51,10 +51,6 @@ function inputLoop
 stty intr undef
 stty eof '?'
 
-# Resize the window
-window=`xdotool getactivewindow`
-xdotool windowsize $window 1024 709
-
 stage=1
 
 # Exercise 1: 'python snake'
