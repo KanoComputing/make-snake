@@ -125,24 +125,38 @@ fi
 # Playground 
 header
 echo "Playground mode!"
+breakline
 typewriter_echo "Try what you have learnt" 0 2
 if [ "$stage" -le 7 ]; then
+   # Infinite loop
    while true; do
+      # Read command
       read -e command
+      # Check for exit command
       if [ "$command" == "exit" ]; then
          exit 0
       fi
+      # Check for correct command
       array=($command)
       len="${#array[@]}"
       if [ $len -ge 2 ] && [ ${array[0]} == "python" ] && [ ${array[1]} == "snake" ]; then
+          # Parse commands
           param=""
           space=" "
           for (( index=2; index<$len; index++ )); do
               param=${param}${array[$index]}${space}
           done
+          # Launch game
           python -B $dir $param
+          # Check for --help command
+          if [ $param == "--help" ]; then
+              typewriter_echo "Press [ENTER] to continue" 0 2
+              read
+          fi
+          # Clean terminal + header
           header
           echo "Playground mode!"
+          breakline
       else
           typewriter_echo "Need help? Type 'python snake --help' or 'exit' to finish" 0 2
       fi
