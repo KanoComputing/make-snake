@@ -146,4 +146,4 @@ def checkPositionAllowed():
         gameloop.reset()
         lives -= 1
         if lives == 0:
-            gameloop.state = 1
+            gameloop.state = 2
