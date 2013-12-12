@@ -118,6 +118,7 @@ if [ "$stage" -le 6 ]; then
    breakline
    sleep 2
    typewriter_echo "Great! You've completed Make Snake!" 1 2
+   python /usr/bin/kano-progress-register "snake"
    typewriter_echo "Press [ENTER] to continue" 0 2
    read
 fi
