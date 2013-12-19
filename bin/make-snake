@@ -56,6 +56,7 @@ stage=1
 # Exercise 1: 'python snake'
 header
 if [ "$stage" -le 1 ]; then
+   sleep 1
    typewriter_echo "Snake is one of the oldest and coolest games." 0 2
    typewriter_echo "Eat apples, but don't bite your tail!" 0 2
    typewriter_echo "Ready to make it?" 0 2
@@ -80,7 +81,7 @@ fi
 # Exercise 3: 'python snake -s f'
 header
 if [ "$stage" -le 3 ]; then
-   typewriter_echo "Another way to increase difficulty is changing the speed" 0 2
+   typewriter_echo "Another way to increase difficulty is by changing the speed." 0 2
    typewriter_echo "Let's try a fast game! 'python snake -s f'" 0 2
 
    inputLoop 'python snake -s f' 'python snake --speed f'
@@ -91,7 +92,7 @@ fi
 header
 if [ "$stage" -le 4 ]; then
    typewriter_echo "Awesome! You've changed Snake using computer commands." 0 2
-   typewriter_echo "Now try changing its theme (how Snake looks)" 0 2
+   typewriter_echo "Now try changing its theme (how Snake looks)." 0 2
    typewriter_echo "Type 'python snake -t classic'" 0 2
 
    inputLoop 'python snake -t classic' 'python snake --theme classic'
@@ -127,7 +128,7 @@ fi
 header
 echo "Playground mode!"
 breakline
-typewriter_echo "Try what you have learnt" 0 2
+typewriter_echo "Try what you have learnt." 0 2
 if [ "$stage" -le 7 ]; then
    # Infinite loop
    while true; do
@@ -157,10 +158,10 @@ if [ "$stage" -le 7 ]; then
           # Clean terminal + header
           header
           echo "Playground mode!"
-          echo "Remember: type 'python snake --help' for help or 'exit' to quit"
+          echo "Remember: type 'python snake --help' for help or 'exit' to quit."
           breakline
       else
-          typewriter_echo "Need help? Type 'python snake --help' or 'exit' to finish" 0 2
+          typewriter_echo "Need help? Type 'python snake --help' or 'exit' to finish." 0 2
       fi
    done
 fi
