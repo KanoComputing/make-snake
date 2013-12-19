@@ -157,6 +157,7 @@ if [ "$stage" -le 7 ]; then
           # Clean terminal + header
           header
           echo "Playground mode!"
+          echo "Remember: type 'python snake --help' for help or 'exit' to quit"
           breakline
       else
           typewriter_echo "Need help? Type 'python snake --help' or 'exit' to finish" 0 2
