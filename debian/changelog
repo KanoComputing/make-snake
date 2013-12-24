@@ -1,3 +1,9 @@
+make-snake (1.0-26) unstable; urgency=low
+
+  * Package rebuilt, updated to revision f429d670.
+
+ -- Team Kano <dev@kano.me>  Tue, 24 Dec 2013 03:10:06 +0000
+
 make-snake (1.0-25) unstable; urgency=low
 
   * Package rebuilt, updated to revision 10ba36dd.
