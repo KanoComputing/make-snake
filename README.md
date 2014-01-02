@@ -23,7 +23,6 @@ Options:
                         Board size (s | m | l)
   -s SPEED, --speed=SPEED
                         Game speed (s | m | f)
-  -f, --fullscreen      Play fullscreen
   -t THEME, --theme=THEME
                         Game theme (classic | minimal | jungle | 80s)
   -m, --ModeTutorial    Closes game after game over

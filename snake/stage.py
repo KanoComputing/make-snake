@@ -18,9 +18,6 @@ def init():
     available_size = (width, height) = console.getTerminalSize()
     chosen_size = config.game_sizes[parser.options.board]
 
-    if parser.options.fullscreen:
-        chosen_size = config.game_sizes['l']
-
     # Calculate width
     if chosen_size[0] > available_size[0] / 2:
         width = available_size[0] / 2

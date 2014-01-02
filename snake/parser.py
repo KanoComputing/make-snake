@@ -23,10 +23,6 @@ def init():
                       action="store", dest="speed", default='m',
                       help="Game speed (s | m | f)")
 
-    parser.add_option("-f", "--fullscreen",
-                      action="store_true", dest="fullscreen", default=False,
-                      help="Play fullscreen")
-
     parser.add_option("-t", "--theme",
                       action="store", dest="theme", default='minimal',
                       help="Game theme (classic | minimal | jungle | 80s)")
