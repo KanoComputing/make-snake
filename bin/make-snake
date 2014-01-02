@@ -7,6 +7,8 @@
 #
 
 dir="/usr/share/make-snake/__main__.py"
+SNAKE_CONTENT=/home/$USER/Snake-content
+SNAKE_LEVEL=$SNAKE_CONTENT/.level
 
 function breakline
 {
@@ -38,7 +40,9 @@ function inputLoop
       if [ -z "$command" ]; then
          echo "Need to enter a command: '$1' or 'exit'"
       elif [ "$command" == "$1" ] || [ "$command" == "$2" ]; then
+         # Increase stage and save level
          stage=`expr $stage + 1`
+         saveLevel
          break
       elif [ "$command" == "exit" ]; then
          exit
@@ -47,28 +51,44 @@ function inputLoop
    done
 }
 
+function saveLevel
+{
+   echo $stage > $SNAKE_LEVEL
+}
+
 # Disable
 stty intr undef
 stty eof '?'
 
-stage=1
+# Check stage
+if [ -d "$SNAKE_CONTENT" ]; then
+   stage=$(head -c 1 $SNAKE_LEVEL)
+   if [ ! "$stage" -eq "7" ]; then
+      header
+      typewriter_echo "Where were we..." 0 2
+   fi
+else
+   stage=1
+   mkdir -p $SNAKE_CONTENT
+   saveLevel
+fi
 
 # Exercise 1: 'python snake'
-header
-if [ "$stage" -le 1 ]; then
+if [ "$stage" -eq 1 ]; then
+   header
    sleep 1
    typewriter_echo "Snake is one of the oldest and coolest games." 0 2
    typewriter_echo "Eat apples, but don't bite your tail!" 0 2
    typewriter_echo "Ready to make it?" 0 2
    typewriter_echo "Type 'python snake' then [ENTER]" 0 2
-   
+
    inputLoop 'python snake'
    python -B $dir -m
 fi
 
 # Exercise 2: 'python snake -b m'
-header
-if [ "$stage" -le 2 ]; then
+if [ "$stage" -eq 2 ]; then
+   header
    typewriter_echo "Nice!" 0 2
    typewriter_echo "Want to make the game tougher?" 0 2
    typewriter_echo "'python snake' launches the game. Change it by writing parameters after 'python snake'." 0 2
@@ -79,8 +99,8 @@ if [ "$stage" -le 2 ]; then
 fi
 
 # Exercise 3: 'python snake -s f'
-header
-if [ "$stage" -le 3 ]; then
+if [ "$stage" -eq 3 ]; then
+   header
    typewriter_echo "Another way to increase difficulty is by changing the speed." 0 2
    typewriter_echo "Let's try a fast game! 'python snake -s f'" 0 2
 
@@ -89,8 +109,8 @@ if [ "$stage" -le 3 ]; then
 fi
 
 # Exercise 4: 'python snake -t classic'
-header
-if [ "$stage" -le 4 ]; then
+if [ "$stage" -eq 4 ]; then
+   header
    typewriter_echo "Awesome! You've changed Snake using computer commands." 0 2
    typewriter_echo "Now try changing its theme (how Snake looks)." 0 2
    typewriter_echo "Type 'python snake -t classic'" 0 2
@@ -100,8 +120,8 @@ if [ "$stage" -le 4 ]; then
 fi
 
 # Exercise 5: 'python snake -t jungle'
-header
-if [ "$stage" -le 5 ]; then
+if [ "$stage" -eq 5 ]; then
+   header
    typewriter_echo "You can also use '-t jungle' to play Amazon style!" 0 2
 
    inputLoop 'python snake -t jungle' 'python snake --theme jungle'
@@ -109,27 +129,27 @@ if [ "$stage" -le 5 ]; then
 fi
 
 # Exercise 6: 'python snake --help'
-header
-if [ "$stage" -le 6 ]; then
+if [ "$stage" -eq 6 ]; then
+   header
    typewriter_echo "Use the help option to learn all the different spells." 0 2
    typewriter_echo "Type 'python snake --help' to get help." 0 2
 
    inputLoop 'python snake --help' 'python snake -h'
    python -B $dir --help
    breakline
-   sleep 2
+   sleep 1
    typewriter_echo "Great! You've completed Make Snake!" 1 2
    python /usr/bin/kano-progress-register "snake"
    typewriter_echo "Press [ENTER] to continue" 0 2
    read
 fi
 
-# Playground 
-header
-echo "Playground mode!"
-breakline
-typewriter_echo "Try what you have learnt." 0 2
-if [ "$stage" -le 7 ]; then
+# Playground
+if [ "$stage" -eq 7 ]; then
+   header
+   echo "Playground mode!"
+   breakline
+   typewriter_echo "Try what you have learnt." 0 2
    # Infinite loop
    while true; do
       # Read command
@@ -152,6 +172,7 @@ if [ "$stage" -le 7 ]; then
           python -B $dir $param
           # Check for --help command
           if [ $param == "--help" ]; then
+              breakline
               typewriter_echo "Press [ENTER] to continue" 0 2
               read
           fi
