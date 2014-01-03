@@ -25,7 +25,7 @@ def init():
 
     parser.add_option("-t", "--theme",
                       action="store", dest="theme", default='minimal',
-                      help="Game theme (classic | minimal | jungle | 80s)")
+                      help="Game theme (classic | minimal | jungle | 80s | custom)")
 
     parser.add_option("-m", "--ModeTutorial",
                       action="store_true", dest="tutorial", default=False,

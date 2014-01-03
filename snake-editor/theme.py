@@ -6,23 +6,31 @@
 #
 
 import curses
-import stage
-import themes
 from os.path import expanduser
 import xml.etree.ElementTree as ET
 
 home_dir = expanduser("~")
 custom_file = home_dir + '/Snake_content/custom_theme'
 colors_map = {}
-theme = None
+theme = {
+    "colors": {
+        "default": (curses.COLOR_WHITE, curses.COLOR_BLACK),
+        "bg": (curses.COLOR_WHITE, curses.COLOR_WHITE),
+        "snake": (curses.COLOR_RED, curses.COLOR_GREEN),
+        "apple": (curses.COLOR_RED, curses.COLOR_RED),
+        "border": (curses.COLOR_WHITE, curses.COLOR_YELLOW),
+        "lives": (curses.COLOR_RED, curses.COLOR_RED),
+        "menu": (curses.COLOR_WHITE, curses.COLOR_BLACK),
+    },
+    "tiles": {
+    }
+}
 
 
 def init():
     global theme, colors_map
 
-    theme = stage.chosen_theme
-    if theme == themes.game_themes['custom']:
-        load_custom_theme()
+    load_custom_theme()
     colors_map = get_colors_map()
 
 
@@ -44,6 +52,59 @@ def get_colors_map():
         i += 1
 
     return out
+
+
+# Category: bg, snake, apple, border, lives
+# Parameter: background, font
+def set_color_theme(category, parameter, value):
+    try:
+        with open(custom_file):
+            # Parse XML
+            tree = ET.parse(custom_file)
+            root = tree.getroot()
+            idx = 1
+            if (category == 'Background'):
+                idx = 0
+            elif (category == 'Snake'):
+                idx = 1
+            elif (category == 'Apples'):
+                idx = 2
+            elif (category == 'Border'):
+                idx = 3
+            elif (category == 'Lives'):
+                idx = 4
+            root[0][idx].set(parameter, value)
+            tree.write(custom_file)
+    except IOError:
+        pass
+
+
+# Category: bg, snake-body, apple, border-h, border-v, border-c, lives
+def set_tiles_theme(category, value):
+    try:
+        with open(custom_file):
+            # Parse XML
+            tree = ET.parse(custom_file)
+            root = tree.getroot()
+            idx = 0
+            if (category == 'Background'):
+                idx = 0
+            elif (category == 'Snake body'):
+                idx = 1
+            elif (category == 'Apple'):
+                idx = 2
+            elif (category == 'Border horizontal'):
+                idx = 3
+            elif (category == 'Border vertical'):
+                idx = 4
+            elif (category == 'Border corner'):
+                idx = 5
+            elif (category == 'Lives'):
+                idx = 6
+            root[1][idx].text = value
+            tree.write(custom_file)
+    except IOError:
+        pass
 
 
 def load_custom_theme():
@@ -94,4 +155,3 @@ def get_curses_color(string):
         return curses.COLOR_CYAN
     else:
         return curses.COLOR_WHITE
-

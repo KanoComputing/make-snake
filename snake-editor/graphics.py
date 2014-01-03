@@ -9,8 +9,13 @@ import stage
 import game
 import theme
 import curses
+import controls
 
 screen = None
+TitleXPos = -25
+menuXPos = -10
+menuYPos = 10
+menuYInc = 2
 
 
 def drawTile(x, y, tile='', color=None):
@@ -24,14 +29,29 @@ def drawTile(x, y, tile='', color=None):
         screen.addstr(y, x + 1, tile, color)
 
 
-def drawInitGame():
-    drawTile(-5, -2, "  Welcome to SNAKE ", theme.get_color('border'))
-    drawTile(-4, 2, " Press [ENTER] ", theme.get_color('border'))
-
-
-def drawGameOver():
-    drawTile(-4, -2, "  GAME OVER  ", theme.get_color('border'))
-    drawTile(-4, 2, " Press [ENTER] ", theme.get_color('border'))
+def drawCurrentMenu():
+    # Clean tiles
+    for x in xrange(TitleXPos, -1 * TitleXPos):
+        for y in xrange(menuYPos, 25):
+            drawTile(x, y, '  ', theme.get_color('menu'))
+    x = menuXPos
+    idx = 0
+    # Draw Menu
+    # Title
+    y = menuYPos - menuYInc
+    for e in controls.get_menu_title():
+        drawTile(TitleXPos, y, e, theme.get_color('menu'))
+        y += menuYInc
+    y = menuYPos
+    # Options
+    for string in controls.currentMenu:
+        if controls.currentIdx == idx:
+            text = '> ' + string[0]
+        else:
+            text = '  ' + string[0]
+        drawTile(x, y, text, theme.get_color('menu'))
+        y += menuYInc
+        idx += 1
 
 
 def drawScore():
@@ -41,7 +61,7 @@ def drawScore():
         (-stage.height / 2) - 1,
         score_formatted,
         theme.get_color('border')
-    )
+        )
 
 
 def drawLives():
@@ -71,13 +91,6 @@ def drawSnake():
             theme.get_tile('snake-body'),
             theme.get_color('snake')
         )
-    # Clean last tile
-    drawTile(
-        game.lastPos[0],
-        game.lastPos[1],
-        theme.get_tile('bg'),
-        theme.get_color('bg')
-    )
 
 
 def drawApples():
@@ -132,6 +145,7 @@ def drawText():
 
 
 def update():
+
     drawSnake()
     drawApples()
     drawScore()

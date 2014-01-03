@@ -69,7 +69,7 @@ def stop():
 def init():
     global state, speed
 
-    game.init()
+    game.reset()
     graphics.drawGame()
     state = 1
     speed = config.game_speed[parser.options.speed]
