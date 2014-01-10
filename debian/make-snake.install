@@ -1,2 +1,5 @@
 ./snake/* /usr/share/make-snake/
 ./bin/make-snake /usr/bin
+
+./idesktop/Snake.lnk /usr/share/kano-desktop/idesk/
+./icon/snake.png /usr/share/kano-desktop/icons/
