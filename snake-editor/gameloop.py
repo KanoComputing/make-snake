@@ -9,16 +9,11 @@ import graphics
 import game
 import controls
 
-playing = False
-
 
 def start():
-    global playing
-
-    playing = True
     init()
 
-    while playing:
+    while True:
         controls.update()
         graphics.drawCurrentMenu()
 

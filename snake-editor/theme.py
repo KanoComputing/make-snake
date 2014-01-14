@@ -21,6 +21,15 @@ theme = {
         "border": (curses.COLOR_WHITE, curses.COLOR_YELLOW),
         "lives": (curses.COLOR_RED, curses.COLOR_RED),
         "menu": (curses.COLOR_WHITE, curses.COLOR_BLACK),
+        "Black": (curses.COLOR_WHITE, curses.COLOR_BLACK),
+        "Red": (curses.COLOR_WHITE, curses.COLOR_RED),
+        "Green": (curses.COLOR_WHITE, curses.COLOR_GREEN),
+        "Yellow": (curses.COLOR_WHITE, curses.COLOR_YELLOW),
+        "Blue": (curses.COLOR_WHITE, curses.COLOR_BLUE),
+        "Magenta": (curses.COLOR_WHITE, curses.COLOR_MAGENTA),
+        "Cyan": (curses.COLOR_WHITE, curses.COLOR_CYAN),
+        "White": (curses.COLOR_WHITE, curses.COLOR_WHITE),
+
     },
     "tiles": {
     }
@@ -87,19 +96,19 @@ def set_tiles_theme(category, value):
             tree = ET.parse(custom_file)
             root = tree.getroot()
             idx = 0
-            if (category == 'Background'):
+            if (category == 'Background symbol'):
                 idx = 0
             elif (category == 'Snake body'):
                 idx = 1
-            elif (category == 'Apple'):
+            elif (category == 'Apple symbol'):
                 idx = 2
-            elif (category == 'Border horizontal'):
+            elif (category == 'Horizontal symbol'):
                 idx = 3
-            elif (category == 'Border vertical'):
+            elif (category == 'Vertical symbol'):
                 idx = 4
-            elif (category == 'Border corner'):
+            elif (category == 'Corner symbol'):
                 idx = 5
-            elif (category == 'Lives'):
+            elif (category == 'Lives symbol'):
                 idx = 6
             root[1][idx].text = value
             tree.write(custom_file)

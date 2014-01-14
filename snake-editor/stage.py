@@ -13,7 +13,7 @@ def init():
     global size, width, height, padding, boundaries, chosen_theme
 
     available_size = (width, height) = console.getTerminalSize()
-    chosen_size = (15, 10)
+    chosen_size = (20, 15)
 
     # Calculate width
     if chosen_size[0] > available_size[0] / 2:

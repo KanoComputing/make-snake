@@ -8,6 +8,7 @@
 import stage
 import game
 import theme
+import menus
 import curses
 import controls
 
@@ -24,9 +25,12 @@ def drawTile(x, y, tile='', color=None):
     x = x * 2 + stage.padding[3] * 2 + stage.width / 2
     y += stage.padding[0] + stage.height / 2
 
-    screen.addstr(y, x, tile, color)
-    if (len(tile) < 2):
-        screen.addstr(y, x + 1, tile, color)
+    try:
+        screen.addstr(y, x, tile, color)
+        if (len(tile) < 2):
+            screen.addstr(y, x + 1, tile, color)
+    except:
+        pass
 
 
 def drawCurrentMenu():
@@ -39,17 +43,50 @@ def drawCurrentMenu():
     # Draw Menu
     # Title
     y = menuYPos - menuYInc
+    auxX = TitleXPos
     for e in controls.get_menu_title():
         drawTile(TitleXPos, y, e, theme.get_color('menu'))
+        if e != '' and e != '.Board' and e != '.Elements':
+            drawTile(auxX, y - 1, "| ", theme.get_color('menu'))
+            auxX += 1
         y += menuYInc
     y = menuYPos
     # Options
     for string in controls.currentMenu:
-        if controls.currentIdx == idx:
-            text = '> ' + string[0]
+        # Color menu
+        if controls.currentMenu == menus.colors:
+            color = menus.colors[idx][0]
+            if controls.currentIdx == idx:
+                head = '> ['
+            else:
+                head = '  ['
+            text = '    ] ' + string[0]
+            drawTile(x, y, text, theme.get_color('menu'))
+            drawTile(x, y, '    ', theme.get_color(color))
+            drawTile(x, y, head, theme.get_color('menu'))
+        # Symbol menu
+        elif controls.symbolMode:
+            if controls.currentIdx == idx:
+                text = '> ' + string[0]
+                if len(controls.tile) > 0:
+                    text += ' : ' + controls.tile[0]
+                    if len(controls.tile) > 1:
+                        text += ' ' + controls.tile[1]
+                        text += '   >> Press [ENTER]'
+                    else:
+                        text += ' _'
+                else:
+                    text += ' : _ _'
+            else:
+                text = '  ' + string[0]
+            drawTile(x, y, text, theme.get_color('menu'))
+        # Rest
         else:
-            text = '  ' + string[0]
-        drawTile(x, y, text, theme.get_color('menu'))
+            if controls.currentIdx == idx:
+                text = '> ' + string[0]
+            else:
+                text = '  ' + string[0]
+            drawTile(x, y, text, theme.get_color('menu'))
         y += menuYInc
         idx += 1
 
@@ -144,8 +181,30 @@ def drawText():
     drawTile(-5, (stage.height / 2), " Press Q to quit ", color)
 
 
+def drawHeader():
+    header = []
+    header.append(".-------------------------------------------------------------.")
+    header.append("|  .---._____     ______     ______     ______     _____      |")
+    header.append("| (  8  ____ \___/ ____ \___/ ____ \___/ ____ \___/ ____`=-   |")
+    header.append("|  '---'    \_____/    \_____/    \_____/    \_____/          |")
+    header.append("|   ____              _          _____    _ _ _               |")
+    header.append("|  / ___| _ __   __ _| | _____  | ____|__| (_) |_ ___  _ __   |")
+    header.append("|  \___ \| '_ \ / _` | |/ / _ \ |  _| / _` | | __/ _ \| '__|  |")
+    header.append("|   ___) | | | | (_| |   <  __/ | |__| (_| | | || (_) | |     |")
+    header.append("|  |____/|_| |_|\__,_|_|\_\___| |_____\__,_|_|\__\___/|_|     |")
+    header.append("|                                                             |")
+    header.append("'-------------------------------------------------------------'")
+    x = (stage.width / 2) - 25
+    y = (-stage.height / 2) - 15
+    color = theme.get_color('menu')
+    for e in header:
+        drawTile(x, y, e, color)
+        y += 1
+
+
 def update():
 
+    drawHeader()
     drawSnake()
     drawApples()
     drawScore()

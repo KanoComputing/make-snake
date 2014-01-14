@@ -25,14 +25,36 @@ currentIdx = 0
 currentMenu = menus.main
 currentCategory = None
 prevIndex = 0
+symbolMode = False
+tile = ''
 
 
 def update():
-    global currentIdx, currentMenu, currentCategory, prevIndex
+    global tile, currentIdx, currentMenu, currentCategory, prevIndex, symbolMode
 
     key = graphics.screen.getch()
 
     if key > 0:
+        if symbolMode:
+            tile = ''
+            while key != keys['ENTER']:
+                if key > 0 and key != keys['ENTER']:
+                    tile += curses.keyname(key)
+                    # Redraw
+                    theme.init()
+                    gameloop.init()
+                    graphics.drawCurrentMenu()
+                key = graphics.screen.getch()
+            if tile == '':
+                tile = '  '
+            category = currentMenu[currentIdx][0]
+            theme.set_tiles_theme(category, tile[:2])
+            tile = ''
+            # Redraw the board
+            theme.init()
+            gameloop.init()
+            symbolMode = False
+            return
         if key == keys['DOWN']:
             currentIdx = (currentIdx + 1) % len(currentMenu)
             # Preview colors
@@ -63,6 +85,7 @@ def update():
                 return
             # Tile option
             elif currentMenu[currentIdx][1] == "symbols":
+                '''
                 tile = ''
                 key = ''
                 while key != keys['ENTER']:
@@ -77,6 +100,8 @@ def update():
                 # Redraw the board
                 theme.init()
                 gameloop.init()
+                '''
+                symbolMode = True
                 return
             # Submenu
             else:
@@ -134,7 +159,7 @@ def get_menu_title():
         title.strip()
         text.append(title)
         if i == 1:
-            dots = '  +-'
+            dots = ' .'
         else:
-            dots = '  ' + dots
+            dots = ' ' + dots
     return text

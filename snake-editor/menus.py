@@ -10,18 +10,18 @@ colors = [["Black", None], ["Red", None], ["Green", None], ["Yellow", None],
           ["Blue", None], ["Magenta", None], ["Cyan", None], ["White", None]]
 
 # Elements
-snake = [["background color", colors], ["symbol color", colors],
+snake = [["Background colour", colors], ["Symbol colour", colors],
          ["Snake body", "symbols"], ["Back", None]]
-lives = [["background color", colors], ["symbol color", colors],
-         ["Lives", "symbols"], ["Back", None]]
-apple = [["background color", colors], ["symbol color", colors],
-         ["Apple", "symbols"], ["Back", None]]
+lives = [["Background colour", colors], ["Symbol colour", colors],
+         ["Lives symbol", "symbols"], ["Back", None]]
+apple = [["Background colour", colors], ["Symbol colour", colors],
+         ["Apple symbol", "symbols"], ["Back", None]]
 # Board
-border = [["background color", colors], ["symbol color", colors],
-          ["Border horizontal", "symbols"], ["Border vertical", "symbols"],
-          ["Border corner", "symbols"], ["Back", None]]
-background = [["background color", colors], ["symbol color", colors],
-              ["Background", "symbols"], ["Back", None]]
+border = [["Background colour", colors], ["Symbol colour", colors],
+          ["Horizontal symbol", "symbols"], ["Vertical symbol", "symbols"],
+          ["Corner symbol", "symbols"], ["Back", None]]
+background = [["Background colour", colors], ["Symbol colour", colors],
+              ["Background symbol", "symbols"], ["Back", None]]
 # Main
 elements = [["Snake", snake], ["Lives", lives], ["Apples", apple],
             ["Back", None]]
