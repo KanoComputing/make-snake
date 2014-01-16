@@ -1,4 +1,5 @@
 ./snake/* /usr/share/make-snake/
+./snake-editor/* /usr/share/make-snake/snake-editor/
 ./bin/make-snake /usr/bin
 
 ./idesktop/Snake.lnk /usr/share/kano-desktop/idesk/idesktop/
