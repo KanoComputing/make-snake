@@ -69,8 +69,11 @@ if [ -d "$SNAKE_CONTENT" ]; then
    fi
 else
    stage=1
+   # Create Content folder with: level + custom theme
    mkdir -p $SNAKE_CONTENT
    saveLevel
+   # Copy custom theme
+   cp /usr/share/make-snake/custom_theme $SNAKE_CONTENT
 fi
 
 # Exercise 1: 'python snake'

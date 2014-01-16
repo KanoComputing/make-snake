@@ -31,4 +31,8 @@ def init():
                       action="store_true", dest="tutorial", default=False,
                       help="Closes game after game over")
 
+    parser.add_option("-e", "--editor",
+                      action="store_true", dest="editor", default=False,
+                      help="Enter editor mode")
+
     (options, args) = parser.parse_args()

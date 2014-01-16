@@ -1,0 +1,18 @@
+<data>
+    <colors>
+        <bg background="White" font="White" />
+        <snake background="Green" font="Red" />
+        <apple background="Red" font="Red" />
+        <border background="Yellow" font="White" />
+        <lives background="Red" font="Red" />
+    </colors>
+    <tiles>
+        <bg>  </bg>
+        <snake-body>  </snake-body>
+        <apple>  </apple>
+        <border-h>  </border-h>
+        <border-v>  </border-v>
+        <border-c>  </border-c>
+        <lives>  </lives>
+    </tiles>
+</data>

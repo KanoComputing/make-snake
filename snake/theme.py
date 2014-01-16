@@ -12,7 +12,7 @@ from os.path import expanduser
 import xml.etree.ElementTree as ET
 
 home_dir = expanduser("~")
-custom_file = home_dir + '/Snake_content/custom_theme'
+custom_file = home_dir + 'Snake-content/custom_theme'
 colors_map = {}
 theme = None
 

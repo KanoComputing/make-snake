@@ -5,9 +5,11 @@
 # License:   http://www.gnu.org/licenses/gpl-2.0.txt GNU General Public License v2
 #
 
+import os
 import time
 import graphics
 import game
+import __main__
 import config
 import controls
 import parser
@@ -49,6 +51,12 @@ def start():
     global playing, state
 
     playing = True
+
+    # Launch editor mode
+    if (parser.options.editor):
+        os.system("/usr/share/snake-editor/__main__.py")
+        __main__.exit()
+        exit()
 
     while playing:
         controls.update()
