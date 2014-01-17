@@ -1,4 +1,3 @@
-
 # theme.py
 #
 # Copyright (C) 2013 Kano Computing Ltd.
@@ -12,7 +11,7 @@ from os.path import expanduser
 import xml.etree.ElementTree as ET
 
 home_dir = expanduser("~")
-custom_file = home_dir + 'Snake-content/custom_theme'
+custom_file = home_dir + '/Snake-content/custom_theme'
 colors_map = {}
 theme = None
 
