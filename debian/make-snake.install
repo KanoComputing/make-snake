@@ -1,7 +1,6 @@
 ./snake/* /usr/share/make-snake/
 ./snake-editor/* /usr/share/make-snake/snake-editor/
 ./bin/make-snake /usr/bin
-.custom_theme /usr/share/make-snake/
 
 ./idesktop/Snake.lnk /usr/share/kano-desktop/idesk/idesktop/
 ./icon/snake.png /usr/share/kano-desktop/icons/
