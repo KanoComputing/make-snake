@@ -54,7 +54,7 @@ def start():
 
     # Launch editor mode
     if (parser.options.editor):
-        os.system("/usr/share/snake-editor/__main__.py")
+        os.system("/usr/share/make-snake/snake-editor/__main__.py")
         __main__.exit()
         exit()
 
