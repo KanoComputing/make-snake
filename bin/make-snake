@@ -60,20 +60,25 @@ function saveLevel
 stty intr undef
 stty eof '?'
 
-# Check stage
-if [ -d "$SNAKE_CONTENT" ]; then
-   stage=$(head -c 1 $SNAKE_LEVEL)
-   if [ ! "$stage" -eq "7" ]; then
-      header
-      typewriter_echo "Where were we..." 0 2
-   fi
+# Check folder
+if [ ! -d "$SNAKE_CONTENT" ]; then
+    # Create Content folder
+    mkdir -p $SNAKE_CONTENT
+fi
+# Check level file
+if [ ! -f "$SNAKE_LEVEL" ]; then
+    stage=1
+    # Create level file
+    saveLevel
+    # Copy custom theme
+    cp /usr/share/make-snake/custom_theme $SNAKE_CONTENT
 else
-   stage=1
-   # Create Content folder with: level + custom theme
-   mkdir -p $SNAKE_CONTENT
-   saveLevel
-   # Copy custom theme
-   cp /usr/share/make-snake/custom_theme $SNAKE_CONTENT
+    # Load the level
+    stage=$(head -c 1 $SNAKE_LEVEL)
+    if [ ! "$stage" -eq "7" ]; then
+       header
+       typewriter_echo "Where were we..." 0 2
+    fi
 fi
 
 # Exercise 1: 'python snake'
