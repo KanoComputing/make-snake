@@ -1,7 +1,7 @@
 # stage.py
 #
-# Copyright (C) 2013 Kano Computing Ltd.
-# License:   http://www.gnu.org/licenses/gpl-2.0.txt GNU General Public License v2
+# Copyright (C) 2014 Kano Computing Ltd.
+# License: http://www.gnu.org/licenses/gpl-2.0.txt GNU General Public License v2
 #
 
 import console
@@ -19,6 +19,7 @@ def init():
     try:
         chosen_size = config.game_sizes[parser.options.board]
     except:
+        print "Can't find board size: %s" % (parser.options.board)
         exit()
         
     # Calculate width
@@ -49,5 +50,6 @@ def init():
     try:
         chosen_theme = themes.game_themes[parser.options.theme]
     except:
+        print "Can't find theme: %s" % (parser.options.theme)
         exit()
 
