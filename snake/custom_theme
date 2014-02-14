@@ -3,7 +3,7 @@
         <bg background="White" font="White" />
         <snake background="Green" font="Red" />
         <apple background="Red" font="Red" />
-        <border background="Yellow" font="White" />
+        <border background="Blue" font="White" />
         <lives background="Red" font="Red" />
     </colors>
     <tiles>
