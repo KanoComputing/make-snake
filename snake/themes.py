@@ -1,8 +1,8 @@
 
 # themes.py
 #
-# Copyright (C) 2013 Kano Computing Ltd.
-# License:   http://www.gnu.org/licenses/gpl-2.0.txt GNU General Public License v2
+# Copyright (C) 2014 Kano Computing Ltd.
+# License: http://www.gnu.org/licenses/gpl-2.0.txt GNU General Public License v2
 #
 
 import curses
@@ -24,7 +24,7 @@ game_themes = {
             "bg": (curses.COLOR_WHITE, curses.COLOR_WHITE),
             "snake": (curses.COLOR_RED, curses.COLOR_GREEN),
             "apple": (curses.COLOR_RED, curses.COLOR_RED),
-            "border": (curses.COLOR_WHITE, curses.COLOR_YELLOW),
+            "border": (curses.COLOR_WHITE, curses.COLOR_BLUE),
             "lives": (curses.COLOR_RED, curses.COLOR_RED),
         },
         "tiles": {
@@ -90,7 +90,7 @@ game_themes = {
             "bg": (curses.COLOR_WHITE, curses.COLOR_WHITE),
             "snake": (curses.COLOR_RED, curses.COLOR_GREEN),
             "apple": (curses.COLOR_RED, curses.COLOR_RED),
-            "border": (curses.COLOR_WHITE, curses.COLOR_YELLOW),
+            "border": (curses.COLOR_WHITE, curses.COLOR_BLUE),
             "lives": (curses.COLOR_RED, curses.COLOR_RED),
         },
         "tiles": {
