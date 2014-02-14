@@ -7,5 +7,5 @@ Build-Depends: debhelper (>=9.0.0)
 
 Package: make-snake
 Architecture: all
-Depends: ${shlibs:Depends}, ${misc:Depends}, kano-toolset
+Depends: ${shlibs:Depends}, ${misc:Depends}, kano-toolset, rxvt-unicode-256color
 Description: Lightweight, configurable snake game running in the console
