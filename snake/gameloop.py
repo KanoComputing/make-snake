@@ -1,8 +1,8 @@
 
 # game-loop.py
 #
-# Copyright (C) 2013 Kano Computing Ltd.
-# License:   http://www.gnu.org/licenses/gpl-2.0.txt GNU General Public License v2
+# Copyright (C) 2014 Kano Computing Ltd.
+# License: http://www.gnu.org/licenses/gpl-2.0.txt GNU General Public License v2
 #
 
 import os
@@ -80,7 +80,10 @@ def init():
     game.reset()
     graphics.drawGame()
     state = 1
-    speed = config.game_speed[parser.options.speed]
+    try:
+        speed = config.game_speed[parser.options.speed]
+    except:
+        speed = config.game_speed['m']
 
 
 def reset():
