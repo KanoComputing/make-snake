@@ -1,11 +1,11 @@
 # theme.py
 #
-# Copyright (C) 2013 Kano Computing Ltd.
-# License:   http://www.gnu.org/licenses/gpl-2.0.txt GNU General Public License v2
+# Copyright (C) 2014 Kano Computing Ltd.
+# License: http://www.gnu.org/licenses/gpl-2.0.txt GNU General Public License v2
 #
 
 import curses
-import stage
+import parser
 import themes
 from os.path import expanduser
 import xml.etree.ElementTree as ET
@@ -19,8 +19,13 @@ theme = None
 def init():
     global theme, colors_map
 
-    theme = stage.chosen_theme
-    if theme == themes.game_themes['custom']:
+    if parser.options.theme != 'custom':
+        try:
+            theme = themes.game_themes[parser.options.theme]
+        except:
+            print "Can't find theme: %s" % (parser.options.theme)
+            exit()
+    else:
         load_custom_theme()
     colors_map = get_colors_map()
 
@@ -46,9 +51,12 @@ def get_colors_map():
 
 
 def load_custom_theme():
+    global theme
 
     try:
         with open(custom_file):
+            # Init theme
+            theme = themes.game_themes['classic']
             # Parse XML
             tree = ET.parse(custom_file)
             root = tree.getroot()
@@ -93,4 +101,3 @@ def get_curses_color(string):
         return curses.COLOR_CYAN
     else:
         return curses.COLOR_WHITE
-

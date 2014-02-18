@@ -8,20 +8,19 @@ import console
 import math
 import config
 import parser
-import themes
 
 
 def init():
-    global size, width, height, padding, boundaries, chosen_theme
+    global size, width, height, padding, boundaries
 
     available_size = (width, height) = console.getTerminalSize()
-    
+
     try:
         chosen_size = config.game_sizes[parser.options.board]
     except:
         print "Can't find board size: %s" % (parser.options.board)
         exit()
-        
+
     # Calculate width
     if chosen_size[0] > available_size[0] / 2:
         width = available_size[0] / 2
@@ -46,10 +45,3 @@ def init():
         "right": int(math.floor(width / 2)),
         "top": int(math.floor(-height / 2)),
     }
-
-    try:
-        chosen_theme = themes.game_themes[parser.options.theme]
-    except:
-        print "Can't find theme: %s" % (parser.options.theme)
-        exit()
-

@@ -84,17 +84,4 @@ game_themes = {
         }
     },
 
-    'custom': {
-        "colors": {
-            "default": (curses.COLOR_WHITE, curses.COLOR_BLACK),
-            "bg": (curses.COLOR_WHITE, curses.COLOR_WHITE),
-            "snake": (curses.COLOR_RED, curses.COLOR_GREEN),
-            "apple": (curses.COLOR_RED, curses.COLOR_RED),
-            "border": (curses.COLOR_WHITE, curses.COLOR_BLUE),
-            "lives": (curses.COLOR_RED, curses.COLOR_RED),
-        },
-        "tiles": {
-        }
-    },
-
 }
