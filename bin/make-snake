@@ -157,7 +157,6 @@ if [ "$stage" -eq 7 ]; then
    inputLoop 'python snake --help' 'python snake -h'
    python -B $dir --help
    breakline
-   sleep 1
    typewriter_echo "Great! You've completed Make Snake!" 1 2
    python /usr/bin/kano-progress-register "snake"
    typewriter_echo "Press [ENTER] to continue" 0 2
