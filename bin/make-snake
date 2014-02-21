@@ -2,8 +2,8 @@
 
 # make-snake
 #
-# Copyright (C) 2013 Kano Computing Ltd.
-# License:   http://www.gnu.org/licenses/gpl-2.0.txt GNU General Public License v2
+# Copyright (C) 2014 Kano Computing Ltd.
+# License: http://www.gnu.org/licenses/gpl-2.0.txt GNU General Public License v2
 #
 
 dir="/usr/share/make-snake/__main__.py"
@@ -181,14 +181,13 @@ if [ "$stage" -eq 7 ]; then
           # Check for --help command
           if [ $param == "--help" ]; then
               breakline
-              typewriter_echo "Press [ENTER] to continue" 0 2
-              read
+          else
+              # Clean terminal + header
+              header
+              echo "Playground mode!"
+              echo "Remember: type 'python snake --help' for help or 'exit' to quit."
+              breakline
           fi
-          # Clean terminal + header
-          header
-          echo "Playground mode!"
-          echo "Remember: type 'python snake --help' for help or 'exit' to quit."
-          breakline
       else
           typewriter_echo "Need help? Type 'python snake --help' or 'exit' to finish." 0 2
       fi
