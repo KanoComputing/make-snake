@@ -190,7 +190,7 @@ if [ "$stage" -eq 8 ]; then
           # Launch game
           python -B $dir $param
           # Check for --help command
-          if [ $param == "--help" ]; then
+          if [ $param == "--help" ] || [ $param == "-h" ]; then
               breakline
           else
               # Clean terminal + header
