@@ -90,6 +90,7 @@ if [ "$stage" -eq 1 ]; then
    typewriter_echo "Eat apples, but don't bite your tail!" 0 2
    typewriter_echo "Ready to make it?" 0 2
    typewriter_echo "Type 'python snake' then [ENTER]" 0 2
+   typewriter_echo "You can type 'exit' at any point to quit" 0 2
 
    inputLoop 'python snake'
    python -B $dir -m
