@@ -18,17 +18,20 @@ function breakline
 function header
 {
    clear
-   echo ".-----------------------------------------------------------."
-   echo "|  .---._____     ______     ______     ______     _____    |"
-   echo "| (  8  ____ \___/ ____ \___/ ____ \___/ ____ \___/ ____\`=- |"
-   echo "|  '---'    \_____/    \_____/    \_____/    \_____/        |"
-   echo "|   __  __       _            ____              _           |"
-   echo "|  |  \/  | __ _| | _____    / ___| _ __   __ _| | _____    |"
-   echo "|  | |\/| |/ _\` | |/ / _ \   \___ \| '_ \ / _\` | |/ / _ \   |"
-   echo "|  | |  | | (_| |   <  __/    ___) | | | | (_| |   <  __/   |"
-   echo "|  |_|  |_|\__,_|_|\_\___|   |____/|_| |_|\__,_|_|\_\___|   |"
-   echo "|                                                           |"
-   echo "'-----------------------------------------------------------'"
+   breakline
+   breakline
+   echo "    .-----------------------------------------------------------."
+   echo "    |  .---._____     ______     ______     ______     _____    |"
+   echo "    | (  8  ____ \___/ ____ \___/ ____ \___/ ____ \___/ ____\`=- |"
+   echo "    |  '---'    \_____/    \_____/    \_____/    \_____/        |"
+   echo "    |   __  __       _            ____              _           |"
+   echo "    |  |  \/  | __ _| | _____    / ___| _ __   __ _| | _____    |"
+   echo "    |  | |\/| |/ _\` | |/ / _ \   \___ \| '_ \ / _\` | |/ / _ \   |"
+   echo "    |  | |  | | (_| |   <  __/    ___) | | | | (_| |   <  __/   |"
+   echo "    |  |_|  |_|\__,_|_|\_\___|   |____/|_| |_|\__,_|_|\_\___|   |"
+   echo "    |                                                           |"
+   echo "    '-----------------------------------------------------------'"
+   breakline
    breakline
    sleep 1
 }
@@ -36,9 +39,9 @@ function header
 function inputLoop
 {
    while true; do
-      read -e command
+      read -p "    " -e command
       if [ -z "$command" ]; then
-         echo "Need to enter a command: '$1' or 'exit'"
+         echo "    Need to enter a command: '$1' or 'exit'"
       elif [ "$command" == "$1" ] || [ "$command" == "$2" ]; then
          # Increase stage and save level
          stage=`expr $stage + 1`
@@ -47,7 +50,7 @@ function inputLoop
       elif [ "$command" == "exit" ]; then
          exit
       fi
-      echo "Type '$1' then [ENTER]"
+      echo "    Type '$1' then [ENTER]"
       breakline
    done
 }
@@ -78,7 +81,7 @@ else
     stage=$(head -c 1 $SNAKE_LEVEL)
     if [ ! "$stage" -eq "8" ]; then
        header
-       typewriter_echo "Where were we..." 0 2
+       typewriter_echo "Where were we..." 0 2 1 0
     fi
 fi
 
@@ -86,11 +89,11 @@ fi
 if [ "$stage" -eq 1 ]; then
    header
    sleep 1
-   typewriter_echo "Snake is one of the oldest and coolest games." 0 2
-   typewriter_echo "Eat apples, but don't bite your tail!" 0 2
-   typewriter_echo "Ready to make it?" 0 2
-   typewriter_echo "Type 'python snake' then [ENTER]" 0 2
-   typewriter_echo "You can type 'exit' at any point to quit" 0 2
+   typewriter_echo "Snake is one of the oldest and coolest games." 0 2 1 0
+   typewriter_echo "Eat apples, but don't bite your tail!" 0 2 1 0
+   typewriter_echo "Ready to make it?" 0 2 1 0
+   typewriter_echo "Type 'python snake' then [ENTER]" 0 2 1 0
+   typewriter_echo "You can type 'exit' at any point to quit" 0 2 1 0
 
    inputLoop 'python snake'
    python -B $dir -m
@@ -99,10 +102,10 @@ fi
 # Exercise 2: 'python snake -b m'
 if [ "$stage" -eq 2 ]; then
    header
-   typewriter_echo "Nice!" 0 2
-   typewriter_echo "Want to make the game tougher?" 0 2
-   typewriter_echo "'python snake' launches the game. Change it by writing parameters after 'python snake'." 0 2
-   typewriter_echo "You can make the board smaller with 'python snake -b m'" 0 2
+   typewriter_echo "Nice!" 0 2 1 0
+   typewriter_echo "Want to make the game tougher?" 0 2 1 0
+   typewriter_echo "'python snake' launches the game. Change it by writing parameters after 'python snake'." 0 2 1 0
+   typewriter_echo "You can make the board smaller with 'python snake -b m'" 0 2 1 0
 
    inputLoop 'python snake -b m' 'python snake --board m'
    python -B $dir -mb m
@@ -111,8 +114,8 @@ fi
 # Exercise 3: 'python snake -s f'
 if [ "$stage" -eq 3 ]; then
    header
-   typewriter_echo "Another way to increase difficulty is by changing the speed." 0 2
-   typewriter_echo "Let's try a fast game! 'python snake -s f'" 0 2
+   typewriter_echo "Another way to increase difficulty is by changing the speed." 0 2 1 0
+   typewriter_echo "Let's try a fast game! 'python snake -s f'" 0 2 1 0
 
    inputLoop 'python snake -s f' 'python snake --speed f'
    python -B $dir -ms f
@@ -121,9 +124,9 @@ fi
 # Exercise 4: 'python snake -t jungle'
 if [ "$stage" -eq 4 ]; then
    header
-   typewriter_echo "Awesome! You've changed Snake using computer commands." 0 2
-   typewriter_echo "Now try changing its theme (how Snake looks)." 0 2
-   typewriter_echo "Type 'python snake -t jungle' to play Amazon style!" 0 2
+   typewriter_echo "Awesome! You've changed Snake using computer commands." 0 2 1 0
+   typewriter_echo "Now try changing its theme (how Snake looks)." 0 2 1 0
+   typewriter_echo "Type 'python snake -t jungle' to play Amazon style!" 0 2 1 0
 
    inputLoop 'python snake -t jungle' 'python snake --theme jungle'
    python -B $dir -mt jungle
@@ -132,8 +135,8 @@ fi
 # Exercise 5: 'python snake -e'
 if [ "$stage" -eq 5 ]; then
    header
-   typewriter_echo "Do you know you can even create your own themes?" 0 2
-   typewriter_echo "Type 'python snake -e' to access the editor" 0 2
+   typewriter_echo "Do you know you can even create your own themes?" 0 2 1 0
+   typewriter_echo "Type 'python snake -e' to access the editor" 0 2 1 0
 
    inputLoop 'python snake -e' 'python snake --editor'
    python -B $dir -me
@@ -142,8 +145,8 @@ fi
 # Exercise 6: 'python snake -t custom'
 if [ "$stage" -eq 6 ]; then
    header
-   typewriter_echo "It's looking good!" 0 2
-   typewriter_echo "Now type 'python snake -t custom' to play with your design" 0 2
+   typewriter_echo "It's looking good!" 0 2 1 0
+   typewriter_echo "Now type 'python snake -t custom' to play with your design" 0 2 1 0
 
    inputLoop 'python snake -t custom' 'python snake --theme custom'
    python -B $dir -mt custom
@@ -152,28 +155,28 @@ fi
 # Exercise 7: 'python snake --help'
 if [ "$stage" -eq 7 ]; then
    header
-   typewriter_echo "Use the help option to learn all the different spells." 0 2
-   typewriter_echo "Type 'python snake --help' to get help." 0 2
+   typewriter_echo "Use the help option to learn all the different spells." 0 2 1 0
+   typewriter_echo "Type 'python snake --help' to get help." 0 2 1 0
 
    inputLoop 'python snake --help' 'python snake -h'
-   python -B $dir --help
+   python -B $dir --help | sed "s/^/    /"
    breakline
-   typewriter_echo "Great! You've completed Make Snake!" 1 2
+   typewriter_echo "Great! You've completed Make Snake!" 1 2 1 0
    python /usr/bin/kano-progress-register "snake"
-   typewriter_echo "Press [ENTER] to continue" 0 2
+   typewriter_echo "Press [ENTER] to continue" 0 2 1 0
    read
 fi
 
 # Playground
 if [ "$stage" -eq 8 ]; then
    header
-   echo "Playground mode!"
+   echo "    Playground mode!"
    breakline
-   typewriter_echo "Try what you have learnt." 0 2
+   typewriter_echo "Try what you have learnt." 0 2 1 0
    # Infinite loop
    while true; do
       # Read command
-      read -e command
+      read -p "    " -e command
       # Check for exit command
       if [ "$command" == "exit" ]; then
          exit 0
@@ -196,12 +199,12 @@ if [ "$stage" -eq 8 ]; then
           else
               # Clean terminal + header
               header
-              echo "Playground mode!"
-              echo "Remember: type 'python snake --help' for help or 'exit' to quit."
+              echo "    Playground mode!"
+              echo "    Remember: type 'python snake --help' for help or 'exit' to quit."
               breakline
           fi
       else
-          typewriter_echo "Need help? Type 'python snake --help' or 'exit' to finish." 0 2
+          typewriter_echo "Need help? Type 'python snake --help' or 'exit' to finish." 0 2 1 0
       fi
    done
 fi
