@@ -9,6 +9,7 @@
 dir="/usr/share/make-snake/__main__.py"
 SNAKE_CONTENT=/home/$USER/Snake-content
 SNAKE_LEVEL=$SNAKE_CONTENT/.level
+CUSTOM_THEME=$SNAKE_CONTENT/custom_theme
 
 function breakline
 {
@@ -69,13 +70,16 @@ if [ ! -d "$SNAKE_CONTENT" ]; then
     # Create Content folder
     mkdir -p $SNAKE_CONTENT
 fi
+# Check custom_theme
+if [ ! -f "$CUSTOM_THEME" ]; then
+    # Copy custom theme
+    cp /usr/share/make-snake/custom_theme $SNAKE_CONTENT
+fi
 # Check level file
 if [ ! -f "$SNAKE_LEVEL" ]; then
     stage=1
     # Create level file
     saveLevel
-    # Copy custom theme
-    cp /usr/share/make-snake/custom_theme $SNAKE_CONTENT
 else
     # Load the level
     stage=$(head -c 1 $SNAKE_LEVEL)
