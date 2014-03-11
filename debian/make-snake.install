@@ -2,5 +2,5 @@
 ./snake-editor/* /usr/share/make-snake/snake-editor/
 ./bin/make-snake /usr/bin
 
-./idesktop/Snake.lnk /usr/share/kano-desktop/idesk/idesktop/
+./kdesktop/Snake.lnk /usr/share/kano-desktop/kdesk/kdesktop/
 ./icon/snake.png /usr/share/kano-desktop/icons/
