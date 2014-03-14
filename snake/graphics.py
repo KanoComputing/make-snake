@@ -1,4 +1,3 @@
-
 # graphics.py
 #
 # Copyright (C) 2013 Kano Computing Ltd.
@@ -19,9 +18,12 @@ def drawTile(x, y, tile='', color=None):
     x = x * 2 + stage.padding[3] * 2 + stage.width / 2
     y += stage.padding[0] + stage.height / 2
 
-    screen.addstr(y, x, tile, color)
-    if (len(tile) < 2):
-        screen.addstr(y, x + 1, tile, color)
+    try:
+        screen.addstr(y, x, tile, color)
+        if (len(tile) < 2):
+            screen.addstr(y, x + 1, tile, color)
+    except:
+        exit()
 
 
 def drawInitGame():
