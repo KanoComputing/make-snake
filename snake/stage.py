@@ -23,7 +23,7 @@ def init():
 
     # Calculate width
     if chosen_size[0] > available_size[0] / 2:
-        width = available_size[0] / 2
+        (width = available_size[0] / 2) - 3
     else:
         width = chosen_size[0]
     # Calculate height
