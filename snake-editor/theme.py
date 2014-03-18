@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 
 # theme.py
 #
@@ -6,11 +7,11 @@
 #
 
 import curses
-from os.path import expanduser
 import xml.etree.ElementTree as ET
+import kano.profile as kp
 
-home_dir = expanduser("~")
-custom_file = home_dir + '/Snake-content/custom_theme'
+home_dir = kp.get_app_data_dir('make-snake')
+custom_file = home_dir + '/custom_theme'
 colors_map = {}
 theme = {
     "colors": {

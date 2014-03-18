@@ -19,7 +19,7 @@ def getTerminalSize():
             cr = struct.unpack(
                 'hh',
                 fcntl.ioctl(fd, termios.TIOCGWINSZ, '1234')
-                )
+            )
         except:
             return
         return cr
