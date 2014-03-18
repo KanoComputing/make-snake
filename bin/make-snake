@@ -76,9 +76,6 @@ stty eof '?'
 if [ `loadLevel` == "VARIABLE_NOT_FOUND" ]; then
     saveLevel 1
     stage=1
-
-    # Copy custom theme
-    cp /usr/share/make-snake/custom_theme $SNAKE_CONTENT
 else
     # Load the level
     stage=`loadLevel`

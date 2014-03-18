@@ -10,6 +10,8 @@ import themes
 import xml.etree.ElementTree as ET
 import kano.profile as kp
 import gamestate as gs
+import os
+import sys
 
 app_dir = kp.get_app_data_dir(gs.app_name)
 custom_file = app_dir + '/custom_theme'
@@ -27,7 +29,10 @@ def init():
             print "Can't find theme: %s" % (parser.options.theme)
             exit()
     else:
+        if not os.path.exists(custom_file):
+            sys.exit('Error: custom theme is not yet created, please run the editor \'-e\' first!')
         load_custom_theme()
+
     colors_map = get_colors_map()
 
 
