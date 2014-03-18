@@ -98,7 +98,7 @@ def drawScore():
         (-stage.height / 2) - 1,
         score_formatted,
         theme.get_color('border')
-        )
+    )
 
 
 def drawLives():
