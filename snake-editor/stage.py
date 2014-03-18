@@ -1,17 +1,26 @@
+#!/usr/bin/env python
 
 # stage.py
 #
-# Copyright (C) 2013 Kano Computing Ltd.
-# License:   http://www.gnu.org/licenses/gpl-2.0.txt GNU General Public License v2
+# Copyright (C) 2014 Kano Computing Ltd.
+# License: http://www.gnu.org/licenses/gpl-2.0.txt GNU General Public License v2
 #
 
 import console
 import math
+import time
+import os
+import kanoapplib as ka
 
 
 def init():
     global size, width, height, padding, boundaries, chosen_theme
 
+    # Get containing terminal window and set it to maximised
+    pid = os.getpid()
+    win = ka._get_window_by_child_pid(pid)
+    ka.gdk_window_settings(win, maximized=True)
+    time.sleep(0.1)
     available_size = (width, height) = console.getTerminalSize()
     chosen_size = (20, 15)
 

@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 # stage.py
 #
 # Copyright (C) 2014 Kano Computing Ltd.
