@@ -7,11 +7,12 @@
 import curses
 import parser
 import themes
-from os.path import expanduser
 import xml.etree.ElementTree as ET
+import kano.profile as kp
+import gamestate as gs
 
-home_dir = expanduser("~")
-custom_file = home_dir + '/Snake-content/custom_theme'
+app_dir = kp.get_app_data_dir(gs.app_name)
+custom_file = app_dir + '/custom_theme'
 colors_map = {}
 theme = None
 

@@ -29,6 +29,16 @@ Options:
 
 ```
 
+### Levels
+
+level 1 - start text
+level 2 - `python snake` entered
+level 3 - `python snake -b m` entered
+level 4 - `python snake -s f` entered
+level 5 - `python snake -t classic` entered
+level 6 - `python snake -t jungle` entered
+level 7 - `python snake --help` entered
+
 ### Themes
 
 You can select a theme by running `snake -t [ theme_name ]`

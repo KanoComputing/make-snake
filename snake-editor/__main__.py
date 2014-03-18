@@ -11,7 +11,6 @@ import graphics
 import theme
 import gameloop
 import stage
-import os
 
 
 def exit():
@@ -20,9 +19,6 @@ def exit():
 
 def run():
     try:
-        # Resize the window
-        os.system('xdotool windowsize $(xdotool getactivewindow) 1024 709')
-        
         # Init the editor
         stage.init()
         graphics.init()

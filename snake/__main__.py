@@ -11,24 +11,23 @@ import gameloop
 import game
 import parser
 import stage
-import os
+import gamestate as gs
 
 
 def exit():
     graphics.exit()
+    gs.save_state()
 
 
 def run():
     try:
-        # Resize the window
-        os.system('xdotool windowsize $(xdotool getactivewindow) 1024 709')
-        
         # Init the game
         parser.init()
         stage.init()
         graphics.init()
         theme.init()
         game.reset()
+        gs.load_state()
 
         # Start the game
         gameloop.start()

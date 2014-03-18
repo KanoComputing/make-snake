@@ -10,6 +10,7 @@ import gameloop
 import math
 import random
 import config
+import gamestate as gs
 
 direction = (0, 0)
 lastPos = (0, 0)
@@ -42,7 +43,28 @@ def eatApple(i):
     apples.pop(i)
     spawnApple()
     grow += config.food_values['apple']
-    score += 1
+
+    score_value = 1
+    score += score_value
+
+    # adjust total score
+    try:
+        gs.state['total_score'] += score_value
+    except Exception:
+        pass
+
+    # adjust highest score
+    try:
+        if score > gs.state['highest_score']:
+            gs.state['highest_score'] = score
+    except Exception:
+        pass
+
+    # adjust total number of apples
+    try:
+        gs.state['total_number_of_apples'] += 1
+    except Exception:
+        pass
 
 
 def moveSnake():
@@ -64,6 +86,19 @@ def moveSnake():
     if grow:
         snake.append(last_unchanged)
         grow -= 1
+
+        # adjust longest snake
+        try:
+            if len(snake) > gs.state['longest_snake']:
+                gs.state['longest_snake'] = len(snake)
+        except Exception:
+            pass
+
+        # adjust total length
+        try:
+            gs.state['total_length'] += 1
+        except Exception:
+            pass
 
 
 def getGameArea():
