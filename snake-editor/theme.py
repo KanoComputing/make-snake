@@ -10,8 +10,8 @@ import curses
 import xml.etree.ElementTree as ET
 import kano.profile as kp
 
-home_dir = kp.get_app_data_dir('make-snake')
-custom_file = home_dir + '/custom_theme'
+app_dir = kp.get_app_data_dir('make-snake')
+custom_file = app_dir + '/custom_theme'
 colors_map = {}
 theme = {
     "colors": {

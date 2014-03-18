@@ -19,7 +19,7 @@ def load_state():
         state = kp.load_app_state(app_name)
         init_states = kp.get_gamestate_variables(app_name)
 
-        # loop throught all states and initialize them with zero
+        # loop through all states and initialise them with zero
         for s in init_states:
             if s not in state:
                 state[s] = 0

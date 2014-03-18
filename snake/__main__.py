@@ -11,7 +11,6 @@ import gameloop
 import game
 import parser
 import stage
-import os
 import gamestate as gs
 
 
@@ -22,9 +21,6 @@ def exit():
 
 def run():
     try:
-        # Resize the window
-        os.system('xdotool windowsize $(xdotool getactivewindow) 1024 709')
-
         # Init the game
         parser.init()
         stage.init()
