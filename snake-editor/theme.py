@@ -9,6 +9,9 @@
 import curses
 import xml.etree.ElementTree as ET
 import kano.profile as kp
+import os
+import shutil
+import sys
 
 app_dir = kp.get_app_data_dir('make-snake')
 custom_file = app_dir + '/custom_theme'
@@ -39,6 +42,13 @@ theme = {
 
 def init():
     global theme, colors_map
+
+    # copy custom_theme if it doesn't exist
+    if not os.path.exists(custom_file):
+        src_file = '/usr/share/make-snake/custom_theme'
+        if not os.path.exists(src_file):
+            sys.exit('Error: custom_theme missing from home and /usr/share')
+        shutil.copyfile(src_file, custom_file)
 
     load_custom_theme()
     colors_map = get_colors_map()

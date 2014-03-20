@@ -4,10 +4,14 @@
 # License: http://www.gnu.org/licenses/gpl-2.0.txt GNU General Public License v2
 #
 
+import os
+import sys
 import curses
+import shutil
 import parser
 import themes
 import xml.etree.ElementTree as ET
+
 import kano.profile as kp
 import gamestate as gs
 
@@ -27,7 +31,14 @@ def init():
             print "Can't find theme: %s" % (parser.options.theme)
             exit()
     else:
+        # copy custom_theme if it doesn't exist
+        if not os.path.exists(custom_file):
+            src_file = '/usr/share/make-snake/custom_theme'
+            if not os.path.exists(src_file):
+                sys.exit('Error: custom_theme missing from home and /usr/share')
+            shutil.copyfile(src_file, custom_file)
         load_custom_theme()
+
     colors_map = get_colors_map()
 
 
