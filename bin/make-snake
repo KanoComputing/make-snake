@@ -6,7 +6,6 @@
 # License: http://www.gnu.org/licenses/gpl-2.0.txt GNU General Public License v2
 #
 
-# dir="/usr/share/make-snake/__main__.py"
 dir="/usr/share/make-snake"
 
 SNAKE_CONTENT=`kano-profile-cli get_app_data_dir make-snake`
