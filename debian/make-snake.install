@@ -4,3 +4,4 @@
 
 ./kdesktop/Snake.lnk /usr/share/kano-desktop/kdesk/kdesktop/
 ./icon/snake.png /usr/share/kano-desktop/icons/
+./icon/Snake-hover.png /usr/share/kano-desktop/icons/
