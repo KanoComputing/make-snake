@@ -79,11 +79,12 @@ else
     # Load the level
     stage=`loadLevel`
 
-    if [ ! "$stage" -eq "8" ]; then
+    if [ ! "$stage" -eq 8 ] || [ ! "$stage" -eq 999 ]; then
        header
        typewriter_echo "Where were we..." 0 2 1 0
     fi
 fi
+
 
 # Exercise 1: 'python snake'
 if [ "$stage" -eq 1 ]; then
@@ -168,7 +169,7 @@ if [ "$stage" -eq 7 ]; then
 fi
 
 # Playground
-if [ "$stage" -eq 8 ]; then
+if [ "$stage" -eq 8 ] || [ "$stage" -eq 999 ]; then
    header
    echo "    Playground mode!"
    breakline
