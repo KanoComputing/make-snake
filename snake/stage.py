@@ -13,7 +13,7 @@ import parser
 import os
 import time
 
-import kanoapplib as ka
+from kano.window import _get_window_by_child_pid, gdk_window_settings
 
 
 def init():
@@ -21,8 +21,8 @@ def init():
 
     # Get containing terminal window and set it to maximised
     pid = os.getpid()
-    win = ka._get_window_by_child_pid(pid)
-    ka.gdk_window_settings(win, maximized=True)
+    win = _get_window_by_child_pid(pid)
+    gdk_window_settings(win, maximized=True)
     time.sleep(0.1)
     available_size = (width, height) = console.getTerminalSize()
 
