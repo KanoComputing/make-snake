@@ -6,7 +6,8 @@
 # License: http://www.gnu.org/licenses/gpl-2.0.txt GNU General Public License v2
 #
 
-import kano.profile as kp
+from kano.profile.apps import load_app_state, get_gamestate_variables
+from kano.profile.badges import save_app_state_with_dialog
 
 app_name = 'make-snake'
 state = dict()
@@ -16,8 +17,8 @@ def load_state():
     global state
 
     try:
-        state = kp.load_app_state(app_name)
-        init_states = kp.get_gamestate_variables(app_name)
+        state = load_app_state(app_name)
+        init_states = get_gamestate_variables(app_name)
 
         # loop through all states and initialise them with zero
         for s in init_states:
@@ -31,6 +32,6 @@ def save_state():
     global state
 
     try:
-        kp.save_app_state(app_name, state)
+        save_app_state_with_dialog(app_name, state)
     except Exception:
         pass

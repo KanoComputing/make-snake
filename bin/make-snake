@@ -8,8 +8,6 @@
 
 dir="/usr/share/make-snake"
 
-SNAKE_CONTENT=`kano-profile-cli get_app_data_dir make-snake`
-
 function breakline
 {
    echo -ne "\n"

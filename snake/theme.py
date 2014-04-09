@@ -12,10 +12,9 @@ import parser
 import themes
 import xml.etree.ElementTree as ET
 
-import kano.profile as kp
-import gamestate as gs
+from kano.utils import ensure_dir
 
-app_dir = kp.get_app_data_dir(gs.app_name)
+app_dir = '~/Snake-content'
 custom_file = app_dir + '/custom_theme'
 colors_map = {}
 theme = None
@@ -36,6 +35,7 @@ def init():
             src_file = '/usr/share/make-snake/custom_theme'
             if not os.path.exists(src_file):
                 sys.exit('Error: custom_theme missing from home and /usr/share')
+            ensure_dir(app_dir)
             shutil.copyfile(src_file, custom_file)
         load_custom_theme()
 

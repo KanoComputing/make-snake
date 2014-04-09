@@ -15,7 +15,7 @@ import stage
 import sys
 
 import gamestate as gs
-import kano.utils as ku
+from kano.utils import is_gui
 
 
 def exit():
@@ -39,7 +39,7 @@ def run():
     except KeyboardInterrupt:
         exit()
 
-if not ku.is_gui():
+if not is_gui():
     sys.exit("make-snake requires an X session")
 
 run()
