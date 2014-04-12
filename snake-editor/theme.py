@@ -12,10 +12,9 @@ import os
 import shutil
 import sys
 
-from kano.utils import ensure_dir,get_home
+from kano.utils import ensure_dir
 
-home= get_home()
-app_dir = home + '/Snake-content'
+app_dir = os.path.expanduser('~/Snake-content')
 custom_file = app_dir + '/custom_theme'
 colors_map = {}
 theme = {

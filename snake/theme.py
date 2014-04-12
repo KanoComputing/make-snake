@@ -12,10 +12,8 @@ import parser
 import themes
 import xml.etree.ElementTree as ET
 
-from kano.utils import ensure_dir,get_home
-
-home = get_home()
-app_dir = home + '/Snake-content'
+from kano.utils import ensure_dir
+app_dir = os.path.expanduser( '~/Snake-content')
 custom_file = app_dir + '/custom_theme'
 colors_map = {}
 theme = None
