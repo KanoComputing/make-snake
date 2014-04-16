@@ -16,6 +16,8 @@ direction = (0, 0)
 lastPos = (0, 0)
 snake = []
 speed = 1
+#used later by the endgame screen
+modeSpeed = gameloop.speed
 apples = []
 grow = config.initial_size - 1
 score = 0
