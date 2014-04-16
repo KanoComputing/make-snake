@@ -34,24 +34,26 @@ def drawInitGame():
 def drawGameOver():
     speed = gameloop.speed
     size = gameloop.size
+    sizeStr=''
+    speedStr=''
     #set speed string
     if(speed == .2):
-        speed = 'Slow'
+        speedStr = 'Slow'
     elif(speed == .15):
-        speed = 'Medium'
+        speedStr = 'Medium'
     elif(speed == .1):
-        speed = 'Fast'
+        speedStr = 'Fast'
     #set size string
     if(size == 's'):
-        size = 'Small'
+        sizeStr = 'Small'
     elif(size == 'm'):
-        size = 'Medium'
+        sizeStr = 'Medium'
     elif(size == 'l'):
-        size = 'Large'
+        sizeStr = 'Large'
     drawTile(-4, -8, "  GAME OVER  ", theme.get_color('border'))
     drawTile(-4, -6, "Score: " + str(game.score), theme.get_color('border'))
-    drawTile(-4,-4, "Speed: " + speed, theme.get_color('border'))
-    drawTile(-4,-2,"Size: " + size,theme.get_color('border'))
+    drawTile(-4,-4, "Speed: " + speedStr, theme.get_color('border'))
+    drawTile(-4,-2,"Size: " + sizeStr, theme.get_color('border'))
     drawTile(-4, 2, " Press [ENTER] ", theme.get_color('border'))
 
 
