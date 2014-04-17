@@ -19,7 +19,6 @@ playing = False
 state = 0
 speed = 0
 
-
 def update():
     game.update()
     graphics.update()
@@ -49,9 +48,7 @@ def step():
 
 def start():
     global playing, state
-
     playing = True
-
     # Launch editor mode
     if (parser.options.editor):
         os.system("/usr/share/make-snake/snake-editor/__main__.py")

@@ -8,7 +8,7 @@ import stage
 import game
 import theme
 import curses
-
+import gameloop
 screen = None
 
 
@@ -32,7 +32,28 @@ def drawInitGame():
 
 
 def drawGameOver():
-    drawTile(-4, -2, "  GAME OVER  ", theme.get_color('border'))
+    speed = gameloop.speed
+    size = stage.passSize
+    sizeStr = ''
+    speedStr = ''
+    #set speed string
+    if(speed == .2):
+        speedStr = 'Slow'
+    elif(speed == .15):
+        speedStr = 'Medium'
+    elif(speed == .1):
+        speedStr = 'Fast'
+    #set size string
+    if(size == 's'):
+        sizeStr = 'Small'
+    elif(size == 'm'):
+        sizeStr = 'Medium'
+    elif(size == 'l'):
+        sizeStr = 'Large'
+    drawTile(-4, -8, "  GAME OVER  ", theme.get_color('border'))
+    drawTile(-4, -6,"Score:" + str(game.score), theme.get_color('border'))
+    drawTile(-4,-4, "Speed:" + speedStr, theme.get_color('border'))
+    drawTile(-4,-2,"Size:" + sizeStr, theme.get_color('border'))
     drawTile(-4, 2, " Press [ENTER] ", theme.get_color('border'))
 
 

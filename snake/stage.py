@@ -17,7 +17,7 @@ from kano.window import _get_window_by_child_pid, gdk_window_settings
 
 
 def init():
-    global size, width, height, padding, boundaries
+    global size, width, height, padding, boundaries, passSize
 
     # Get containing terminal window and set it to maximised
     pid = os.getpid()
@@ -25,9 +25,11 @@ def init():
     gdk_window_settings(win, maximized=True)
     time.sleep(0.1)
     available_size = (width, height) = console.getTerminalSize()
+    
 
     try:
         chosen_size = config.game_sizes[parser.options.board]
+        passSize = parser.options.board
     except:
         print "Can't find board size: %s" % (parser.options.board)
         exit()
