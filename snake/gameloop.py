@@ -18,7 +18,6 @@ last_update = None
 playing = False
 state = 0
 speed = 0
-size = 'l'
 
 def update():
     game.update()
@@ -48,10 +47,8 @@ def step():
 
 
 def start():
-    global playing, state, size
-
+    global playing, state
     playing = True
-    size = parser.options.board
     # Launch editor mode
     if (parser.options.editor):
         os.system("/usr/share/make-snake/snake-editor/__main__.py")
