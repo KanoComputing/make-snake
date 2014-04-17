@@ -17,7 +17,7 @@ from kano.window import _get_window_by_child_pid, gdk_window_settings
 
 
 def init():
-    global size, width, height, padding, boundaries,passSize
+    global size, width, height, padding, boundaries, passSize
 
     # Get containing terminal window and set it to maximised
     pid = os.getpid()
