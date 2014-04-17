@@ -34,8 +34,10 @@ def drawInitGame():
 def drawGameOver():
     speed = gameloop.speed
     size = stage.passSize
+    lives = game.lives
     sizeStr = ''
     speedStr = ''
+    livesStr = str(lives)
     #set speed string
     if(speed == .2):
         speedStr = 'Slow'
@@ -50,10 +52,11 @@ def drawGameOver():
         sizeStr = 'Medium'
     elif(size == 'l'):
         sizeStr = 'Large'
-    drawTile(-4, -8, "  GAME OVER  ", theme.get_color('border'))
-    drawTile(-4, -6,"Score:" + str(game.score), theme.get_color('border'))
-    drawTile(-4,-4, "Speed:" + speedStr, theme.get_color('border'))
-    drawTile(-4,-2,"Size:" + sizeStr, theme.get_color('border'))
+    drawTile(-4, -10, "  GAME OVER  ", theme.get_color('border'))
+    drawTile(-4, -8,"Score:" + str(game.score), theme.get_color('border'))
+    drawTile(-4,-6, "Speed:" + speedStr, theme.get_color('border'))
+    drawTile(-4,-4,"Size:" + sizeStr, theme.get_color('border'))
+    drawTile(-4,-2,"Lives:" + livesStr, theme.get_color('border'))
     drawTile(-4, 2, " Press [ENTER] ", theme.get_color('border'))
 
 

@@ -34,5 +34,7 @@ def init():
     parser.add_option("-e", "--editor",
                       action="store_true", dest="editor", default=False,
                       help="Enter editor mode")
-
+    parser.add_option("-l", "--lives",
+                      action="store", dest="lives", default="1",
+                      help="Number of lives (1 | 2 | 3 | 4 | 5 )")
     (options, args) = parser.parse_args()
