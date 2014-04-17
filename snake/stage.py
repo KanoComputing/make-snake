@@ -25,10 +25,11 @@ def init():
     gdk_window_settings(win, maximized=True)
     time.sleep(0.1)
     available_size = (width, height) = console.getTerminalSize()
-    passSize = parser.options.board
+    
 
     try:
         chosen_size = config.game_sizes[parser.options.board]
+        passSize = parser.options.board
     except:
         print "Can't find board size: %s" % (parser.options.board)
         exit()
