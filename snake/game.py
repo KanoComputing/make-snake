@@ -6,7 +6,6 @@
 #
 
 import stage
-import parser
 import gameloop
 import math
 import random
