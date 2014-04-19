@@ -109,7 +109,8 @@ if [ "$stage" -eq 2 ]; then
    inputLoop 'python snake -b m' 'python snake --board m'
    python -B $dir -mb m
 fi
-#
+
+# Exercise 3: 'python snake -l 3'
 if [ "$stage" -eq 3 ]; then
     header
     typewriter_echo "Another way to change the game is to add extra lives!" 0 2 1 0
