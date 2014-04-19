@@ -113,8 +113,8 @@ fi
 if [ "$stage" -eq 3 ]; then
     header
     typewriter_echo "Another way to change the game is to add extra lives!" 0 2 1 0
-    typewriter_echo "You can add extra lives by adding a -l then a number after 'python snake'" 0 2 1 0
-    typewriter_echo "Type 'python snake -l 3' to play a game with three lives" 0 2 1 0 
+    typewriter_echo "You can add extra lives by adding the parameter -l then a number after 'python snake'." 0 2 1 0
+    typewriter_echo "Type 'python snake -l 3' to play a game with three lives." 0 2 1 0 
 
     inputLoop 'python snake -l 3' 'python snake --lives 3'
     python -B $dir -ml 3
