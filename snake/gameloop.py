@@ -82,8 +82,12 @@ def init():
         speed = config.game_speed[parser.options.speed]
     except:
         speed = config.game_speed['m']
+    
+    try:
+        livesIn = int(parser.options.lives)
+    except:
+        livesIn = 1
 
-    livesIn = int(parser.options.lives)
     if livesIn >= 1 and livesIn <= 5:
         game.lives = livesIn
         game.livesMax = livesIn
