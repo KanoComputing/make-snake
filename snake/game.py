@@ -19,8 +19,8 @@ speed = 1
 apples = []
 grow = config.initial_size - 1
 score = 0
-lives = 3
-
+lives = 1
+livesMax = 1 
 
 def update():
     moveSnake()
@@ -109,8 +109,7 @@ def getGameArea():
 
 
 def reset():
-    global direction, snake, apples_count, apples, score, grow, lives
-
+    global direction, snake, apples_count, apples, score, grow 
     direction = (1, 0)
     snake = [(0, 0)]
     gameloop.frame = 1
@@ -173,5 +172,5 @@ def checkPositionAllowed():
         gameloop.reset()
         lives -= 1
         if lives == 0:
-            lives = 3
+            lives = livesMax
             gameloop.state = 2

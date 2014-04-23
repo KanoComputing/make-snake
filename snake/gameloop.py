@@ -19,6 +19,7 @@ playing = False
 state = 0
 speed = 0
 
+
 def update():
     game.update()
     graphics.update()
@@ -81,6 +82,21 @@ def init():
         speed = config.game_speed[parser.options.speed]
     except:
         speed = config.game_speed['m']
+    
+    try:
+        livesIn = int(parser.options.lives)
+    except:
+        livesIn = 1
+
+    if livesIn >= 1 and livesIn <= 5:
+        game.lives = livesIn
+        game.livesMax = livesIn
+    elif livesIn > 5:
+        game.lives = 5 
+        game.livesMax = 5
+    else:
+        game.lives = 1
+        game.livesMax = 1
 
 
 def reset():
