@@ -1,6 +1,8 @@
+#!/usr/bin/env python
+
 # graphics.py
 #
-# Copyright (C) 2013 Kano Computing Ltd.
+# Copyright (C) 2013, 2014 Kano Computing Ltd.
 # License:   http://www.gnu.org/licenses/gpl-2.0.txt GNU General Public License v2
 #
 
@@ -53,10 +55,10 @@ def drawGameOver():
     elif(size == 'l'):
         sizeStr = 'Large'
     drawTile(-4, -10, "  GAME OVER  ", theme.get_color('border'))
-    drawTile(-4, -8,"Score:" + str(game.score), theme.get_color('border'))
-    drawTile(-4,-6, "Speed:" + speedStr, theme.get_color('border'))
-    drawTile(-4,-4,"Size:" + sizeStr, theme.get_color('border'))
-    drawTile(-4,-2,"Lives:" + livesStr, theme.get_color('border'))
+    drawTile(-4, -8, "Score:" + str(game.score), theme.get_color('border'))
+    drawTile(-4, -6, "Speed:" + speedStr, theme.get_color('border'))
+    drawTile(-4, -4, "Size:" + sizeStr, theme.get_color('border'))
+    drawTile(-4, -2, "Lives:" + livesStr, theme.get_color('border'))
     drawTile(-4, 2, " Press [ENTER] ", theme.get_color('border'))
 
 

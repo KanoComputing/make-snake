@@ -1,6 +1,8 @@
+#!/usr/bin/env python
+
 # theme.py
 #
-# Copyright (C) 2014 Kano Computing Ltd.
+# Copyright (C) 2013, 2014 Kano Computing Ltd.
 # License: http://www.gnu.org/licenses/gpl-2.0.txt GNU General Public License v2
 #
 
@@ -13,7 +15,7 @@ import themes
 import xml.etree.ElementTree as ET
 
 from kano.utils import ensure_dir
-app_dir = os.path.expanduser( '~/Snake-content')
+app_dir = os.path.expanduser('~/Snake-content')
 custom_file = app_dir + '/custom_theme'
 colors_map = {}
 theme = None

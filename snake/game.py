@@ -1,7 +1,8 @@
+#!/usr/bin/env python
 
 # game.py
 #
-# Copyright (C) 2013 Kano Computing Ltd.
+# Copyright (C) 2013, 2014 Kano Computing Ltd.
 # License:   http://www.gnu.org/licenses/gpl-2.0.txt GNU General Public License v2
 #
 
@@ -20,7 +21,8 @@ apples = []
 grow = config.initial_size - 1
 score = 0
 lives = 1
-livesMax = 1 
+livesMax = 1
+
 
 def update():
     moveSnake()
@@ -109,7 +111,7 @@ def getGameArea():
 
 
 def reset():
-    global direction, snake, apples_count, apples, score, grow 
+    global direction, snake, apples_count, apples, score, grow
     direction = (1, 0)
     snake = [(0, 0)]
     gameloop.frame = 1

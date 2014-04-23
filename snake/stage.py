@@ -2,7 +2,7 @@
 
 # stage.py
 #
-# Copyright (C) 2014 Kano Computing Ltd.
+# Copyright (C) 2013, 2014 Kano Computing Ltd.
 # License: http://www.gnu.org/licenses/gpl-2.0.txt GNU General Public License v2
 #
 
@@ -25,7 +25,6 @@ def init():
     gdk_window_settings(win, maximized=True)
     time.sleep(0.1)
     available_size = (width, height) = console.getTerminalSize()
-    
 
     try:
         chosen_size = config.game_sizes[parser.options.board]

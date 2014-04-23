@@ -1,7 +1,8 @@
+#!/usr/bin/env python
 
 # game-loop.py
 #
-# Copyright (C) 2014 Kano Computing Ltd.
+# Copyright (C) 2013, 2014 Kano Computing Ltd.
 # License: http://www.gnu.org/licenses/gpl-2.0.txt GNU General Public License v2
 #
 
@@ -82,7 +83,7 @@ def init():
         speed = config.game_speed[parser.options.speed]
     except:
         speed = config.game_speed['m']
-    
+
     try:
         livesIn = int(parser.options.lives)
     except:
@@ -92,7 +93,7 @@ def init():
         game.lives = livesIn
         game.livesMax = livesIn
     elif livesIn > 5:
-        game.lives = 5 
+        game.lives = 5
         game.livesMax = 5
     else:
         game.lives = 1

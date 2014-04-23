@@ -1,7 +1,8 @@
+#!/usr/bin/env python
 
 # parser.py
 #
-# Copyright (C) 2013 Kano Computing Ltd.
+# Copyright (C) 2013, 2014 Kano Computing Ltd.
 # License:   http://www.gnu.org/licenses/gpl-2.0.txt GNU General Public License v2
 #
 
@@ -34,7 +35,9 @@ def init():
     parser.add_option("-e", "--editor",
                       action="store_true", dest="editor", default=False,
                       help="Enter editor mode")
+
     parser.add_option("-l", "--lives",
                       action="store", dest="lives", default="1",
                       help="Number of lives (1 | 2 | 3 | 4 | 5 )")
+
     (options, args) = parser.parse_args()
