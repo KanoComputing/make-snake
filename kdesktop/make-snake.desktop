@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Version=1.0
+Type=Application
+Exec=/usr/bin/kano-launcher "rxvt -title 'Make Snake' -e /usr/bin/make-snake" "make-snake"
+Icon=/usr/share/kano-desktop/icons/snake.png
+Terminal=false
+Name=Make Snake
+Comment= Learn command line basics with Snake
+Categories=Application;Education;Development;Kano;
