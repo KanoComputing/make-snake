@@ -3,5 +3,6 @@
 ./bin/make-snake /usr/bin
 
 ./kdesktop/Snake.lnk /usr/share/kano-desktop/kdesk/kdesktop/
+./kdesktop/make-snake.desktop /usr/share/applications/
 ./icon/snake.png /usr/share/kano-desktop/icons/
 ./icon/Snake-hover.png /usr/share/kano-desktop/icons/
