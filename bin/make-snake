@@ -172,7 +172,6 @@ if [ "$stage" -eq 8 ]; then
    python -B $dir --help | sed "s/^/    /"
    breakline
    typewriter_echo "Great! You've completed Make Snake!" 1 2 1 0
-   python /usr/bin/kano-progress-register "snake"
    typewriter_echo "Press [ENTER] to continue" 0 2 1 0
    read
 fi
