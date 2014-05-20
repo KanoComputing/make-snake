@@ -7,6 +7,6 @@ table Icon
   IconHover: /usr/share/kano-desktop/icons/Snake-hover.png
   HoverXOffset: 0
   Relative-To: grid
-  X: 1
+  X: 0
   Y: 0
 end
