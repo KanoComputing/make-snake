@@ -188,7 +188,7 @@ if [ "$stage" -eq 8 ] || [ "$stage" -eq 999 ]; then
    header
    echo "    Playground mode!"
    breakline
-   typewriter_echo "Try what you have learnt." 0 2 1 0
+   typewriter_echo "Try what you have learnt or type 'exit'" 0 2 1 0
    # Infinite loop
    while true; do
       # Read command
