@@ -184,7 +184,7 @@ if [ "$stage" -eq 7 ]; then
 fi
 
 # Playground
-if [ "$stage" -eq 8 ] || [ "$stage" -eq 999 ]; then
+if [ "$stage" -ge 8 ]; then
    header
    echo "    Playground mode!"
    breakline
