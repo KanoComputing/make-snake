@@ -45,14 +45,14 @@ def drawGameOver():
     sizeStr = ''
     speedStr = ''
     livesStr = str(lives)
-    #set speed string
+    # set speed string
     if(speed == .2):
         speedStr = 'Slow'
     elif(speed == .12):
         speedStr = 'Medium'
     elif(speed == .07):
         speedStr = 'Fast'
-    #set size string
+    # set size string
     if(size == 's'):
         sizeStr = 'Small'
     elif(size == 'm'):
@@ -60,11 +60,11 @@ def drawGameOver():
     elif(size == 'l'):
         sizeStr = 'Large'
     drawTile(-4, -10, "  GAME OVER  ", theme.get_color('border'))
-    drawTile(-4, -8, "Score:" + str(game.score), theme.get_color('border'))
-    drawTile(-4, -6, "Speed:" + speedStr, theme.get_color('border'))
-    drawTile(-4, -4, "Size:" + sizeStr, theme.get_color('border'))
-    drawTile(-4, -2, "Lives:" + livesStr, theme.get_color('border'))
-    drawTile(-4, 2, " Press [ENTER] ", theme.get_color('border'))
+    drawTile(-3, -8, "Score:" + str(game.score), theme.get_color('border'))
+    drawTile(-3, -6, "Speed:" + speedStr, theme.get_color('border'))
+    drawTile(-3, -4, "Size:" + sizeStr, theme.get_color('border'))
+    drawTile(-3, -2, "Lives:" + livesStr, theme.get_color('border'))
+    drawTile(-7, 2, " Press [ENTER] to continue ", theme.get_color('border'))
 
 
 def drawScore():
