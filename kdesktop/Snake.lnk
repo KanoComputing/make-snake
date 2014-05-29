@@ -1,6 +1,6 @@
 table Icon
   Caption:
-  AppID: make-snak[e]
+  AppID: Make Snake
   Command: /usr/bin/kano-launcher "rxvt -title 'Make Snake' -e /usr/bin/make-snake" "make-snake"
   Singleton: true
   Icon: /usr/share/kano-desktop/icons/snake.png
