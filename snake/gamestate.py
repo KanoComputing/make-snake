@@ -6,8 +6,8 @@
 # License: http://www.gnu.org/licenses/gpl-2.0.txt GNU General Public License v2
 #
 
-from kano.profile.apps import load_app_state, get_gamestate_variables
-from kano.profile.badges import save_app_state_with_dialog
+from kano_profile.apps import load_app_state, get_gamestate_variables
+from kano_profile.badges import save_app_state_with_dialog
 
 app_name = 'make-snake'
 state = dict()
