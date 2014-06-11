@@ -28,8 +28,7 @@ def init():
         try:
             theme = themes.game_themes[parser.options.theme]
         except:
-            print "Can't find theme: %s" % (parser.options.theme)
-            exit()
+            theme = themes.game_themes['minimal']
     else:
         # copy custom_theme if it doesn't exist
         if not os.path.exists(custom_file):
