@@ -37,7 +37,7 @@ function header
 function inputLoop
 {
    while true; do
-      read -p "    " -e command
+      read -p "    " command
       if [ -z "$command" ]; then
          echo "    Need to enter a command: '$1' or 'exit'"
       elif [ "$command" == "$1" ] || [ "$command" == "$2" ]; then
@@ -192,7 +192,7 @@ if [ "$stage" -ge 8 ]; then
    # Infinite loop
    while true; do
       # Read command
-      read -p "    " -e command
+      read -p "    " command
       # Check for exit command
       if [ "$command" == "exit" ]; then
          exit 0
