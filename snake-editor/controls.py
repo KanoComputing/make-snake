@@ -138,9 +138,10 @@ def navigate_back():
 def set_color():
     global currentIdx, currentMenu
 
+    # Background colour is the first parameter in the menu
     if (prevIndex == 0):
         parameter = 'background'
-    elif (prevIndex == 1):
+    else:
         parameter = 'font'
     theme.set_color_theme(currentCategory, parameter,
                           menus.colors[currentIdx][0])
