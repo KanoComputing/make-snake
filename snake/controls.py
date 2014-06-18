@@ -49,7 +49,9 @@ def update():
 	    set = True
             game.direction = (0, -1)
 
-        elif key == keys['Q']:
+    if key > 0:
+
+        if key == keys['Q']:
             __main__.exit()
             exit()
 
@@ -66,4 +68,5 @@ def update():
 
 def clear():
     global set
+
     set = False
