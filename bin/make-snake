@@ -123,7 +123,7 @@ if [ "$stage" -eq 2 ]; then
     typewriter_echo "You can add extra lives by adding the parameter {{1-l}} or {{1--lives}} then a number after {{1python snake}}." 0 2 1 0
     typewriter_echo "Type {{1python snake --lives 3}} to play a game with three lives." 0 2 1 0
 
-    inputLoop 'python snake -l 3' 'python snake --lives 3'
+    inputLoop 'python snake --lives 3' 'python snake -l 3'
     python -B $dir -ml 3
     saveLevel
 fi
