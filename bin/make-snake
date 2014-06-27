@@ -50,6 +50,12 @@ function inputLoop
    done
 }
 
+function saveLevelFromArg
+{
+   # Save level
+   kano-profile-cli save_app_state_variable make-snake level $1
+}
+
 function saveLevel
 {
    # Increase stage and save level
@@ -67,11 +73,10 @@ function loadLevel
 stty intr undef
 stty eof '?'
 
-
+stage=0
 # Check first level
 if [ `loadLevel` == "VARIABLE_NOT_FOUND" ]; then
-    saveLevel 0
-    stage=0
+    saveLevelFromArg 0
 else
     # Load the level
     stage=`loadLevel`
