@@ -39,13 +39,13 @@ function inputLoop
    while true; do
       read -p "    " command
       if [ -z "$command" ]; then
-         echo "    Need to enter a command: '$1' or 'exit'"
+        colour_echo "    Need to enter a command: {{1$1}} or {{1exit}}"
       elif [ "$command" == "$1" ] || [ "$command" == "$2" ]; then
          break
       elif [ "$command" == "exit" ]; then
          exit
       fi
-      echo "    Type '$1' then [ENTER]"
+      colour_echo "    Type {{1$1}} then {{2ENTER}}"
       breakline
    done
 }
@@ -95,7 +95,7 @@ if [ "$stage" -eq 0 ]; then
    typewriter_echo "Snake is one of the oldest and coolest games." 0 2 1 0
    typewriter_echo "Eat apples, but don't bite your tail!" 0 2 1 0
    typewriter_echo "Ready to make it?" 0 2 1 0
-   typewriter_echo "Type {{1python snake}} then {{2[ENTER]}}" 0 2 1 0
+   typewriter_echo "Type {{1python snake}} then {{2ENTER}}" 0 2 1 0
    typewriter_echo "You can type {{1exit}} at any point to quit" 0 2 1 0
 
    inputLoop 'python snake'
@@ -225,7 +225,7 @@ if [ "$stage" -ge 8 ]; then
               breakline
           fi
       else
-          typewriter_echo "Need help? Type {{1python snake --help}} or {{1exit}} to finish." 0 2 1 0
+          colour_echo "Need help? Type {{1python snake --help}} or {{1exit}} to finish." 0 2 1 0
       fi
    done
 fi
