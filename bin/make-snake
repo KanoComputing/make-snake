@@ -39,13 +39,13 @@ function inputLoop
    while true; do
       read -p "    " command
       if [ -z "$command" ]; then
-        colour_echo "    Need to enter a command: {{1$1}} or {{1exit}}"
+        colour_echo "    {{6 - }} {{5 Need to enter a command: }} {{2 $1 }} {{ 5or }} {{2 exit }}"
       elif [ "$command" == "$1" ] || [ "$command" == "$2" ]; then
          break
       elif [ "$command" == "exit" ]; then
          exit
       fi
-      colour_echo "    Type {{1$1}} then {{2ENTER}}"
+      colour_echo "    Type {{2 $1 }} then {{1 ENTER }}"
       breakline
    done
 }
@@ -95,8 +95,8 @@ if [ "$stage" -eq 0 ]; then
    typewriter_echo "Snake is one of the oldest and coolest games." 0 2 1 0
    typewriter_echo "Eat apples, but don't bite your tail!" 0 2 1 0
    typewriter_echo "Ready to make it?" 0 2 1 0
-   typewriter_echo "Type {{1python snake}} then {{2ENTER}}" 0 2 1 0
-   typewriter_echo "You can type {{1exit}} at any point to quit" 0 2 1 0
+   typewriter_echo "Type {{2 python snake }} then {{1 ENTER }}" 0 2 1 0
+   typewriter_echo "You can type {{2 exit }} at any point to quit" 0 2 1 0
 
    inputLoop 'python snake'
    python -B $dir -m
@@ -106,10 +106,10 @@ fi
 # Exercise 2: 'python snake -b m'
 if [ "$stage" -eq 1 ]; then
    header
-   typewriter_echo "Nice!" 0 2 1 0
+   typewriter_echo "{{4 + }} {{3 Nice! }}" 0 2 1 0
    typewriter_echo "Want to make the game tougher?" 0 2 1 0
-   typewriter_echo "{{1python snake}} launches the game. Change it by writing parameters after {{1python snake}}." 0 2 1 0
-   typewriter_echo "You can make the board smaller with {{1python snake -b m}}" 0 2 1 0
+   typewriter_echo "{{2 python snake }} launches the game. Change it by writing parameters after {{2 python snake }}." 0 2 1 0
+   typewriter_echo "You can make the board smaller with {{2 python snake -b m }}" 0 2 1 0
 
    inputLoop 'python snake -b m' 'python snake --board m'
    python -B $dir -mb m
@@ -120,8 +120,8 @@ fi
 if [ "$stage" -eq 2 ]; then
     header
     typewriter_echo "Another way to change the game is to add extra lives!" 0 2 1 0
-    typewriter_echo "You can add extra lives by adding the parameter {{1-l}} or {{1--lives}} then a number after {{1python snake}}." 0 2 1 0
-    typewriter_echo "Type {{1python snake --lives 3}} to play a game with three lives." 0 2 1 0
+    typewriter_echo "You can add extra lives by adding the parameter {{2 -l }} or {{2 --lives }} then a number after {{2 python snake }}." 0 2 1 0
+    typewriter_echo "Type {{2 python snake --lives 3 }} to play a game with three lives." 0 2 1 0
 
     inputLoop 'python snake --lives 3' 'python snake -l 3'
     python -B $dir -ml 3
@@ -132,7 +132,7 @@ fi
 if [ "$stage" -eq 3 ]; then
    header
    typewriter_echo "Another way to increase difficulty is by changing the speed." 0 2 1 0
-   typewriter_echo "Let's try a fast game! {{1python snake -s f}}" 0 2 1 0
+   typewriter_echo "Let's try a fast game! {{2 python snake -s f }}" 0 2 1 0
 
    inputLoop 'python snake -s f' 'python snake --speed f'
    python -B $dir -ms f
@@ -142,9 +142,9 @@ fi
 # Exercise 5: 'python snake -t jungle'
 if [ "$stage" -eq 4 ]; then
    header
-   typewriter_echo "Awesome! You've changed Snake using computer commands." 0 2 1 0
+   typewriter_echo "{{4 + }} {{3 Awesome! You've changed Snake using computer commands. }}" 0 2 1 0
    typewriter_echo "Now try changing its theme (how Snake looks)." 0 2 1 0
-   typewriter_echo "Type {{1python snake -t jungle}} to play Amazon style!" 0 2 1 0
+   typewriter_echo "Type {{2 python snake -t jungle }} to play Amazon style!" 0 2 1 0
 
    inputLoop 'python snake -t jungle' 'python snake --theme jungle'
    python -B $dir -mt jungle
@@ -155,7 +155,7 @@ fi
 if [ "$stage" -eq 5 ]; then
    header
    typewriter_echo "Do you know you can even create your own themes?" 0 2 1 0
-   typewriter_echo "Type {{1python snake -e}} to access the editor" 0 2 1 0
+   typewriter_echo "Type {{2 python snake -e }} to access the editor" 0 2 1 0
 
    inputLoop 'python snake -e' 'python snake --editor'
    python -B $dir -me
@@ -165,8 +165,8 @@ fi
 # Exercise 7: 'python snake -t custom'
 if [ "$stage" -eq 6 ]; then
    header
-   typewriter_echo "It's looking good!" 0 2 1 0
-   typewriter_echo "Now type {{1python snake -t custom}} to play with your design" 0 2 1 0
+   typewriter_echo "{{4 + }} {{3 It's looking good! }}" 0 2 1 0
+   typewriter_echo "Now type {{2 python snake -t custom }} to play with your design" 0 2 1 0
 
    inputLoop 'python snake -t custom' 'python snake --theme custom'
    python -B $dir -mt custom
@@ -177,14 +177,14 @@ fi
 if [ "$stage" -eq 7 ]; then
    header
    typewriter_echo "Use the help option to learn all the different spells." 0 2 1 0
-   typewriter_echo "Type {{1python snake --help}} to get help." 0 2 1 0
+   typewriter_echo "Type {{2 python snake --help }} to get help." 0 2 1 0
 
    inputLoop 'python snake --help' 'python snake -h'
    python -B $dir --help | sed "s/^/    /"
    saveLevel
    breakline
    typewriter_echo "Great! You've completed Make Snake!" 1 2 1 0
-   typewriter_echo "Press {{2ENTER}} to continue" 0 2 1 0
+   typewriter_echo "Press {{1 ENTER }} to continue" 0 2 1 0
    read
 fi
 
@@ -193,7 +193,7 @@ if [ "$stage" -ge 8 ]; then
    header
    echo "    Playground mode!"
    breakline
-   typewriter_echo "Try what you have learnt or type {{1exit}}" 0 2 1 0
+   typewriter_echo "Try what you have learnt or type {{2 exit }}" 0 2 1 0
    # Infinite loop
    while true; do
       # Read command
@@ -221,11 +221,11 @@ if [ "$stage" -ge 8 ]; then
               # Clean terminal + header
               header
               echo "    Playground mode!"
-              typewriter_echo "Remember: type {{1python snake --help}} for help or {{1exit}} to quit." 0 2 1 0
+              typewriter_echo "Remember: type {{2 python snake --help }} for help or {{2 exit }} to quit." 0 2 1 0
               breakline
           fi
       else
-          colour_echo "Need help? Type {{1python snake --help}} or {{1exit}} to finish." 0 2 1 0
+          colour_echo "Need help? Type {{2 python snake --help }} or {{2 exit }} to finish." 0 2 1 0
       fi
    done
 fi
