@@ -58,9 +58,23 @@ function saveLevelFromArg
 
 function saveLevel
 {
+   # get the experience before we increase app state
+   old_exp=`getExperience`
+
    # Increase stage and save level
    stage=`expr $stage + 1`
    kano-profile-cli save_app_state_variable make-snake level $stage
+
+   # experience is calculated taking into account the new app state
+   new_exp=`getExperience`
+
+   # set the difference
+   gained_exp=`expr $new_exp - $old_exp`
+}
+
+function getExperience
+{
+   kano-profile-cli get_xp
 }
 
 function loadLevel
@@ -68,6 +82,11 @@ function loadLevel
    kano-profile-cli load_app_state_variable make-snake level
 }
 
+function printGainedExp
+{
+    echo -e "\n"
+    typewriter_echo "Fantastic! You gained {{2 $gained_exp }} experience points!" 0 2 1 0
+}
 
 # Disable
 stty intr undef
@@ -101,6 +120,7 @@ if [ "$stage" -eq 0 ]; then
    inputLoop 'python snake'
    python -B $dir -m
    saveLevel
+   printGainedExp
 fi
 
 # Exercise 2: 'python snake -b m'
@@ -114,6 +134,7 @@ if [ "$stage" -eq 1 ]; then
    inputLoop 'python snake -b m' 'python snake --board m'
    python -B $dir -mb m
    saveLevel
+   printGainedExp
 fi
 
 # Exercise 3: 'python snake -l 3'
@@ -126,6 +147,7 @@ if [ "$stage" -eq 2 ]; then
     inputLoop 'python snake --lives 3' 'python snake -l 3'
     python -B $dir -ml 3
     saveLevel
+    printGainedExp
 fi
 
 # Exercise 4: 'python snake -s f'
@@ -137,6 +159,7 @@ if [ "$stage" -eq 3 ]; then
    inputLoop 'python snake -s f' 'python snake --speed f'
    python -B $dir -ms f
    saveLevel
+   printGainedExp
 fi
 
 # Exercise 5: 'python snake -t jungle'
@@ -149,6 +172,7 @@ if [ "$stage" -eq 4 ]; then
    inputLoop 'python snake -t jungle' 'python snake --theme jungle'
    python -B $dir -mt jungle
    saveLevel
+   printGainedExp
 fi
 
 # Exercise 6: 'python snake -e'
@@ -160,6 +184,7 @@ if [ "$stage" -eq 5 ]; then
    inputLoop 'python snake -e' 'python snake --editor'
    python -B $dir -me
    saveLevel
+   printGainedExp
 fi
 
 # Exercise 7: 'python snake -t custom'
@@ -171,6 +196,7 @@ if [ "$stage" -eq 6 ]; then
    inputLoop 'python snake -t custom' 'python snake --theme custom'
    python -B $dir -mt custom
    saveLevel
+   printGainedExp
 fi
 
 # Exercise 8: 'python snake --help'
@@ -182,6 +208,8 @@ if [ "$stage" -eq 7 ]; then
    inputLoop 'python snake --help' 'python snake -h'
    python -B $dir --help | sed "s/^/    /"
    saveLevel
+   printGainedExp
+
    breakline
    typewriter_echo "Great! You've completed Make Snake!" 1 2 1 0
    typewriter_echo "Press {{1 ENTER }} to continue" 0 2 1 0
