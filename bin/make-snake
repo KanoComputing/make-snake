@@ -84,7 +84,7 @@ function loadLevel
 
 function printGainedExp
 {
-    echo -e "\n"
+    breakline
     typewriter_echo "Fantastic! You gained {{2 $gained_exp }} experience points!" 0 2 1 0
 }
 
