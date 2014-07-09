@@ -24,6 +24,7 @@ speed = 0
 def update():
     game.update()
     graphics.update()
+    controls.clear()
 
 
 def step():
