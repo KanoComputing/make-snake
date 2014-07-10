@@ -102,7 +102,7 @@ if [ "$stage" -eq 0 ]; then
    typewriter_echo "Press {{1 ENTER }} to make it!" 0 2 1 0
    typewriter_echo "You can type {{2 exit }} at any point to quit." 0 2 1 0
 
-   read -p dummy
+   read
    python -B $dir -mt 80s
    saveLevel
    printGainedExp
