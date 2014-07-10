@@ -58,23 +58,9 @@ function saveLevelFromArg
 
 function saveLevel
 {
-   # get the experience before we increase app state
-   old_exp=`getExperience`
-
    # Increase stage and save level
    stage=`expr $stage + 1`
-   kano-profile-cli save_app_state_variable make-snake level $stage
-
-   # experience is calculated taking into account the new app state
-   new_exp=`getExperience`
-
-   # set the difference
-   gained_exp=`expr $new_exp - $old_exp`
-}
-
-function getExperience
-{
-   kano-profile-cli get_xp
+   gained_exp=`kano-profile-cli save_app_state_variable_get_xp_diff make-snake level $stage`
 }
 
 function loadLevel
