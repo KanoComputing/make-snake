@@ -242,8 +242,8 @@ if [ "$stage" -ge 9 ]; then
           done
           # Launch game
           python -B $dir $param
-          # Check for --help command
-          if [ $param == "--help" ] || [ $param == "-h" ]; then
+          # Check if the command contains a help option
+          if [[ $param == *"--help"* ]] || [[ $param == *"-h"* ]]; then
               breakline
           else
               # Clean terminal + header

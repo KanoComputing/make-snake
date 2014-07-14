@@ -75,7 +75,10 @@ def stop():
 
 
 def init():
-    global state, speed
+    global state, speed, last_update
+
+    # set the initial time for the first update with the current time
+    last_update = time.time()
 
     game.reset()
     graphics.drawGame()
