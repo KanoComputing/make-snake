@@ -80,6 +80,7 @@ def init():
     # set the initial time for the first update with the current time
     last_update = time.time()
 
+    game.score = 0
     game.reset()
     graphics.drawGame()
     state = 1
