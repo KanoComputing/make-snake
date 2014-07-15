@@ -53,7 +53,7 @@ def start():
     global playing, state
     playing = True
     # Launch editor mode
-    if (parser.options.editor):
+    if (parser.args.editor):
         os.system("/usr/share/make-snake/snake-editor/__main__.py")
         __main__.exit()
         exit()
@@ -85,12 +85,12 @@ def init():
     graphics.drawGame()
     state = 1
     try:
-        speed = config.game_speed[parser.options.speed]
+        speed = config.game_speed[parser.args.speed]
     except:
         speed = config.game_speed['m']
 
     try:
-        livesIn = int(parser.options.lives)
+        livesIn = int(parser.args.lives)
     except:
         livesIn = 1
 
