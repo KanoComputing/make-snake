@@ -27,10 +27,10 @@ def init():
     available_size = (width, height) = console.getTerminalSize()
 
     try:
-        chosen_size = config.game_sizes[parser.options.board]
-        passSize = parser.options.board
+        chosen_size = config.game_sizes[parser.args.board]
+        passSize = parser.args.board
     except:
-        print "Can't find board size: %s" % (parser.options.board)
+        print "Can't find board size: %s" % (parser.args.board)
         exit()
 
     # Calculate width

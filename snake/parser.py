@@ -6,38 +6,38 @@
 # License:   http://www.gnu.org/licenses/gpl-2.0.txt GNU General Public License v2
 #
 
-from optparse import OptionParser
+from argparse import ArgumentParser
 
-options = None
+args = None
 
 
 def init():
-    global options
+    global args
 
-    parser = OptionParser()
+    parser = ArgumentParser()
 
-    parser.add_option("-b", "--board",
-                      action="store", dest="board", default='l',
-                      help="Board size (s | m | l)")
+    parser.add_argument("-b", "--board",
+                        action="store", dest="board", default='l',
+                        help="Board size (s | m | l)")
 
-    parser.add_option("-s", "--speed",
-                      action="store", dest="speed", default='m',
-                      help="Game speed (s | m | f)")
+    parser.add_argument("-s", "--speed",
+                        action="store", dest="speed", default='m',
+                        help="Game speed (s | m | f)")
 
-    parser.add_option("-t", "--theme",
-                      action="store", dest="theme", default='minimal',
-                      help="Game theme (classic | minimal | jungle | 80s | custom)")
+    parser.add_argument("-t", "--theme",
+                        action="store", dest="theme", default='minimal',
+                        help="Game theme (classic | minimal | jungle | 80s | custom)")
 
-    parser.add_option("-m", "--ModeTutorial",
-                      action="store_true", dest="tutorial", default=False,
-                      help="Closes game after game over")
+    parser.add_argument("-m", "--ModeTutorial",
+                        action="store_true", dest="tutorial", default=False,
+                        help="Closes game after game over")
 
-    parser.add_option("-e", "--editor",
-                      action="store_true", dest="editor", default=False,
-                      help="Enter editor mode")
+    parser.add_argument("-e", "--editor",
+                        action="store_true", dest="editor", default=False,
+                        help="Enter editor mode")
 
-    parser.add_option("-l", "--lives",
-                      action="store", dest="lives", default="1",
-                      help="Number of lives (1 | 2 | 3 | 4 | 5 )")
+    parser.add_argument("-l", "--lives",
+                        action="store", dest="lives", default="1",
+                        help="Number of lives (1 | 2 | 3 | 4 | 5 )")
 
-    (options, args) = parser.parse_args()
+    args = parser.parse_args()

@@ -24,9 +24,9 @@ theme = None
 def init():
     global theme, colors_map
 
-    if parser.options.theme != 'custom':
+    if parser.args.theme != 'custom':
         try:
-            theme = themes.game_themes[parser.options.theme]
+            theme = themes.game_themes[parser.args.theme]
         except:
             theme = themes.game_themes['minimal']
     else:
