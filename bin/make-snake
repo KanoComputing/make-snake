@@ -37,7 +37,7 @@ function header
 function inputLoop
 {
    while true; do
-      read -p "    `colour_echo "{{0>}}"` "
+      read -p "    `colour_echo "{{0>}}"` " command
       if [ -z "$command" ]; then
         colour_echo "    {{6 - }} {{5 Need to enter a command: }} {{2 $1 }} {{5 or }} {{2 exit }}"
       elif [ "$command" == "$1" ] || [ "$command" == "$2" ]; then
