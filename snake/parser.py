@@ -29,7 +29,7 @@ def init():
                         help="Game speed (s | m | f)")
 
     parser.add_argument("-l", "--lives",
-                        action="store", dest="lives", default="1",
+                        action="store", dest="lives", default=1, type=int,
                         help="Number of lives (1 | 2 | 3 | 4 | 5 )")
 
     parser.add_argument("-t", "--theme",
