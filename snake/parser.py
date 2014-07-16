@@ -52,5 +52,5 @@ def init():
     except SystemExit:
         message, _, _ = run_cmd('colour_echo "    Press {{1 ENTER }} to try again."')
         print "\n    " + message
-        raw_input()
+        raw_input("    > ")
         sys.exit(0)

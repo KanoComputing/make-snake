@@ -37,7 +37,7 @@ function header
 function inputLoop
 {
    while true; do
-      read -p "    " command
+      read -p "    > " command
       if [ -z "$command" ]; then
         colour_echo "    {{6 - }} {{5 Need to enter a command: }} {{2 $1 }} {{5 or }} {{2 exit }}"
       elif [ "$command" == "$1" ] || [ "$command" == "$2" ]; then
@@ -101,7 +101,7 @@ if [ "$stage" -eq 0 ]; then
    typewriter_echo "Eat apples, but don't bite your tail!" 0 2 1 0
    typewriter_echo "Press {{1 ENTER }} to make it!" 0 2 1 0
 
-   read
+   read -p "    > "
    python -B $dir -mt 80s
    saveLevel
    printGainedExp
@@ -213,7 +213,7 @@ if [ "$stage" -eq 8 ]; then
    breakline
    typewriter_echo "Great! You've completed Make Snake!" 1 2 1 0
    typewriter_echo "Press {{1 ENTER }} to continue" 0 2 1 0
-   read
+   read -p "    > "
 fi
 
 # Playground
@@ -225,7 +225,7 @@ if [ "$stage" -ge 9 ]; then
    # Infinite loop
    while true; do
       # Read command
-      read -p "    " command
+      read -p "    > " command
       # Check for exit command
       if [ "$command" == "exit" ]; then
          exit 0
