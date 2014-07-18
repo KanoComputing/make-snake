@@ -6,17 +6,47 @@
 # License:   http://www.gnu.org/licenses/gpl-2.0.txt GNU General Public License v2
 #
 
-import sys
-from kano.utils import run_cmd
+from kano.utils import run_cmd, run_bg
 from argparse import ArgumentParser
 
 args = None
 
 
+class SnakeArgumentParser(ArgumentParser):
+
+    # @Override
+    def format_usage(self):
+        usage_text = super(SnakeArgumentParser, self).format_usage()
+        formated_usage = '\n'
+
+        for line in usage_text.splitlines():
+            formated_usage += '    ' + line + '\n'
+        return formated_usage
+
+    # @Override
+    def format_help(self):
+        help_text = super(SnakeArgumentParser, self).format_help()
+        formated_help = '\n'
+
+        for line in help_text.splitlines():
+            formated_help += '    ' + line + '\n'
+        return formated_help
+
+    # @Override
+    def error(self, message):
+        self.print_usage()
+        coloured_error, _, _ = run_cmd('colour_echo "{{8 x }} {{7 error: }}"')
+        print "\n    " + coloured_error.strip('\n') + message + '\n'
+
+        run_bg('echo "    `colour_echo "Press {{1 ENTER }} to try again."`"')
+        raw_input()
+        self.exit(2)
+
+
 def init():
     global args
 
-    parser = ArgumentParser()
+    parser = SnakeArgumentParser(prog='python snake')
 
     parser.add_argument("-b", "--board",
                         action="store", dest="board", default='l',
@@ -47,11 +77,4 @@ def init():
 
     # the argument parser prints a message when an incorrect argument was given then exits
     # this will cause the screen to be cleared immediately, so we catch the exit
-    try:
-        args = parser.parse_args()
-    except SystemExit:
-        message, _, _ = run_cmd('colour_echo "    Press {{1 ENTER }} to try again."')
-        print "\n    " + message
-        command_prompt, _, _ = run_cmd('colour echo "    {{0>}} "')
-        raw_input(command_prompt)
-        sys.exit(0)
+    args = parser.parse_args()
