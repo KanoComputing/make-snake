@@ -217,8 +217,8 @@ if [ "$stage" -eq 8 ]; then
    printGainedExp
 
    breakline
-   typewriter_echo "Great! You've completed Make Snake!" 1 2 1 0
-   typewriter_echo "Press {{1 ENTER }} to continue" 0 2 1 0
+   typewriter_echo "{{4 + }} {{3 Great! You've completed Make Snake!}}" 1 2 1 0
+   typewriter_echo "Press {{1 ENTER }} to continue" 0 0 1 0
    read
 fi
 
