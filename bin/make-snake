@@ -105,7 +105,7 @@ if [ "$stage" -eq 0 ]; then
    sleep 1
    typewriter_echo "Snake is one of the oldest and coolest games." 0 2 1 0
    typewriter_echo "Eat apples, but don't bite your tail!" 0 2 1 0
-   typewriter_echo "Press {{1 ENTER }} to make it!" 0 2 1 0
+   typewriter_echo "Press {{1 ENTER }} to make it!" 0 0 1 0
 
    read
    python -B $dir -mt 80s
