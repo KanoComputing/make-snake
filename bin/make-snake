@@ -82,7 +82,6 @@ function colourEcho
 
 # Disable
 stty intr undef
-stty eof '?'
 
 stage=0
 # Check first level
