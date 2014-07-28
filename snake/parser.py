@@ -75,6 +75,4 @@ def init():
                         action="store_true", dest="tutorial", default=False,
                         help="Closes game after game over")
 
-    # the argument parser prints a message when an incorrect argument was given then exits
-    # this will cause the screen to be cleared immediately, so we catch the exit
     args = parser.parse_args()

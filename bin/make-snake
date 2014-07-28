@@ -247,8 +247,12 @@ if [ "$stage" -ge 9 ]; then
           done
           # Launch game
           python -B $dir $param
+          rc=$?
+          # Check if snake exited due to parsing parameters
+          if [ $rc == 2 ]; then
+              breakline
           # Check if the command contains a help option
-          if [[ $param == *"--help"* ]] || [[ $param == *"-h"* ]]; then
+          elif [[ $param == *"--help"* ]] || [[ $param == *"-h"* ]]; then
               breakline
           else
               # Clean terminal + header
