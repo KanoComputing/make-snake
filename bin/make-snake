@@ -6,6 +6,18 @@
 # License: http://www.gnu.org/licenses/gpl-2.0.txt GNU General Public License v2
 #
 
+
+# Kanotracker keeps a log on how much we play make-snake
+time_start=$(date +%s)
+function kanotracker {
+
+    # compute time difference since we started ($time_start)
+    time_elapsed_secs=`date -d @$(($(date +%s)-$time_start)) +"%s"`
+    kano-profile-cli increment_app_runtime $0 $time_elapsed_secs
+}
+trap kanotracker EXIT
+
+
 dir="/usr/share/make-snake"
 
 function breakline
