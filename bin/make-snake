@@ -21,62 +21,62 @@ dir="/usr/share/make-snake"
 
 function breakline
 {
-   echo -ne "\n"
+    echo -ne "\n"
 }
 
 function header
 {
-   clear
-   breakline
-   breakline
-   echo "    .-----------------------------------------------------------."
-   echo "    |  .---._____     ______     ______     ______     _____    |"
-   echo "    | (  8  ____ \___/ ____ \___/ ____ \___/ ____ \___/ ____\`=- |"
-   echo "    |  '---'    \_____/    \_____/    \_____/    \_____/        |"
-   echo "    |   __  __       _            ____              _           |"
-   echo "    |  |  \/  | __ _| | _____    / ___| _ __   __ _| | _____    |"
-   echo "    |  | |\/| |/ _\` | |/ / _ \   \___ \| '_ \ / _\` | |/ / _ \   |"
-   echo "    |  | |  | | (_| |   <  __/    ___) | | | | (_| |   <  __/   |"
-   echo "    |  |_|  |_|\__,_|_|\_\___|   |____/|_| |_|\__,_|_|\_\___|   |"
-   echo "    |                                                           |"
-   echo "    '-----------------------------------------------------------'"
-   breakline
-   breakline
-   sleep 1
+    clear
+    breakline
+    breakline
+    echo "    .-----------------------------------------------------------."
+    echo "    |  .---._____     ______     ______     ______     _____    |"
+    echo "    | (  8  ____ \___/ ____ \___/ ____ \___/ ____ \___/ ____\`=- |"
+    echo "    |  '---'    \_____/    \_____/    \_____/    \_____/        |"
+    echo "    |   __  __       _            ____              _           |"
+    echo "    |  |  \/  | __ _| | _____    / ___| _ __   __ _| | _____    |"
+    echo "    |  | |\/| |/ _\` | |/ / _ \   \___ \| '_ \ / _\` | |/ / _ \   |"
+    echo "    |  | |  | | (_| |   <  __/    ___) | | | | (_| |   <  __/   |"
+    echo "    |  |_|  |_|\__,_|_|\_\___|   |____/|_| |_|\__,_|_|\_\___|   |"
+    echo "    |                                                           |"
+    echo "    '-----------------------------------------------------------'"
+    breakline
+    breakline
+    sleep 1
 }
 
 function inputLoop
 {
-   while true; do
-      read -p "    `colour_echo "{{0>}}"` " command
-      if [ -z "$command" ]; then
-        colourEcho "{{6 - }} {{5 Need to enter a command: }} {{2 $1 }} {{5 or }} {{2 exit }}"
-      elif [ "$command" == "$1" ] || [ "$command" == "$2" ]; then
-         break
-      elif [ "$command" == "exit" ]; then
-         exit
-      fi
-      colourEcho "Type {{2 $1 }} then {{1 ENTER }}"
-      breakline
-   done
+    while true; do
+        read -p "    `colour_echo "{{0>}}"` " command
+        if [ -z "$command" ]; then
+            colourEcho "{{6 - }} {{5 Need to enter a command: }} {{2 $1 }} {{5 or }} {{2 exit }}"
+        elif [ "$command" == "$1" ] || [ "$command" == "$2" ]; then
+            break
+        elif [ "$command" == "exit" ]; then
+            exit
+        fi
+        colourEcho "Type {{2 $1 }} then {{1 ENTER }}"
+        breakline
+    done
 }
 
 function saveLevelFromArg
 {
-   # Save level
-   kano-profile-cli save_app_state_variable make-snake level $1
+    # Save level
+    kano-profile-cli save_app_state_variable make-snake level $1
 }
 
 function saveLevel
 {
-   # Increase stage and save level
-   stage=`expr $stage + 1`
-   gained_exp=`kano-profile-cli save_app_state_variable_get_xp_diff make-snake level $stage`
+    # Increase stage and save level
+    stage=`expr $stage + 1`
+    gained_exp=`kano-profile-cli save_app_state_variable_get_xp_diff make-snake level $stage`
 }
 
 function loadLevel
 {
-   kano-profile-cli load_app_state_variable make-snake level
+    kano-profile-cli load_app_state_variable make-snake level
 }
 
 function printGainedExp
@@ -103,54 +103,54 @@ else
     stage=`loadLevel`
 
     if [ ! "$stage" -ge 8 ] && [ ! "$stage" -eq 0 ]; then
-       header
-       typewriter_echo "Where were we..." 0 2 1 0
+        header
+        typewriter_echo "Where were we..." 0 2 1 0
     fi
 fi
 
 
 # Exercise 1: 'press ENTER'
 if [ "$stage" -eq 0 ]; then
-   header
-   sleep 1
-   typewriter_echo "Snake is one of the oldest and coolest games." 0 2 1 0
-   typewriter_echo "Eat apples, but don't bite your tail!" 0 2 1 0
-   typewriter_echo "Press {{1 ENTER }} to make it!" 0 0 1 0
+    header
+    sleep 1
+    typewriter_echo "Snake is one of the oldest and coolest games." 0 2 1 0
+    typewriter_echo "Eat apples, but don't bite your tail!" 0 2 1 0
+    typewriter_echo "Press {{1 ENTER }} to make it!" 0 0 1 0
 
-   read
-   python -B $dir -mt 80s
-   saveLevel
-   printGainedExp
+    read
+    python -B $dir -mt 80s
+    saveLevel
+    printGainedExp
 fi
 
 # Exercise 2: 'python snake'
 if [ "$stage" -eq 1 ]; then
-   header
-   sleep 1
-   typewriter_echo "Well done! This is what we will achieve by the end!" 0 2 1 0
-   typewriter_echo "Ready to make it?" 0 2 1 0
-   typewriter_echo "Let's start simple." 0 2 1 0
-   typewriter_echo "Type {{2 python snake }} then press {{1 ENTER }}" 0 2 1 0
-   typewriter_echo "You can type {{2 exit }} at any point to quit." 0 2 1 0
+    header
+    sleep 1
+    typewriter_echo "Well done! This is what we will achieve by the end!" 0 2 1 0
+    typewriter_echo "Ready to make it?" 0 2 1 0
+    typewriter_echo "Let's start simple." 0 2 1 0
+    typewriter_echo "Type {{2 python snake }} then press {{1 ENTER }}" 0 2 1 0
+    typewriter_echo "You can type {{2 exit }} at any point to quit." 0 2 1 0
 
-   inputLoop 'python snake'
-   python -B $dir -m
-   saveLevel
-   printGainedExp
+    inputLoop 'python snake'
+    python -B $dir -m
+    saveLevel
+    printGainedExp
 fi
 
 # Exercise 3: 'python snake -b m'
 if [ "$stage" -eq 2 ]; then
-   header
-   typewriter_echo "{{4 + }} {{3 Nice! }}" 0 2 1 0
-   typewriter_echo "Want to make the game tougher?" 0 2 1 0
-   typewriter_echo "{{2 python snake }} launches the game. Change it by writing parameters after {{2 python snake }}." 0 2 1 0
-   typewriter_echo "You can make the board smaller with {{2 python snake -b m }}" 0 2 1 0
+    header
+    typewriter_echo "{{4 + }} {{3 Nice! }}" 0 2 1 0
+    typewriter_echo "Want to make the game tougher?" 0 2 1 0
+    typewriter_echo "{{2 python snake }} launches the game. Change it by writing parameters after {{2 python snake }}." 0 2 1 0
+    typewriter_echo "You can make the board smaller with {{2 python snake -b m }}" 0 2 1 0
 
-   inputLoop 'python snake -b m' 'python snake --board m'
-   python -B $dir -mb m
-   saveLevel
-   printGainedExp
+    inputLoop 'python snake -b m' 'python snake --board m'
+    python -B $dir -mb m
+    saveLevel
+    printGainedExp
 fi
 
 # Exercise 4: 'python snake -l 3'
@@ -168,115 +168,115 @@ fi
 
 # Exercise 5: 'python snake -s f'
 if [ "$stage" -eq 4 ]; then
-   header
-   typewriter_echo "Another way to increase difficulty is by changing the speed." 0 2 1 0
-   typewriter_echo "Let's try a fast game! {{2 python snake -s f }}" 0 2 1 0
+    header
+    typewriter_echo "Another way to increase difficulty is by changing the speed." 0 2 1 0
+    typewriter_echo "Let's try a fast game! {{2 python snake -s f }}" 0 2 1 0
 
-   inputLoop 'python snake -s f' 'python snake --speed f'
-   python -B $dir -ms f
-   saveLevel
-   printGainedExp
+    inputLoop 'python snake -s f' 'python snake --speed f'
+    python -B $dir -ms f
+    saveLevel
+    printGainedExp
 fi
 
 # Exercise 6: 'python snake -t jungle'
 if [ "$stage" -eq 5 ]; then
-   header
-   typewriter_echo "{{4 + }} {{3 Awesome! You've changed Snake using computer commands. }}" 0 2 1 0
-   typewriter_echo "Now try changing its theme (how Snake looks)." 0 2 1 0
-   typewriter_echo "Type {{2 python snake -t jungle }} to play Amazon style!" 0 2 1 0
+    header
+    typewriter_echo "{{4 + }} {{3 Awesome! You've changed Snake using computer commands. }}" 0 2 1 0
+    typewriter_echo "Now try changing its theme (how Snake looks)." 0 2 1 0
+    typewriter_echo "Type {{2 python snake -t jungle }} to play Amazon style!" 0 2 1 0
 
-   inputLoop 'python snake -t jungle' 'python snake --theme jungle'
-   python -B $dir -mt jungle
-   saveLevel
-   printGainedExp
+    inputLoop 'python snake -t jungle' 'python snake --theme jungle'
+    python -B $dir -mt jungle
+    saveLevel
+    printGainedExp
 fi
 
 # Exercise 7: 'python snake -e'
 if [ "$stage" -eq 6 ]; then
-   header
-   typewriter_echo "Do you know you can even create your own themes?" 0 2 1 0
-   typewriter_echo "Type {{2 python snake -e }} to access the editor." 0 2 1 0
+    header
+    typewriter_echo "Do you know you can even create your own themes?" 0 2 1 0
+    typewriter_echo "Type {{2 python snake -e }} to access the editor." 0 2 1 0
 
-   inputLoop 'python snake -e' 'python snake --editor'
-   python -B $dir -me
-   saveLevel
-   printGainedExp
+    inputLoop 'python snake -e' 'python snake --editor'
+    python -B $dir -me
+    saveLevel
+    printGainedExp
 fi
 
 # Exercise 8: 'python snake -t custom'
 if [ "$stage" -eq 7 ]; then
-   header
-   typewriter_echo "{{4 + }} {{3 It's looking good! }}" 0 2 1 0
-   typewriter_echo "Now type {{2 python snake -t custom }} to play with your design." 0 2 1 0
+    header
+    typewriter_echo "{{4 + }} {{3 It's looking good! }}" 0 2 1 0
+    typewriter_echo "Now type {{2 python snake -t custom }} to play with your design." 0 2 1 0
 
-   inputLoop 'python snake -t custom' 'python snake --theme custom'
-   python -B $dir -mt custom
-   saveLevel
-   printGainedExp
+    inputLoop 'python snake -t custom' 'python snake --theme custom'
+    python -B $dir -mt custom
+    saveLevel
+    printGainedExp
 fi
 
 # Exercise 9: 'python snake --help'
 if [ "$stage" -eq 8 ]; then
-   header
-   typewriter_echo "Use the help option to learn all the different spells." 0 2 1 0
-   typewriter_echo "Type {{2 python snake --help }} to get help." 0 2 1 0
+    header
+    typewriter_echo "Use the help option to learn all the different spells." 0 2 1 0
+    typewriter_echo "Type {{2 python snake --help }} to get help." 0 2 1 0
 
-   inputLoop 'python snake --help' 'python snake -h'
-   python -B $dir --help | sed "s/^/    /"
-   saveLevel
-   printGainedExp
+    inputLoop 'python snake --help' 'python snake -h'
+    python -B $dir --help | sed "s/^/    /"
+    saveLevel
+    printGainedExp
 
-   breakline
-   typewriter_echo "{{4 + }} {{3 Great! You've completed Make Snake!}}" 1 2 1 0
-   typewriter_echo "Press {{1 ENTER }} to continue" 0 0 1 0
-   read
+    breakline
+    typewriter_echo "{{4 + }} {{3 Great! You've completed Make Snake!}}" 1 2 1 0
+    typewriter_echo "Press {{1 ENTER }} to continue" 0 0 1 0
+    read
 fi
 
 # Playground
 if [ "$stage" -ge 9 ]; then
-   header
-   echo "    Playground mode!"
-   breakline
-   typewriter_echo "Try what you have learnt or type {{2 exit }}" 0 2 1 0
-   # Infinite loop
-   while true; do
-      # Read command
-      read -p "    `colour_echo "{{0>}}"` " command
-      # Check for exit command
-      if [ "$command" == "exit" ]; then
-         exit 0
-      fi
-      # Check for correct command
-      array=($command)
-      len="${#array[@]}"
-      if [ $len -ge 2 ] && [ ${array[0]} == "python" ] && [ ${array[1]} == "snake" ]; then
-          # Parse commands
-          param=""
-          space=" "
-          for (( index=2; index<$len; index++ )); do
-              param=${param}${array[$index]}${space}
-          done
-          # Launch game
-          python -B $dir $param
-          rc=$?
-          # Check if snake exited due to parsing parameters
-          if [ $rc == 2 ]; then
-              breakline
-          # Check if the command contains a help option
-          elif [[ $param == *"--help"* ]] || [[ $param == *"-h"* ]]; then
-              breakline
-          else
-              # Clean terminal + header
-              header
-              echo "    Playground mode!"
-              breakline
-              typewriter_echo "Remember: type {{2 python snake --help }} for help or {{2 exit }} to quit." 0 2 1 0
-          fi
-      else
-          colourEcho "Need help? Type {{2 python snake --help }} or {{2 exit }} to finish." 0 2 1 0
-          breakline
-      fi
-   done
+    header
+    echo "    Playground mode!"
+    breakline
+    typewriter_echo "Try what you have learnt or type {{2 exit }}" 0 2 1 0
+    # Infinite loop
+    while true; do
+        # Read command
+        read -p "    `colour_echo "{{0>}}"` " command
+        # Check for exit command
+        if [ "$command" == "exit" ]; then
+            exit 0
+        fi
+        # Check for correct command
+        array=($command)
+        len="${#array[@]}"
+        if [ $len -ge 2 ] && [ ${array[0]} == "python" ] && [ ${array[1]} == "snake" ]; then
+            # Parse commands
+            param=""
+            space=" "
+            for (( index=2; index<$len; index++ )); do
+                param=${param}${array[$index]}${space}
+            done
+            # Launch game
+            python -B $dir $param
+            rc=$?
+            # Check if snake exited due to parsing parameters
+            if [ $rc == 2 ]; then
+                breakline
+            # Check if the command contains a help option
+            elif [[ $param == *"--help"* ]] || [[ $param == *"-h"* ]]; then
+                breakline
+            else
+                # Clean terminal + header
+                header
+                echo "    Playground mode!"
+                breakline
+                typewriter_echo "Remember: type {{2 python snake --help }} for help or {{2 exit }} to quit." 0 2 1 0
+            fi
+        else
+            colourEcho "Need help? Type {{2 python snake --help }} or {{2 exit }} to finish." 0 2 1 0
+            breakline
+        fi
+    done
 fi
 
 exit 0
