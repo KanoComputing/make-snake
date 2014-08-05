@@ -5,4 +5,6 @@
 ./kdesktop/Snake.lnk /usr/share/kano-desktop/kdesk/kdesktop/
 ./kdesktop/make-snake.desktop /usr/share/applications/
 ./icon/snake.png /usr/share/kano-desktop/icons/
+./icon/snake.png /usr/share/icons/Kano/88x88/apps
 ./icon/Snake-hover.png /usr/share/kano-desktop/icons/
+./icon/snake.app /usr/share/applications
