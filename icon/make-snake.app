@@ -1,6 +1,7 @@
 {
     "title": "Make Snake",
     "tagline": "Eat apples and level up",
+    "description": "",
     "slug": "make-snake",
 
     "icon": "snake",
