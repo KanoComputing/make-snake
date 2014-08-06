@@ -1,7 +1,7 @@
 {
     "title": "Snake",
     "tagline": "Eat as many apples as you can!",
-    "description": "",
+    "description": "A simple Snake game, the first-ever to be played on a cellular phone! Eat as many apples as you can and you may even end up a Champion on Kano World. See how long you can make your Snake grow.",
     "slug": "snake-game",
 
     "icon": "snake",
