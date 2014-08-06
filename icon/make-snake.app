@@ -10,6 +10,6 @@
 
     "packages": [],
     "dependencies": ["make-snake"],
-    "launch_command": "make-snake",
+    "launch_command": "kano-launcher \"rxvt -title 'Make Snake' -e make-snake\" \"make-snake\"",
     "overrides": []
 }
