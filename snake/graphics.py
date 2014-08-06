@@ -11,6 +11,8 @@ import game
 import theme
 import curses
 import gameloop
+import parser
+
 screen = None
 
 
@@ -64,7 +66,11 @@ def drawGameOver():
     drawTile(-3, -6, "Speed:" + speedStr, theme.get_color('border'))
     drawTile(-3, -4, "Size:" + sizeStr, theme.get_color('border'))
     drawTile(-3, -2, "Lives:" + livesStr, theme.get_color('border'))
-    drawTile(-7, 2, " Press [ENTER] to continue ", theme.get_color('border'))
+
+    if parser.args.tutorial:
+        drawTile(-6, 2, " Press [ENTER] to exit ", theme.get_color('border'))
+    else:
+        drawTile(-7, 2, " Press [ENTER] to continue ", theme.get_color('border'))
 
 
 def drawScore():
