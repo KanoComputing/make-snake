@@ -11,6 +11,6 @@
 
     "packages": [],
     "dependencies": ["make-snake"],
-    "launch_command": "kano-launcher \"rxvt -title 'Make Snake' -e python -B /usr/share/make-snake -mt 80s\"",
+    "launch_command": "kano-launcher \"rxvt -title 'Make Snake' -e python -B /usr/share/make-snake -l 3 -t 80s\"",
     "overrides": []
 }
