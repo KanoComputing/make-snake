@@ -115,7 +115,7 @@ if [ "$stage" -eq 0 ]; then
     sleep 1
     typewriter_echo "Snake is one of the oldest and coolest games." 0 2 1 0
     typewriter_echo "Eat apples, but don't bite your tail!" 0 2 1 0
-    typewriter_echo "Press {{1 ENTER }} to make it!" 0 0 1 0
+    typewriter_echo "Press {{1 ENTER }} to see what you'll make!" 0 0 1 0
 
     read
     python -B $dir -mt 80s
@@ -127,10 +127,10 @@ fi
 if [ "$stage" -eq 1 ]; then
     header
     sleep 1
-    typewriter_echo "Well done! This is what we will achieve by the end!" 0 2 1 0
+    typewriter_echo "Well done!" 0 2 1 0
     typewriter_echo "Ready to make it?" 0 2 1 0
     typewriter_echo "Let's start simple." 0 2 1 0
-    typewriter_echo "Type {{2 python snake }} then press {{1 ENTER }}" 0 2 1 0
+    typewriter_echo "Type {{2 python snake }} then press {{1 ENTER }}. This is a Linux command – a spell that your computer's brain understands." 0 2 1 0
     typewriter_echo "You can type {{2 exit }} at any point to quit." 0 2 1 0
 
     inputLoop 'python snake'
@@ -144,8 +144,8 @@ if [ "$stage" -eq 2 ]; then
     header
     typewriter_echo "{{4 + }} {{3 Nice! }}" 0 2 1 0
     typewriter_echo "Want to make the game tougher?" 0 2 1 0
-    typewriter_echo "{{2 python snake }} launches the game. Change it by writing parameters after {{2 python snake }}." 0 2 1 0
-    typewriter_echo "You can make the board smaller with {{2 python snake -b m }}" 0 2 1 0
+    typewriter_echo "{{2 python snake }} launches the game. But you can write parameters after {{2 python snake }} to change how the game works." 0 2 1 0
+    typewriter_echo "You can make the board medium size with {{2 python snake -b m }}" 0 2 1 0
 
     inputLoop 'python snake -b m' 'python snake --board m'
     python -B $dir -mb m
@@ -157,8 +157,8 @@ fi
 if [ "$stage" -eq 3 ]; then
     header
     typewriter_echo "Another way to change the game is to add extra lives!" 0 2 1 0
-    typewriter_echo "You can add extra lives by adding the parameter {{2 -l }} or {{2 --lives }} then a number after {{2 python snake }}." 0 2 1 0
-    typewriter_echo "Type {{2 python snake --lives 3 }} to play a game with three lives." 0 2 1 0
+    typewriter_echo "You can add extra lives by adding {{2 --lives }} and a number after {{2 python snake }}. {{2 python snake }} is a command, and {{2 --lives }} is an argument." 0 2 1 0
+    typewriter_echo "Type {{2 python snake --lives 3 }} to make a game with three lives." 0 2 1 0
 
     inputLoop 'python snake --lives 3' 'python snake -l 3'
     python -B $dir -ml 3
@@ -169,7 +169,7 @@ fi
 # Exercise 5: 'python snake -s f'
 if [ "$stage" -eq 4 ]; then
     header
-    typewriter_echo "Another way to increase difficulty is by changing the speed." 0 2 1 0
+    typewriter_echo "Another way to increase difficulty is by changing the Snake's speed. We use the {{2 -s}} argument, with an {{2 f}} option to choose fast." 0 2 1 0
     typewriter_echo "Let's try a fast game! {{2 python snake -s f }}" 0 2 1 0
 
     inputLoop 'python snake -s f' 'python snake --speed f'
@@ -195,7 +195,7 @@ fi
 if [ "$stage" -eq 6 ]; then
     header
     typewriter_echo "Do you know you can even create your own themes?" 0 2 1 0
-    typewriter_echo "Type {{2 python snake -e }} to access the editor." 0 2 1 0
+    typewriter_echo "Type {{2 python snake -e }} to open the theme editor." 0 2 1 0
 
     inputLoop 'python snake -e' 'python snake --editor'
     python -B $dir -me
@@ -207,7 +207,7 @@ fi
 if [ "$stage" -eq 7 ]; then
     header
     typewriter_echo "{{4 + }} {{3 It's looking good! }}" 0 2 1 0
-    typewriter_echo "Now type {{2 python snake -t custom }} to play with your design." 0 2 1 0
+    typewriter_echo "Now type {{2 python snake -t custom }} to play with the design that you saved in the editor." 0 2 1 0
 
     inputLoop 'python snake -t custom' 'python snake --theme custom'
     python -B $dir -mt custom
@@ -218,7 +218,7 @@ fi
 # Exercise 9: 'python snake --help'
 if [ "$stage" -eq 8 ]; then
     header
-    typewriter_echo "Use the help option to learn all the different spells." 0 2 1 0
+    typewriter_echo "Use the help option to learn all the different spells, with commands, arguments, and options." 0 2 1 0
     typewriter_echo "Type {{2 python snake --help }} to get help." 0 2 1 0
 
     inputLoop 'python snake --help' 'python snake -h'
@@ -237,7 +237,7 @@ if [ "$stage" -ge 9 ]; then
     header
     echo "    Playground mode!"
     breakline
-    typewriter_echo "Try what you have learnt or type {{2 exit }}" 0 2 1 0
+    typewriter_echo "Try what you have learned, or just type {{2 exit }}" 0 2 1 0
     # Infinite loop
     while true; do
         # Read command
