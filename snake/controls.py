@@ -52,7 +52,7 @@ def update():
 
     if key > 0:
 
-        if key == keys['Q']:
+        if key == keys['q'] or key == keys['Q']:
             __main__.exit()
             exit()
 
