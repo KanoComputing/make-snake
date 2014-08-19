@@ -17,7 +17,8 @@ keys = {
     'LEFT': 0x44,
     'RIGHT': 0x43,
     'UP': 0x41,
-    'Q': 0x71,
+    'q': 0x71,
+    'Q': 0x51,
     'ENTER': 0x0a,
 }
 
