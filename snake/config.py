@@ -12,6 +12,7 @@ game_speed = {
     'f': 0.07,
 }
 
+# ASCII hex values
 keys = {
     'DOWN': 0x42,
     'LEFT': 0x44,

@@ -241,7 +241,7 @@ if [ "$stage" -ge 9 ]; then
     header
     echo "    Playground mode!"
     breakline
-    typewriter_echo "Try what you have learned, or just type {{2 exit }}" 0 2 1 0
+    typewriter_echo "Try what you have learned, type {{2 python snake --help }} for help" 0 2 1 0
     # Infinite loop
     while true; do
         # Read command
@@ -269,6 +269,10 @@ if [ "$stage" -ge 9 ]; then
             # Check if the command contains a help option
             elif [[ $param == *"--help"* ]] || [[ $param == *"-h"* ]]; then
                 breakline
+            # Check if command contains reset option
+            elif [[ $param == *"--reset"* ]] || [[ $param == *"-r"* ]]; then
+                typewriter_echo "{{4 + }} {{3 Make Snake has been reset, closing now...}}" 1 2 1 0
+                exit 0
             else
                 # Clean terminal + header
                 header

@@ -60,11 +60,7 @@ def start():
         exit()
     # Reset the game
     if (parser.args.reset):
-        msg = '{{6 - }} Are you sure you want to reset the challenges? {{1 [y]es/[N]o }} '
-        subprocess.call(['typewriter_echo', msg, '0', '0'])
-        var = raw_input().strip()
-        if var and (var.upper() == 'Y' or var.upper() == 'YES'):
-            os.system("kano-profile-cli save_app_state_variable_get_xp_diff make-snake level 0")
+        os.system("kano-profile-cli save_app_state_variable_get_xp_diff make-snake level 0")
         __main__.exit()
         exit()
 

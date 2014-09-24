@@ -71,11 +71,11 @@ def init():
                         action="store_true", dest="editor", default=False,
                         help="Enter editor mode")
 
-    parser.add_argument("-m", "--ModeTutorial",
+    parser.add_argument("-m", "--modeTutorial",
                         action="store_true", dest="tutorial", default=False,
                         help="Closes game after game over")
 
-    parser.add_argument("-r", "--Reset",
+    parser.add_argument("-r", "--reset",
                         action="store_true", dest="reset", default=False,
                         help="Resets the game to challenge 1")
 
