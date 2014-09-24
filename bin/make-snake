@@ -100,7 +100,8 @@ if [ `loadLevel` == "VARIABLE_NOT_FOUND" ]; then
     saveLevelFromArg 0
 else
     # Load the level
-    stage=`loadLevel`
+    # We do mod 10 here, because when reset the level is set to 10 rather than back to 0
+    stage=$((`loadLevel` % 10))
 
     if [ ! "$stage" -ge 8 ] && [ ! "$stage" -eq 0 ]; then
         header

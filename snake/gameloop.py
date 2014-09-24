@@ -60,7 +60,8 @@ def start():
         exit()
     # Reset the game
     if (parser.args.reset):
-        os.system("kano-profile-cli save_app_state_variable_get_xp_diff make-snake level 0")
+        # We use 10 as reset level, so the user does not lose badges and level
+        os.system("kano-profile-cli save_app_state_variable_get_xp_diff make-snake level 10")
         __main__.exit()
         exit()
 
