@@ -75,4 +75,8 @@ def init():
                         action="store_true", dest="tutorial", default=False,
                         help="Closes game after game over")
 
+    parser.add_argument("-r", "--Reset",
+                        action="store_true", dest="reset", default=False,
+                        help="Resets the game to challenge 1")
+
     args = parser.parse_args()

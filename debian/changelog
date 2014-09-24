@@ -1,3 +1,9 @@
+make-snake (1.2-1) unstable; urgency=low
+
+  * Added Reset option
+
+ -- Team Kano <dev@kano.me>  Thu, 27 Feb 2014 17:19:06 +0000
+
 make-snake (1.1-1) unstable; urgency=low
 
   * Reviewing for release
