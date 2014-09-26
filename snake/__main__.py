@@ -18,9 +18,10 @@ import gamestate as gs
 from kano.utils import is_gui
 
 
-def exit():
+def exit(save_state=True):
     graphics.exit()
-    gs.save_state()
+    if save_state:
+        gs.save_state()
 
 
 def run():
