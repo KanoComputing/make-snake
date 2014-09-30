@@ -29,7 +29,22 @@ food_values = {
     'apple': 3,
 }
 
-game_sizes = {
+# For resolution <= 1080(w)
+game_sizes_small = {
+    's': (20, 15),
+    'm': (25, 20),
+    'l': (30, 25),
+}
+
+# For resolution <= 1280(w)
+game_sizes_medium = {
+    's': (20, 15),
+    'm': (25, 20),
+    'l': (35, 30),
+}
+
+# For resolution > 1280(w)
+game_sizes_big = {
     's': (25, 20),
     'm': (35, 30),
     'l': (46, 40),

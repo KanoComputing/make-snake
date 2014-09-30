@@ -14,6 +14,7 @@ import os
 import time
 
 from kano.window import _get_window_by_child_pid, gdk_window_settings
+from kano_settings.system.display import get_status
 
 
 def init():
@@ -27,7 +28,16 @@ def init():
     available_size = (width, height) = console.getTerminalSize()
 
     try:
-        chosen_size = config.game_sizes[parser.args.board]
+        # Check for screen resolution
+        resolution = get_status()['resolution']
+        w = resolution.split('x')[0]
+        # Select a set of sizes depending on the screen resolution
+        if w > 1280:
+            chosen_size = config.game_sizes_big[parser.args.board]
+        if w <= 1280 and w > 1080:
+            chosen_size = config.game_sizes_medium[parser.args.board]
+        else:
+            chosen_size = config.game_sizes_small[parser.args.board]
         passSize = parser.args.board
     except:
         print "Can't find board size: %s" % (parser.args.board)
