@@ -307,7 +307,8 @@ if [ "$mod_stage" -ge 9 ]; then
             else
                 # Clean terminal + header
                 header
-                echo "    Playground mode!"
+                colourEcho "{{3Playground mode}}"
+                breakline
                 breakline
                 typewriter_echo "Remember: type {{2 python snake --help }} for help or {{2 exit }} to quit." 0 2 1 0
             fi
