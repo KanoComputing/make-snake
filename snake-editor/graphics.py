@@ -80,13 +80,29 @@ def drawCurrentMenu():
             else:
                 text = '  ' + string[0]
             drawTile(x, y, text, theme.get_color('menu'))
+        # Naming mode
+        elif controls.nameMode:
+            if controls.currentIdx == idx:
+                text = '> ' + string[0]
+                if len(controls.tile) > 0:
+                    text += ' : ' + controls.tile
+                else:
+                    text += ' : '
+            else:
+                text = '  ' + string[0]
+            drawTile(x, y, text, theme.get_color('menu'))
         # Rest
         else:
             if controls.currentIdx == idx:
                 text = '> ' + string[0]
             else:
                 text = '  ' + string[0]
-            drawTile(x, y, text, theme.get_color('menu'))
+            # Exception: show delete in red if theme is custom_theme
+            if string[0] == 'Delete Theme' and controls.theme_name == theme.CUSTOM_THEME:
+                colour = theme.get_color('Red')
+            else:
+                colour = theme.get_color('menu')
+            drawTile(x, y, text, colour)
         y += menuYInc
         idx += 1
 

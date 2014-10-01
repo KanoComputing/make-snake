@@ -119,7 +119,9 @@ fi
 # Exercise 1: 'press ENTER'
 if [ "$mod_stage" -eq 0 ]; then
     header
-    sleep 1
+    colourEcho "{{3Challenge [1/9]: Let's play!}}"
+    breakline
+    breakline
     typewriter_echo "Snake is one of the oldest and coolest games." 0 2 1 0
     typewriter_echo "Eat apples, but don't bite your tail!" 0 2 1 0
     typewriter_echo "Press {{1 ENTER }} to see what you'll make!" 0 0 1 0
@@ -133,8 +135,9 @@ fi
 # Exercise 2: 'python snake'
 if [ "$mod_stage" -eq 1 ]; then
     header
-    sleep 1
-    typewriter_echo "Well done!" 0 2 1 0
+    colourEcho "{{3Challenge [2/9]: Your first spell}}"
+    breakline
+    breakline
     typewriter_echo "Ready to make it?" 0 2 1 0
     typewriter_echo "Let's start simple." 0 2 1 0
     typewriter_echo "Type {{2 python snake }} then press {{1 ENTER }}." 0 2 1 0
@@ -150,7 +153,9 @@ fi
 # Exercise 3: 'python snake -b m'
 if [ "$mod_stage" -eq 2 ]; then
     header
-    typewriter_echo "{{4 + }} {{3 Nice! }}" 0 2 1 0
+    colourEcho "{{3Challenge [3/9]: Game changer}}"
+    breakline
+    breakline
     typewriter_echo "Want to make the game tougher?" 0 2 1 0
     typewriter_echo "{{2 python snake }} launches the game." 0 2 1 0
     typewriter_echo "But you can write parameters after {{2 python snake }} to change how the game works." 0 2 1 0
@@ -165,6 +170,9 @@ fi
 # Exercise 4: 'python snake -l 3'
 if [ "$mod_stage" -eq 3 ]; then
     header
+    colourEcho "{{3Challenge [4/9]: Long live Snake}}"
+    breakline
+    breakline
     typewriter_echo "Another way to change the game is to add extra lives!" 0 2 1 0
     typewriter_echo "You can add extra lives by adding {{2 --lives }} and a number after {{2 python snake }}." 0 2 1 0
     typewriter_echo "{{2 python snake }} is a command, and {{2 --lives }} is an argument." 0 2 1 0
@@ -179,6 +187,9 @@ fi
 # Exercise 5: 'python snake -s f'
 if [ "$mod_stage" -eq 4 ]; then
     header
+    colourEcho "{{3Challenge [5/9]: Speed it up}}"
+    breakline
+    breakline
     typewriter_echo "Another way to increase difficulty is by changing the Snake's speed." 0 2 1 0
     typewriter_echo "We use the {{2 -s}} argument, with an {{2 f}} option to choose fast." 0 2 1 0
     typewriter_echo "Let's try a fast game! {{2 python snake -s f }}" 0 2 1 0
@@ -192,8 +203,11 @@ fi
 # Exercise 6: 'python snake -t jungle'
 if [ "$mod_stage" -eq 5 ]; then
     header
-    typewriter_echo "{{4 + }} {{3 Awesome! You've changed Snake using computer commands. }}" 0 2 1 0
-    typewriter_echo "Now try changing its theme (how Snake looks)." 0 2 1 0
+    colourEcho "{{3Challenge [6/9]: Amazon style}}"
+    breakline
+    breakline
+    typewriter_echo "You are changing Snake using computer commands." 0 2 1 0
+    typewriter_echo "Now try modifying its theme (how Snake looks)." 0 2 1 0
     typewriter_echo "Type {{2 python snake -t jungle }} to play Amazon style!" 0 2 1 0
 
     inputLoop 'python snake -t jungle' 'python snake --theme jungle'
@@ -205,6 +219,9 @@ fi
 # Exercise 7: 'python snake -e'
 if [ "$mod_stage" -eq 6 ]; then
     header
+    colourEcho "{{3Challenge [7/9]: Make my own theme}}"
+    breakline
+    breakline
     typewriter_echo "Do you know you can even create your own themes?" 0 2 1 0
     typewriter_echo "Type {{2 python snake -e }} to open the theme editor." 0 2 1 0
 
@@ -217,8 +234,11 @@ fi
 # Exercise 8: 'python snake -t custom'
 if [ "$mod_stage" -eq 7 ]; then
     header
-    typewriter_echo "{{4 + }} {{3 It's looking good! }}" 0 2 1 0
-    typewriter_echo "Now type {{2 python snake -t custom }} to play with the design that you saved in the editor." 0 2 1 0
+    colourEcho "{{3Challenge [8/9]: Show your colours}}"
+    breakline
+    breakline
+    typewriter_echo "It's looking good!" 0 2 1 0
+    typewriter_echo "Type {{2 python snake -t custom }} to play with the design that you saved in the editor." 0 2 1 0
 
     inputLoop 'python snake -t custom' 'python snake --theme custom'
     python -B $dir -mt custom
@@ -229,6 +249,9 @@ fi
 # Exercise 9: 'python snake --help'
 if [ "$mod_stage" -eq 8 ]; then
     header
+    colourEcho "{{3Challenge [9/9]: Life saver}}"
+    breakline
+    breakline
     typewriter_echo "Use the help option to learn all the different spells, with commands, arguments, and options." 0 2 1 0
     typewriter_echo "Type {{2 python snake --help }} to get help." 0 2 1 0
 
@@ -246,7 +269,8 @@ fi
 # Playground
 if [ "$mod_stage" -ge 9 ]; then
     header
-    echo "    Playground mode!"
+    colourEcho "{{3Playground mode}}"
+    breakline
     breakline
     typewriter_echo "Try what you have learned, type {{2 python snake --help }} for help" 0 2 1 0
     # Infinite loop
@@ -283,7 +307,8 @@ if [ "$mod_stage" -ge 9 ]; then
             else
                 # Clean terminal + header
                 header
-                echo "    Playground mode!"
+                colourEcho "{{3Playground mode}}"
+                breakline
                 breakline
                 typewriter_echo "Remember: type {{2 python snake --help }} for help or {{2 exit }} to quit." 0 2 1 0
             fi

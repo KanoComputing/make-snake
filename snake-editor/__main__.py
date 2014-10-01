@@ -22,9 +22,9 @@ def exit():
 def run():
     try:
         # Init the editor
-        stage.init()
         graphics.init()
         theme.init()
+        stage.init()
 
         # Start the editor
         gameloop.start()

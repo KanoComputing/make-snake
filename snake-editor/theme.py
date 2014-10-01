@@ -11,11 +11,16 @@ import xml.etree.ElementTree as ET
 import os
 import shutil
 import sys
+import controls
+import menus
 
 from kano.utils import ensure_dir
 
-app_dir = os.path.expanduser('~/Snake-content')
-custom_file = app_dir + '/custom_theme'
+CUSTOM_THEME = 'custom_theme'
+THEMES_DIR = os.path.expanduser('~/Snake-content')
+
+theme_name = CUSTOM_THEME
+theme_file = THEMES_DIR + '/' + CUSTOM_THEME
 colors_map = {}
 theme = {
     "colors": {
@@ -42,18 +47,32 @@ theme = {
 
 
 def init():
-    global theme, colors_map
-
-    # copy custom_theme if it doesn't exist
-    if not os.path.exists(custom_file):
-        src_file = '/usr/share/make-snake/custom_theme'
+    # Copy custom_theme from /usr/share if necessary
+    if not os.path.exists(theme_file):
+        src_file = '/usr/share/make-snake/%s' % CUSTOM_THEME
         if not os.path.exists(src_file):
             sys.exit('Error: custom_theme missing from home and /usr/share')
-        ensure_dir(app_dir)
-        shutil.copyfile(src_file, custom_file)
+        ensure_dir(THEMES_DIR)
+        shutil.copyfile(src_file, theme_file)
+    load_theme()
+    menus.update_naming()
 
-    load_custom_theme()
-    colors_map = get_colors_map()
+
+def update():
+    # Ignore 'Back'
+    if controls.theme_name != 'Back':
+        # refreshes the name before writing to the file
+        update_name()
+        # create file
+        if not os.path.exists(theme_file):
+            src_file = '/usr/share/make-snake/%s' % CUSTOM_THEME
+            shutil.copyfile(src_file, theme_file)
+    load_theme()
+
+
+def update_name():
+    global theme_file
+    theme_file = THEMES_DIR + '/' + controls.theme_name
 
 
 def get_color(key):
@@ -80,9 +99,9 @@ def get_colors_map():
 # Parameter: background, font
 def set_color_theme(category, parameter, value):
     try:
-        with open(custom_file):
+        with open(theme_file):
             # Parse XML
-            tree = ET.parse(custom_file)
+            tree = ET.parse(theme_file)
             root = tree.getroot()
             idx = 1
             if (category == 'Background'):
@@ -96,7 +115,7 @@ def set_color_theme(category, parameter, value):
             elif (category == 'Lives'):
                 idx = 4
             root[0][idx].set(parameter, value)
-            tree.write(custom_file)
+            tree.write(theme_file)
     except IOError:
         pass
 
@@ -104,9 +123,9 @@ def set_color_theme(category, parameter, value):
 # Category: bg, snake-body, apple, border-h, border-v, border-c, lives
 def set_tiles_theme(category, value):
     try:
-        with open(custom_file):
+        with open(theme_file):
             # Parse XML
-            tree = ET.parse(custom_file)
+            tree = ET.parse(theme_file)
             root = tree.getroot()
             idx = 0
             if (category == 'Background symbol'):
@@ -124,17 +143,18 @@ def set_tiles_theme(category, value):
             elif (category == 'Lives symbol'):
                 idx = 6
             root[1][idx].text = value
-            tree.write(custom_file)
+            tree.write(theme_file)
     except IOError:
         pass
 
 
-def load_custom_theme():
+def load_theme():
+    global colors_map
 
     try:
-        with open(custom_file):
+        with open(theme_file):
             # Parse XML
-            tree = ET.parse(custom_file)
+            tree = ET.parse(theme_file)
             root = tree.getroot()
             # Colors
             theme['colors']['bg'] = (get_curses_color(root[0][0].attrib.get('font')),
@@ -155,6 +175,8 @@ def load_custom_theme():
             theme['tiles']['border-v'] = root[1][4].text
             theme['tiles']['border-c'] = root[1][5].text
             theme['tiles']['lives'] = root[1][6].text
+
+            colors_map = get_colors_map()
 
     except IOError:
         pass
