@@ -8,7 +8,6 @@
 
 import os
 import time
-import subprocess
 import graphics
 import game
 import __main__
@@ -53,16 +52,11 @@ def step():
 def start():
     global playing, state
     playing = True
+
     # Launch editor mode
     if (parser.args.editor):
         os.system("/usr/share/make-snake/snake-editor/__main__.py")
         __main__.exit()
-        exit()
-    # Reset the game
-    if (parser.args.reset):
-        # We use 10 as reset level, so the user does not lose badges and level
-        os.system("kano-profile-cli save_app_state_variable make-snake level 10")
-        __main__.exit(False)
         exit()
 
     while playing:

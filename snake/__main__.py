@@ -28,9 +28,9 @@ def run():
     try:
         # Init the game
         parser.init()
-        stage.init()
         graphics.init()
         theme.init()
+        stage.init()
         game.reset()
         gs.load_state()
 

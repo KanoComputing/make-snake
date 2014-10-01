@@ -5,6 +5,8 @@
 # Copyright (C) 2013, 2014 Kano Computing Ltd.
 # License: http://www.gnu.org/licenses/gpl-2.0.txt GNU General Public License v2
 #
+# Contributors: https://github.com/alexaverill
+#
 
 import os
 import sys
@@ -13,10 +15,13 @@ import shutil
 import parser
 import themes
 import xml.etree.ElementTree as ET
-
 from kano.utils import ensure_dir
+
+CUSTOM_THEME_PATH = '/usr/share/make-snake/custom_theme'
+DEFAULT_THEMES = ['classic', 'minimal', 'jungle', '80s']
+
 app_dir = os.path.expanduser('~/Snake-content')
-custom_file = app_dir + '/custom_theme'
+CUSTOM_FILE = app_dir + '/custom_theme'
 colors_map = {}
 theme = None
 
@@ -24,20 +29,25 @@ theme = None
 def init():
     global theme, colors_map
 
-    if parser.args.theme != 'custom':
+    if parser.args.theme in DEFAULT_THEMES:
         try:
             theme = themes.game_themes[parser.args.theme]
         except:
             theme = themes.game_themes['minimal']
     else:
         # copy custom_theme if it doesn't exist
-        if not os.path.exists(custom_file):
-            src_file = '/usr/share/make-snake/custom_theme'
-            if not os.path.exists(src_file):
+        if not os.path.exists(CUSTOM_FILE):
+            if not os.path.exists(CUSTOM_THEME_PATH):
                 sys.exit('Error: custom_theme missing from home and /usr/share')
             ensure_dir(app_dir)
-            shutil.copyfile(src_file, custom_file)
-        load_custom_theme()
+            shutil.copyfile(CUSTOM_THEME_PATH, CUSTOM_FILE)
+        # Load the customn theme
+        theme_list = update_theme_list()
+        if parser.args.theme in theme_list:
+            load_theme()
+        else:
+            print "ERRORRRRR"
+            sys.exit('Not correct theme')
 
     colors_map = get_colors_map()
 
@@ -62,15 +72,16 @@ def get_colors_map():
     return out
 
 
-def load_custom_theme():
+def load_theme():
     global theme
 
     try:
-        with open(custom_file):
+        theme_file = app_dir + '/' + parser.args.theme
+        with open(theme_file):
             # Init theme
             theme = themes.game_themes['classic']
             # Parse XML
-            tree = ET.parse(custom_file)
+            tree = ET.parse(theme_file)
             root = tree.getroot()
             # Colors
             theme['colors']['bg'] = (get_curses_color(root[0][0].attrib.get('font')),
@@ -113,3 +124,7 @@ def get_curses_color(string):
         return curses.COLOR_CYAN
     else:
         return curses.COLOR_WHITE
+
+
+def update_theme_list():
+    return os.listdir(app_dir)
