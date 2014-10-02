@@ -18,7 +18,7 @@ import menus
 
 from kano.utils import ensure_dir
 
-CUSTOM_THEME = 'custom_theme'
+CUSTOM_THEME = 'custom_theme.xml'
 THEMES_DIR = os.path.expanduser('~/Snake-content')
 
 theme_name = CUSTOM_THEME
@@ -74,7 +74,7 @@ def update():
 
 def update_name():
     global theme_file
-    theme_file = THEMES_DIR + '/' + controls.theme_name
+    theme_file = THEMES_DIR + '/' + controls.theme_name + '.xml'
 
 
 def get_color(key):

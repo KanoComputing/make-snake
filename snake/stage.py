@@ -10,6 +10,7 @@ import console
 import math
 import config
 import parser
+import __main__
 import os
 import time
 
@@ -41,6 +42,7 @@ def init():
         passSize = parser.args.board
     except:
         print "Can't find board size: %s" % (parser.args.board)
+        __main__.exit()
         exit()
 
     # Calculate width

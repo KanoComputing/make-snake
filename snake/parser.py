@@ -8,10 +8,10 @@
 # Contributors: https://github.com/alexaverill
 #
 
-import os
+import utils
+
 from kano.utils import run_cmd, run_bg
 from argparse import ArgumentParser
-from theme import update_theme_list, DEFAULT_THEMES
 
 args = None
 
@@ -44,25 +44,6 @@ class SnakeArgumentParser(ArgumentParser):
 
         run_bg('echo "    `colour_echo "Press {{1 ENTER }} to try again."`"')
         raw_input()
-        self.exit(2)
-
-    def print_themes(self):
-        # List of default themes
-        default_themes = "{{3Default themes}}: "
-        for l in DEFAULT_THEMES:
-            default_themes += '{{2' + l + "}} | "
-        default_themes = default_themes[:-2]
-        # List of custom themes
-        custom_themes = "{{3Custom themes}}: "
-        theme_list = update_theme_list()
-        for l in theme_list:
-            custom_themes += '{{2' + l + "}} | "
-        custom_themes = custom_themes[:-2]
-        # Print info
-        default_themes, _, _ = run_cmd('colour_echo "%s"' % default_themes)
-        custom_themes, _, _ = run_cmd('colour_echo "%s"' % custom_themes)
-        print "\n    " + default_themes
-        print "    " + custom_themes + '\n'
         self.exit(2)
 
 
@@ -105,14 +86,24 @@ def init():
                         action="store_true", dest="reset", default=False,
                         help="Resets the game to challenge 1")
 
+    parser.add_argument("--share",
+                        action="store_true", dest="share", default=False,
+                        help="Share your favourite theme with the world")
+
     args = parser.parse_args()
+
+    # Check for share argument
+    if (args.share):
+        utils.share_theme()
+
+    # Check for valid theme
+    if (args.theme and args.theme != 'minimal'):
+        utils.check_valid_theme(args.theme)
 
     # Check for --print argument
     if (args.print_themes):
-        parser.print_themes()
+        utils.print_themes()
 
     # Check for reset argument
     if (args.reset):
-        # We use 10 as reset level, so the user does not lose badges and level
-        os.system("kano-profile-cli save_app_state_variable make-snake level 10")
-        exit(0)
+        utils.reset_game()

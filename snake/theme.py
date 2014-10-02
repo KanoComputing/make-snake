@@ -42,12 +42,7 @@ def init():
             ensure_dir(app_dir)
             shutil.copyfile(CUSTOM_THEME_PATH, CUSTOM_FILE)
         # Load the customn theme
-        theme_list = update_theme_list()
-        if parser.args.theme in theme_list:
-            load_theme()
-        else:
-            print "ERRORRRRR"
-            sys.exit('Not correct theme')
+        load_theme()
 
     colors_map = get_colors_map()
 
@@ -76,7 +71,7 @@ def load_theme():
     global theme
 
     try:
-        theme_file = app_dir + '/' + parser.args.theme
+        theme_file = app_dir + '/' + parser.args.theme + '.xml'
         with open(theme_file):
             # Init theme
             theme = themes.game_themes['classic']
@@ -127,4 +122,9 @@ def get_curses_color(string):
 
 
 def update_theme_list():
-    return os.listdir(app_dir)
+    themes = os.listdir(app_dir)
+    # Remove everything that is not xml
+    for t in themes:
+        if not t.endswith('.xml'):
+            themes.remove(t)
+    return themes

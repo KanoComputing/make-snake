@@ -30,7 +30,7 @@ background = [["Background colour", colors], ["Symbol colour", colors], ["Backgr
 # Edit Menu
 elements = [["Snake", snake], ["Lives", lives], ["Apples", apple], ["Back", None]]
 board = [["Background", background], ["Border", border], ["Back", 0]]
-delete = [["Do you really want to delete this theme?", "yep"], ["Yes", "delete"], ["No", 0]]
+delete = [["Do you really want to delete this theme?", None], ["Yes", "delete"], ["No", 0]]
 
 editMain = [["Board", board], ["Elements", elements], ["Delete Theme", delete], ["Back", 0]]
 
@@ -45,9 +45,15 @@ def update_naming():
     global naming
 
     themes = os.listdir(THEMES_DIR)
+    for t in themes:
+        # Remove everything that is not xml
+        if not t.endswith('.xml'):
+            themes.remove(t)
     # clear list
     naming[:] = []
     for t in themes:
+        # Remove .xml extension
+        t = os.path.splitext(t)[0]
         naming.append([t, "existing"])
     naming.append(["Back", 0])
     return

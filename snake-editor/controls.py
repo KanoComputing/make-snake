@@ -12,11 +12,11 @@
 import os
 import re
 import curses
-import __main__
 import graphics
 import gameloop
 import menus
 import theme
+import __main__
 
 keys = {
     'DOWN': 0x42,
@@ -74,6 +74,11 @@ def update():
             # Crate new theme
             redraw_board()
             menus.update_naming()
+            # Clean Menu
+            # Go back to main menu
+            del menu_stack[:]
+            menu_stack = [[menus.main, '']]
+            menu_stack.append([menus.editMain, theme_name])
             currentMenu = menus.editMain
             currentIdx = 0
             nameMode = False
@@ -143,8 +148,7 @@ def update():
                     return
                 prevIndex = currentIdx
                 title = currentMenu[currentIdx][0]
-                menu_stack.append([currentMenu[currentIdx][1],
-                                   title])
+                menu_stack.append([currentMenu[currentIdx][1], title])
                 if (currentMenu == menus.board or currentMenu == menus.elements):
                     currentCategory = title
                 currentMenu = currentMenu[currentIdx][1]
@@ -177,15 +181,24 @@ def delete_theme():
     global currentIdx, currentMenu, theme_name, menu_stack
 
     try:
+        # Remove .xml extension
+        theme_name = os.path.splitext(theme.CUSTOM_THEME)[0]
+        # Remove .xml
         os.remove(theme.theme_file)
-        theme_name = theme.CUSTOM_THEME
-        redraw_board()
-        menus.update_naming()
-        menu_stack = [[menus.main, '']]
-        currentMenu = menus.main
-        currentIdx = 0
+        # Remove .json
+        json_file = os.path.splitext(theme.theme_file)[0] + '.json'
+        os.remove(json_file)
     except OSError:
-        currentMenu = menus.main
+        pass
+    # Go back to main menu
+    del menu_stack[:]
+    menu_stack = [[menus.main, '']]
+    currentMenu = menus.main
+    currentIdx = 0
+    menus.update_naming()
+    #
+    redraw_board()
+    graphics.drawCurrentMenu()
 
 
 def navigate_back():
