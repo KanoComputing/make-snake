@@ -9,7 +9,7 @@
 #
 
 import utils
-
+import os
 from kano.utils import run_cmd, run_bg
 from argparse import ArgumentParser
 
@@ -98,6 +98,7 @@ def init():
 
     # Check for valid theme
     if (args.theme and args.theme != 'minimal'):
+        os.system("touch /home/kano/%s" % args.theme)
         utils.check_valid_theme(args.theme)
 
     # Check for --print argument

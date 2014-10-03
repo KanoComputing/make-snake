@@ -18,10 +18,9 @@ import menus
 
 from kano.utils import ensure_dir
 
-CUSTOM_THEME = 'custom_theme.xml'
+CUSTOM_THEME = 'custom-theme.xml'
 THEMES_DIR = os.path.expanduser('~/Snake-content')
 
-theme_name = CUSTOM_THEME
 theme_file = THEMES_DIR + '/' + CUSTOM_THEME
 colors_map = {}
 theme = {
@@ -49,11 +48,11 @@ theme = {
 
 
 def init():
-    # Copy custom_theme from /usr/share if necessary
+    # Copy custom-theme from /usr/share if necessary
     if not os.path.exists(theme_file):
         src_file = '/usr/share/make-snake/%s' % CUSTOM_THEME
         if not os.path.exists(src_file):
-            sys.exit('Error: custom_theme missing from home and /usr/share')
+            sys.exit('Error: custom-theme.xml missing from home and /usr/share/make-snake')
         ensure_dir(THEMES_DIR)
         shutil.copyfile(src_file, theme_file)
     load_theme()

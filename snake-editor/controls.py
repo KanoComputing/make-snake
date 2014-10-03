@@ -35,7 +35,7 @@ currentCategory = None
 prevIndex = 0
 symbolMode = False
 nameMode = False
-theme_name = 'custom_theme'
+theme_name = 'custom-theme'
 tile = ''
 
 
@@ -68,13 +68,12 @@ def update():
             theme_name = tile
             tile = ''
             # Sanitise name
-            theme_name = theme_name.replace(" ", "_")  # Replaces spaces
+            theme_name = theme_name.replace(" ", "-")  # Replaces spaces
             theme_name = re.sub(r'[^a-zA-Z0-9_ ]', r'', theme_name)  # Remove special characters
             theme_name = theme_name[:20]  # Trim to 20 characters
-            # Crate new theme
+            # Crate new theme and refresh
             redraw_board()
             menus.update_naming()
-            # Clean Menu
             # Go back to main menu
             del menu_stack[:]
             menu_stack = [[menus.main, '']]
@@ -129,6 +128,10 @@ def update():
             elif currentMenu[currentIdx][1] == "delete":
                 delete_theme()
                 return
+            elif currentMenu[currentIdx][1] == "screenshot":
+                take_screenshot()
+                menus.editMain[3] = ["Take Screenshot [TAKEN]", None]
+                return
             # Modify existing theme
             elif currentMenu[currentIdx][1] == "existing":
                 # pass the saved name from the theme
@@ -143,8 +146,9 @@ def update():
                 return
             # Submenu
             else:
-                # Prevent Delete of custom_theme
-                if currentMenu == menus.editMain and currentIdx == 2 and theme_name == theme.CUSTOM_THEME:
+                # Prevent Delete of custom-theme
+                if currentMenu == menus.editMain and currentIdx == 2 and \
+                   theme_name == os.path.splitext(theme.CUSTOM_THEME)[0]:
                     return
                 prevIndex = currentIdx
                 title = currentMenu[currentIdx][0]
@@ -181,7 +185,7 @@ def delete_theme():
     global currentIdx, currentMenu, theme_name, menu_stack
 
     try:
-        # Remove .xml extension
+        # Load custom-theme, remove .xml extension
         theme_name = os.path.splitext(theme.CUSTOM_THEME)[0]
         # Remove .xml
         os.remove(theme.theme_file)
@@ -199,6 +203,15 @@ def delete_theme():
     #
     redraw_board()
     graphics.drawCurrentMenu()
+
+
+def take_screenshot():
+    path = os.path.splitext(theme.theme_file)[0] + '.png'
+    window_name = "Make Snake"
+    # TODO: add parameter -cx,y,width,height depending on screen size
+    # For 1920x1036: -c500,50,1000,800
+    cmd = '/usr/bin/kano-screenshot -p %s -a %s &' % (path, window_name)
+    os.system(cmd)
 
 
 def navigate_back():

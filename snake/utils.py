@@ -46,9 +46,7 @@ def print_themes(show_default=True, terminate=True):
 
 def check_valid_theme(theme):
     if theme in DEFAULT_THEMES:
-        coloured_error, _, _ = run_cmd('colour_echo "{{8 x }} {{7 error: }}"')
-        print "\n    " + coloured_error.strip('\n') + 'You can not share theme %s \n' % theme
-        exit(2)
+        return
     theme_list = update_theme_list()
     if theme not in theme_list:
         coloured_error, _, _ = run_cmd('colour_echo "{{8 x }} {{7 error: }}"')

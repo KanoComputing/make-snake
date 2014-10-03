@@ -17,11 +17,11 @@ import themes
 import xml.etree.ElementTree as ET
 from kano.utils import ensure_dir
 
-CUSTOM_THEME_PATH = '/usr/share/make-snake/custom_theme'
+CUSTOM_THEME_PATH = '/usr/share/make-snake/custom-theme.xml'
 DEFAULT_THEMES = ['classic', 'minimal', 'jungle', '80s']
 
 app_dir = os.path.expanduser('~/Snake-content')
-CUSTOM_FILE = app_dir + '/custom_theme'
+CUSTOM_FILE = app_dir + '/custom-theme.xml'
 colors_map = {}
 theme = None
 
@@ -35,10 +35,10 @@ def init():
         except:
             theme = themes.game_themes['minimal']
     else:
-        # copy custom_theme if it doesn't exist
+        # copy custom-theme.xml if it doesn't exist
         if not os.path.exists(CUSTOM_FILE):
             if not os.path.exists(CUSTOM_THEME_PATH):
-                sys.exit('Error: custom_theme missing from home and /usr/share')
+                sys.exit('Error: custom-theme.xml missing from home and /usr/share/make-snake')
             ensure_dir(app_dir)
             shutil.copyfile(CUSTOM_THEME_PATH, CUSTOM_FILE)
         # Load the customn theme
@@ -122,9 +122,16 @@ def get_curses_color(string):
 
 
 def update_theme_list():
+    # User themes
     themes = os.listdir(app_dir)
     # Remove everything that is not xml
     for t in themes:
         if not t.endswith('.xml'):
             themes.remove(t)
+    # Internet themes
+    shared_themes = os.listdir(app_dir + '/webload')
+    # Add xmls in webload
+    for s in shared_themes:
+        if s.endswith('.xml'):
+            themes.append(s)
     return themes

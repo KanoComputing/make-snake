@@ -32,7 +32,8 @@ elements = [["Snake", snake], ["Lives", lives], ["Apples", apple], ["Back", None
 board = [["Background", background], ["Border", border], ["Back", 0]]
 delete = [["Do you really want to delete this theme?", None], ["Yes", "delete"], ["No", 0]]
 
-editMain = [["Board", board], ["Elements", elements], ["Delete Theme", delete], ["Back", 0]]
+editMain = [["Board", board], ["Elements", elements], ["Delete Theme", delete], ["Take Screenshot", "screenshot"],
+            ["Back", 0]]
 
 # New theme
 newName = [["Choose a Name", "name"], ["Back", 0]]
