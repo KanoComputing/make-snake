@@ -10,5 +10,3 @@ icon/Snake-hover.png usr/share/kano-desktop/icons/
 icon/make-snake.app usr/share/applications
 
 games/* usr/share/applications
-
-kano-world-hook/* usr/lib/python2.7/dist-packages/kano_world/hooks/
