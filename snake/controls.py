@@ -6,11 +6,11 @@
 # License:   http://www.gnu.org/licenses/gpl-2.0.txt GNU General Public License v2
 #
 
-import __main__
 import parser
 import graphics
 import game
 import gameloop
+import __main__
 from config import keys
 
 set = False

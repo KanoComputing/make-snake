@@ -4,7 +4,10 @@
 # Copyright (C) 2013 Kano Computing Ltd.
 # License:   http://www.gnu.org/licenses/gpl-2.0.txt GNU General Public License v2
 #
+# Contributors: https://github.com/alexaverill
+#
 
+import os
 import stage
 import game
 import theme
@@ -80,13 +83,29 @@ def drawCurrentMenu():
             else:
                 text = '  ' + string[0]
             drawTile(x, y, text, theme.get_color('menu'))
+        # Naming mode
+        elif controls.nameMode:
+            if controls.currentIdx == idx:
+                text = '> ' + string[0]
+                if len(controls.tile) > 0:
+                    text += ' : ' + controls.tile
+                else:
+                    text += ' : '
+            else:
+                text = '  ' + string[0]
+            drawTile(x, y, text, theme.get_color('menu'))
         # Rest
         else:
             if controls.currentIdx == idx:
                 text = '> ' + string[0]
             else:
                 text = '  ' + string[0]
-            drawTile(x, y, text, theme.get_color('menu'))
+            # Exception: show delete in red if theme is custom-theme
+            if string[0] == 'Delete Theme' and controls.theme_name == os.path.splitext(theme.CUSTOM_THEME)[0]:
+                colour = theme.get_color('Red')
+            else:
+                colour = theme.get_color('menu')
+            drawTile(x, y, text, colour)
         y += menuYInc
         idx += 1
 

@@ -231,17 +231,16 @@ if [ "$mod_stage" -eq 6 ]; then
     printGainedExp
 fi
 
-# Exercise 8: 'python snake -t custom'
+# Exercise 8: 'python snake -t custom-theme'
 if [ "$mod_stage" -eq 7 ]; then
     header
     colourEcho "{{3Challenge [8/9]: Show your colours}}"
     breakline
     breakline
     typewriter_echo "It's looking good!" 0 2 1 0
-    typewriter_echo "Type {{2 python snake -t custom }} to play with the design that you saved in the editor." 0 2 1 0
-
-    inputLoop 'python snake -t custom' 'python snake --theme custom'
-    python -B $dir -mt custom
+    typewriter_echo "Type {{2 python snake -t custom-theme }} to play with the design that you saved in the editor." 0 2 1 0
+    inputLoop 'python snake -t custom-theme' 'python snake --theme custom-theme'
+    python -B $dir -mt custom-theme
     saveLevel
     printGainedExp
 fi
@@ -310,7 +309,7 @@ if [ "$mod_stage" -ge 9 ]; then
                 colourEcho "{{3Playground mode}}"
                 breakline
                 breakline
-                typewriter_echo "Remember: type {{2 python snake --help }} for help or {{2 exit }} to quit." 0 2 1 0
+                colourEcho "Remember: type {{2 python snake --help }} for help\n" 0 2 1 0
             fi
         else
             colourEcho "Need help? Type {{2 python snake --help }} or {{2 exit }} to finish." 0 2 1 0

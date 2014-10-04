@@ -5,7 +5,11 @@
 # Copyright (C) 2013, 2014 Kano Computing Ltd.
 # License:   http://www.gnu.org/licenses/gpl-2.0.txt GNU General Public License v2
 #
+# Contributors: https://github.com/alexaverill
+#
 
+import utils
+import os
 from kano.utils import run_cmd, run_bg
 from argparse import ArgumentParser
 
@@ -64,8 +68,11 @@ def init():
 
     parser.add_argument("-t", "--theme",
                         action="store", dest="theme", default='minimal',
-                        choices=['classic', 'minimal', 'jungle', '80s', 'custom'],
-                        help="Game theme (classic | minimal | jungle | 80s | custom)")
+                        help="Game themes (classic | minimal | jungle | 80s ) + custom themes")
+
+    parser.add_argument("-p", "--print",
+                        action="store_true", dest="print_themes", default=False,
+                        help="Print all available themes")
 
     parser.add_argument("-e", "--editor",
                         action="store_true", dest="editor", default=False,
@@ -79,4 +86,24 @@ def init():
                         action="store_true", dest="reset", default=False,
                         help="Resets the game to challenge 1")
 
+    parser.add_argument("--share",
+                        action="store_true", dest="share", default=False,
+                        help="Share your favourite theme with the world")
+
     args = parser.parse_args()
+
+    # Check for share argument
+    if (args.share):
+        utils.share_theme()
+
+    # Check for valid theme
+    if (args.theme and args.theme != 'minimal'):
+        utils.check_valid_theme(args.theme)
+
+    # Check for --print argument
+    if (args.print_themes):
+        utils.print_themes()
+
+    # Check for reset argument
+    if (args.reset):
+        utils.reset_game()
