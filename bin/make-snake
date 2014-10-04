@@ -310,7 +310,7 @@ if [ "$mod_stage" -ge 9 ]; then
                 colourEcho "{{3Playground mode}}"
                 breakline
                 breakline
-                colourEcho "Remember: type {{2 python snake --help }} for help" 0 2 1 0
+                colourEcho "Remember: type {{2 python snake --help }} for help\n" 0 2 1 0
             fi
         else
             colourEcho "Need help? Type {{2 python snake --help }} or {{2 exit }} to finish." 0 2 1 0

@@ -13,6 +13,7 @@ import xml.etree.ElementTree as ET
 import os
 import shutil
 import sys
+import __main__
 import controls
 import menus
 
@@ -73,6 +74,12 @@ def update():
 
 def update_name():
     global theme_file
+
+    # Check if the file exists in Webload
+    webload_file = THEMES_DIR + '/webload/' + controls.theme_name + '.xml'
+    if os.path.exists(webload_file):
+        theme_file = webload_file
+        return
     theme_file = THEMES_DIR + '/' + controls.theme_name + '.xml'
 
 
@@ -180,7 +187,8 @@ def load_theme():
             colors_map = get_colors_map()
 
     except IOError:
-        pass
+        __main__.exit()
+        exit()
 
 
 def get_curses_color(string):

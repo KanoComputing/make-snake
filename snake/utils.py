@@ -48,6 +48,8 @@ def check_valid_theme(theme):
     if theme in DEFAULT_THEMES:
         return
     theme_list = update_theme_list()
+    if not theme.endswith('.xml'):
+        theme += '.xml'
     if theme not in theme_list:
         coloured_error, _, _ = run_cmd('colour_echo "{{8 x }} {{7 error: }}"')
         print "\n    " + coloured_error.strip('\n') + \
@@ -84,7 +86,7 @@ def share_theme():
     message = "    3) Write a description: "
     description = raw_input(message)
     # Create json
-    create__share_json(theme, title, description)
+    create_share_json(theme, title, description)
     # Share
     filepath = os.path.join(app_dir, theme)
     success, msg = upload_share(filepath, title, 'make-snake')
@@ -104,7 +106,7 @@ def reset_gmae():
     exit(0)
 
 
-def create__share_json(filename, title, description):
+def create_share_json(filename, title, description):
     import json
 
     # Remove .xml extension

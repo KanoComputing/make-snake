@@ -98,7 +98,6 @@ def init():
 
     # Check for valid theme
     if (args.theme and args.theme != 'minimal'):
-        os.system("touch /home/kano/%s" % args.theme)
         utils.check_valid_theme(args.theme)
 
     # Check for --print argument

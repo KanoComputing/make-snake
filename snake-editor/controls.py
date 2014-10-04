@@ -10,6 +10,7 @@
 #
 
 import os
+import time
 import re
 import curses
 import graphics
@@ -90,7 +91,7 @@ def update():
             if currentMenu == menus.colors:
                 set_color()
             elif currentMenu == menus.naming:
-                #pass the saved name from the theme
+                # pass the saved name from the theme
                 theme_name = currentMenu[currentIdx][0]
                 redraw_board()
             return
@@ -125,12 +126,14 @@ def update():
             elif currentMenu[currentIdx][1] == "name":
                 nameMode = True
                 return
+            # Delete
             elif currentMenu[currentIdx][1] == "delete":
                 delete_theme()
                 return
+            # Screenshot
             elif currentMenu[currentIdx][1] == "screenshot":
                 take_screenshot()
-                menus.editMain[3] = ["Take Screenshot [TAKEN]", None]
+                menus.editMain[3] = ["Take Screenshot [TAKEN]", "screenshot"]
                 return
             # Modify existing theme
             elif currentMenu[currentIdx][1] == "existing":
@@ -160,6 +163,10 @@ def update():
                 # Preview colors
                 if currentMenu == menus.colors:
                     set_color()
+                # Redraw with first theme on the list
+                if currentMenu == menus.naming:
+                    theme_name = currentMenu[0][0]
+                    redraw_board()
 
         elif key == keys['Q']:
             __main__.exit()
@@ -207,6 +214,9 @@ def delete_theme():
 
 def take_screenshot():
     path = os.path.splitext(theme.theme_file)[0] + '.png'
+    # Remove screenshot if exists
+    if os.path.exists(path):
+        os.remove(path)
     window_name = "Make Snake"
     # TODO: add parameter -cx,y,width,height depending on screen size
     # For 1920x1036: -c500,50,1000,800
@@ -215,7 +225,7 @@ def take_screenshot():
 
 
 def navigate_back():
-    global menu_stack, currentIdx, currentMenu
+    global menu_stack, currentIdx, currentMenu, theme_name
 
     if (len(menu_stack) == 1):
         __main__.exit()
@@ -224,6 +234,13 @@ def navigate_back():
     cur = menu_stack[len(menu_stack) - 1]
     currentMenu = cur[0]
     currentIdx = 0
+    # Reset Screenshot title just in case
+    if currentMenu == menus.editMain:
+        menus.editMain[3] = ["Take Screenshot", "screenshot"]
+    # Redraw with first theme on the list
+    if currentMenu == menus.naming:
+        theme_name = currentMenu[0][0]
+        redraw_board()
 
 
 def set_color():

@@ -56,5 +56,13 @@ def update_naming():
         # Remove .xml extension
         t = os.path.splitext(t)[0]
         naming.append([t, "existing"])
+         # Internet themes
+    shared_themes = os.listdir(THEMES_DIR + '/webload')
+    # Add xmls in webload
+    for s in shared_themes:
+        if s.endswith('.xml'):
+            # Remove .xml extension and add to list
+            s = os.path.splitext(s)[0]
+            naming.append([s, "existing"])
     naming.append(["Back", 0])
     return
