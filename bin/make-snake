@@ -239,7 +239,6 @@ if [ "$mod_stage" -eq 7 ]; then
     breakline
     typewriter_echo "It's looking good!" 0 2 1 0
     typewriter_echo "Type {{2 python snake -t custom-theme }} to play with the design that you saved in the editor." 0 2 1 0
-
     inputLoop 'python snake -t custom-theme' 'python snake --theme custom-theme'
     python -B $dir -mt custom-theme
     saveLevel
