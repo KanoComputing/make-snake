@@ -9,7 +9,6 @@
 #
 
 import utils
-import os
 from kano.utils import run_cmd, run_bg
 from argparse import ArgumentParser
 

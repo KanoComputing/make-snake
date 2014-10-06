@@ -71,9 +71,16 @@ def load_theme():
     global theme
 
     try:
-        theme_file = app_dir + '/' + parser.args.theme
-        if not theme_file.endswith('.xml'):
-            theme_file += '.xml'
+        name = parser.args.theme
+        if not name.endswith('.xml'):
+            name += '.xml'
+
+        theme_file = app_dir + '/' + name
+        if not os.path.exists(theme_file):
+            webload_file = app_dir + '/webload/' + name
+            if os.path.exists(webload_file):
+                theme_file = webload_file
+
         with open(theme_file):
             # Init theme
             theme = themes.game_themes['classic']
