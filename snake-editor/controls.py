@@ -70,7 +70,7 @@ def update():
             tile = ''
             # Sanitise name
             theme_name = theme_name.replace(" ", "-")  # Replaces spaces
-            theme_name = re.sub(r'[^a-zA-Z0-9_ ]', r'', theme_name)  # Remove special characters
+            theme_name = re.sub(r'[^a-zA-Z0-9-]', r'', theme_name)  # Remove special characters
             theme_name = theme_name[:20]  # Trim to 20 characters
             # Crate new theme and refresh
             redraw_board()
@@ -191,15 +191,24 @@ def input_string(key):
 def delete_theme():
     global currentIdx, currentMenu, theme_name, menu_stack
 
+    # Load custom-theme, remove .xml extension
+    theme_name = os.path.splitext(theme.CUSTOM_THEME)[0]
+    # Remove .xml
     try:
-        # Load custom-theme, remove .xml extension
-        theme_name = os.path.splitext(theme.CUSTOM_THEME)[0]
-        # Remove .xml
         os.remove(theme.theme_file)
-        # Remove .json
-        json_file = os.path.splitext(theme.theme_file)[0] + '.json'
+    except:
+        pass
+    # Remove .json
+    json_file = os.path.splitext(theme.theme_file)[0] + '.json'
+    try:
         os.remove(json_file)
-    except OSError:
+    except:
+        pass
+    # Remove .png
+    png_file = os.path.splitext(theme.theme_file)[0] + '.png'
+    try:
+        os.remove(png_file)
+    except:
         pass
     # Go back to main menu
     del menu_stack[:]

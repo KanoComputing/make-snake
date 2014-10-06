@@ -61,15 +61,19 @@ def init():
 
 
 def update():
+    # Remove possible extension
+    name = controls.theme_name
+    if name.endswith('.xml'):
+        name = os.path.splitext(name)[0]
     # Ignore 'Back'
-    if controls.theme_name != 'Back':
+    if name != 'Back' and name != 'webload':
         # refreshes the name before writing to the file
         update_name()
         # create file
         if not os.path.exists(theme_file):
             src_file = '/usr/share/make-snake/%s' % CUSTOM_THEME
             shutil.copyfile(src_file, theme_file)
-    load_theme()
+        load_theme()
 
 
 def update_name():

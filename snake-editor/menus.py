@@ -60,6 +60,11 @@ def update_naming():
     # Internet themes
     shared_themes_dir = THEMES_DIR + '/webload'
     if os.path.isdir(shared_themes_dir):
+        # remove folder name from list if it has been added
+        try:
+            themes.remove("webload")
+        except:
+            pass
         shared_themes = os.listdir(shared_themes_dir)
         # Add xmls in webload
         for s in shared_themes:
