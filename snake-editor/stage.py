@@ -12,10 +12,11 @@ import time
 import os
 
 from kano.window import _get_window_by_child_pid, gdk_window_settings
+from kano_settings.system.display import get_status
 
 
 def init():
-    global size, width, height, padding, boundaries, chosen_theme
+    global size, width, height, padding, boundaries, chosen_theme, resolution
 
     # Get containing terminal window and set it to maximised
     pid = os.getpid()
@@ -23,7 +24,14 @@ def init():
     gdk_window_settings(win, maximized=True)
     time.sleep(0.1)
     available_size = (width, height) = console.getTerminalSize()
-    chosen_size = (20, 15)
+     # Check for screen resolution
+    resolution = get_status()['resolution']
+    resolution = int(resolution.split('x')[1])
+    # Select a set of sizes depending on the screen resolution
+    if resolution > 768:
+        chosen_size = (20, 15)
+    else:
+        chosen_size = (10, 5)
 
     # Calculate width
     if chosen_size[0] > available_size[0] / 2:

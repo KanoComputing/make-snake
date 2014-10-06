@@ -9,7 +9,6 @@
 import graphics
 import theme
 import gameloop
-import stage
 import sys
 
 from kano.utils import is_gui
@@ -24,7 +23,6 @@ def run():
         # Init the editor
         graphics.init()
         theme.init()
-        stage.init()
 
         # Start the editor
         gameloop.start()

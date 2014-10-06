@@ -31,11 +31,11 @@ def init():
     try:
         # Check for screen resolution
         resolution = get_status()['resolution']
-        w = resolution.split('x')[0]
+        h = int(resolution.split('x')[1])
         # Select a set of sizes depending on the screen resolution
-        if w > 1280:
+        if h > 1024:
             chosen_size = config.game_sizes_big[parser.args.board]
-        if w <= 1280 and w > 1080:
+        if h <= 1024 and h > 720:
             chosen_size = config.game_sizes_medium[parser.args.board]
         else:
             chosen_size = config.game_sizes_small[parser.args.board]

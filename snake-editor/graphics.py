@@ -231,7 +231,7 @@ def update():
 
 
 def init():
-    global screen
+    global screen, menuYPos
 
     screen = curses.initscr()
     curses.noecho()
@@ -239,6 +239,13 @@ def init():
     curses.curs_set(0)
     curses.start_color()
     screen.nodelay(1)
+
+    # Init stage
+    stage.init()
+    if stage.resolution > 768:
+        menuYPos = 10
+    else:
+        menuYPos = 4
 
 
 def exit():
