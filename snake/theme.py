@@ -131,9 +131,11 @@ def update_theme_list():
         if not t.endswith('.xml'):
             themes.remove(t)
     # Internet themes
-    shared_themes = os.listdir(app_dir + '/webload')
-    # Add xmls in webload
-    for s in shared_themes:
-        if s.endswith('.xml'):
-            themes.append(s)
+    shared_themes_dir = app_dir + '/webload'
+    if os.path.isdir(shared_themes_dir):
+        shared_themes = os.listdir(shared_themes_dir)
+        # Add xmls in webload
+        for s in shared_themes:
+            if s.endswith('.xml'):
+                themes.append(s)
     return themes
