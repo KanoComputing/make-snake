@@ -100,7 +100,7 @@ def share_theme():
     exit(2)
 
 
-def reset_gmae():
+def reset_game():
     # We use 10 as reset level, so the user does not lose badges and level
     os.system("kano-profile-cli save_app_state_variable make-snake level 10")
     exit(0)
