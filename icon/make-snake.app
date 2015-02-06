@@ -8,6 +8,7 @@
     "colour": "#d94e5a",
 
     "categories": ["code"],
+    "mime_type": "application/x-kano-make-snake",
 
     "packages": [],
     "dependencies": ["make-snake"],
