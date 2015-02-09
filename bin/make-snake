@@ -11,7 +11,7 @@
 SELF_PID=$$
 kano-tracker-ctl session start "make-snake" $SELF_PID
 function kanotracker {
-    kano-tracker-ctl session stop "make-snake" $SELF_PID
+    kano-tracker-ctl session end "make-snake" $SELF_PID
 }
 trap kanotracker EXIT
 
