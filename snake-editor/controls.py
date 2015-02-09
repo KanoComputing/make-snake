@@ -170,7 +170,6 @@ def update():
 
         elif key == keys['Q']:
             __main__.exit()
-            exit()
 
 
 def input_string(key):
@@ -238,7 +237,6 @@ def navigate_back():
 
     if (len(menu_stack) == 1):
         __main__.exit()
-        exit()
     menu_stack.pop()
     cur = menu_stack[len(menu_stack) - 1]
     currentMenu = cur[0]

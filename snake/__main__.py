@@ -20,12 +20,16 @@ from kano.utils import is_gui
 
 
 def exit(save_state=True):
+    """Attempts to tidy up the graphics, and then save the app state.
+    Finally it calls sys.exit(), since sys is already imported
+    """
     try:
         graphics.exit()
     except:
         pass
     if save_state:
         gs.save_state()
+    sys.exit()
 
 
 def run():

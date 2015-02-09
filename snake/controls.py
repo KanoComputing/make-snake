@@ -54,12 +54,10 @@ def update():
 
         if key == keys['q'] or key == keys['Q']:
             __main__.exit()
-            exit()
 
         elif gameloop.state == 2 and key == keys['ENTER']:
             if parser.args.tutorial:
                 __main__.exit()
-                exit()
             else:
                 gameloop.init()
 

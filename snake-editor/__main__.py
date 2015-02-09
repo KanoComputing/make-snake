@@ -15,7 +15,11 @@ from kano.utils import is_gui
 
 
 def exit():
+    """Attempts to tidy up the graphics.
+    Finally it calls sys.exit(), since sys is already imported
+    """
     graphics.exit()
+    sys.exit()
 
 
 def run():

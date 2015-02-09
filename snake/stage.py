@@ -43,7 +43,6 @@ def init():
     except:
         print "Can't find board size: %s" % (parser.args.board)
         __main__.exit()
-        exit()
 
     # Calculate width
     if chosen_size[0] > available_size[0] / 2:
