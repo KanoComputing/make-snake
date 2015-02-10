@@ -1,3 +1,7 @@
+Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Contact: Kano developers <dev@kano.me>
+Source: https://github.com/KanoComputing/make-snake
+
 Files: *
 Copyright: 2013 Kano Computing Ltd.
 License: GPL-2+

@@ -2,7 +2,7 @@
 Encoding=UTF-8
 Version=1.0
 Type=Application
-Exec=/usr/bin/kano-launcher "rxvt -title 'Make Snake' -e /usr/bin/make-snake" "make-snake"
+Exec=/usr/bin/kano-launcher "/usr/share/make-snake/snake-launch.sh" "make-snake"
 Icon=/usr/share/kano-desktop/icons/snake.png
 Terminal=false
 Name=Make Snake
