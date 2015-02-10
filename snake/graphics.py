@@ -27,6 +27,7 @@ def drawTile(x, y, tile='', color=None):
         if (len(tile) < 2):
             screen.addstr(y, x + 1, tile, color)
     except:
+        # This is not the built-in exit, rather the one declared later on
         exit()
 
 

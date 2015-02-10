@@ -192,7 +192,6 @@ def load_theme():
 
     except IOError:
         __main__.exit()
-        exit()
 
 
 def get_curses_color(string):
