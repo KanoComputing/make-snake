@@ -1,2 +1,2 @@
-#!/usr/bin/kano-splash /usr/share/make-snake/splash.png /bin/sh
+#!/usr/bin/kano-splash /usr/share/make-snake/media/splash.png /bin/sh
 rxvt -title 'Make Snake' -e make-snake
