@@ -115,6 +115,7 @@ else
     fi
 fi
 
+kano-stop-splash
 
 # Exercise 1: 'press ENTER'
 if [ "$mod_stage" -eq 0 ]; then

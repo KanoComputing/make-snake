@@ -12,7 +12,7 @@
 
     "packages": [],
     "dependencies": ["make-snake"],
-    "launch_command": "kano-launcher \"rxvt -title 'Make Snake' -e make-snake\" \"make-snake\"",
+    "launch_command": "kano-launcher \"/usr/share/make-snake/snake-launch.sh\" \"make-snake\"",
     "overrides": [],
     "desktop": false
 }
