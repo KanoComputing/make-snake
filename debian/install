@@ -7,6 +7,7 @@ kdesktop/make-snake.xml /usr/share/mime/packages/
 kdesktop/make-snake.desktop usr/share/applications/
 icon/snake.png usr/share/kano-desktop/icons/
 icon/snake.png usr/share/icons/Kano/88x88/apps
+icon/application-x-kano-make-snake.png usr/share/icons/Kano/88x88/mimetypes/
 icon/Snake-hover.png usr/share/kano-desktop/icons/
 icon/make-snake.app usr/share/applications
 
