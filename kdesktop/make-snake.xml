@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mime-info xmlns='http://www.freedesktop.org/standards/shared-mime-info'>
+    <mime-type type="application/x-kano-make-snake">
+        <comment>Kano Make Snake Theme</comment>
+        <sub-class-of type="text/xml"/>
+        <magic>
+            <match type="string" offset="0:50" value="KANO_MAKE-SNAKE"/>
+        </magic>
+        <glob pattern="*.xml"/>
+    </mime-type>
+</mime-info>
