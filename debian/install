@@ -3,7 +3,7 @@ snake-editor/* usr/share/make-snake/snake-editor/
 bin/make-snake usr/bin
 
 kdesktop/Snake.lnk usr/share/kano-desktop/kdesk/kdesktop/
-kdesktop/make-snake.xml /usr/share/mime/packages/
+kdesktop/make-snake.xml usr/share/mime/packages/
 kdesktop/make-snake.desktop usr/share/applications/
 icon/snake.png usr/share/kano-desktop/icons/
 icon/snake.png usr/share/icons/Kano/88x88/apps
