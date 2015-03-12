@@ -109,6 +109,7 @@ def update():
             navigate_back()
             return
         elif key == keys['ENTER'] or key == keys['RIGHT']:
+            redraw_board()
             # Back
             if (currentIdx == len(currentMenu) - 1):
                 navigate_back()
