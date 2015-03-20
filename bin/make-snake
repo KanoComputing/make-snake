@@ -6,6 +6,9 @@
 # License: http://www.gnu.org/licenses/gpl-2.0.txt GNU General Public License v2
 #
 
+. /usr/share/kano-toolset/logging.sh
+
+logger_debug "Timepoint load_snake start"
 
 # Kanotracker keeps a log on how much we play make-snake
 SELF_PID=$$
@@ -115,7 +118,9 @@ else
 fi
 
 kano-stop-splash
+logger_debug "Timepoint load_snake end"
 
+logger_debug "Timepoint run_snake start"
 # Exercise 1: 'press ENTER'
 if [ "$mod_stage" -eq 0 ]; then
     header
@@ -318,4 +323,5 @@ if [ "$mod_stage" -ge 9 ]; then
     done
 fi
 
+logger_debug "Timepoint run_snake end"
 exit 0
