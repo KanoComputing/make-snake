@@ -47,7 +47,8 @@ function header
 function inputLoop
 {
     while true; do
-        read -p "    `colour_echo "{{0>}}"` " command
+        read -erp $'    \1\e[96m\2>\1\e[0m\2 ' command
+        history -s $command
         if [ -z "$command" ]; then
             colourEcho "{{6 - }} {{5 Need to enter a command: }} {{2 $1 }} {{5 or }} {{2 exit }}"
         elif [ "$command" == "$1" ] || [ "$command" == "$2" ]; then
@@ -279,11 +280,12 @@ if [ "$mod_stage" -ge 9 ]; then
     # Infinite loop
     while true; do
         # Read command
-        read -p "    `colour_echo "{{0>}}"` " command
+        read -erp $'    \1\e[96m\2>\1\e[0m\2 ' command
         # Check for exit command
         if [ "$command" == "exit" ]; then
             exit 0
         fi
+        history -s $command
         # Check for correct command
         array=($command)
         len="${#array[@]}"
