@@ -10,7 +10,6 @@
 #
 
 import os
-import time
 import re
 import curses
 import graphics
@@ -42,7 +41,11 @@ tile = ''
 
 def redraw_board():
     gameloop.init()
-    theme.update()  # This is going to create the new theme if it doesnt exist
+    theme.update()  # This is going to create the new theme if it doesn't exist
+
+    # Force the game to update
+    graphics.drawGame()
+    graphics.update()
 
 
 def update():
