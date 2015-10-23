@@ -96,6 +96,12 @@ function colourEcho
     colour_echo "$1"
 }
 
+function getLastCreatedTheme
+{
+    filename=`ls -t ~/Snake-content/*.xml | head -n1`
+    theme_name=`basename $filename .xml`
+}
+
 # Disable
 stty intr undef
 
@@ -128,7 +134,7 @@ if [ "$mod_stage" -eq 0 ]; then
     typewriter_echo "Press {{1 ENTER }} to see what you'll make!" 0 0 1 0
 
     read
-    # tutorial mode (-m), slow (-s s), large (-b l), 80s (-t 80s) 
+    # tutorial mode (-m), slow (-s s), large (-b l), 80s (-t 80s)
     python -B $dir -m -s s -b l -t 80s
     saveLevel
     printGainedExp
@@ -242,10 +248,11 @@ if [ "$mod_stage" -eq 7 ]; then
     colourEcho "{{3Challenge [8/9]: Show your colours}}"
     breakline
     breakline
+    getLastCreatedTheme
     typewriter_echo "It's looking good!" 0 2 1 0
-    typewriter_echo "Type {{2 python snake -t custom-theme }} to play with the design that you saved in the editor." 0 2 1 0
-    inputLoop 'python snake -t custom-theme' 'python snake --theme custom-theme'
-    python -B $dir -mt custom-theme
+    typewriter_echo "Type {{2 python snake -t $theme_name }} to play with the design that you saved in the editor." 0 2 1 0
+    inputLoop "python snake -t $theme_name" "python snake --theme $theme_name"
+    python -B $dir -mt $theme_name
     saveLevel
     printGainedExp
 fi
