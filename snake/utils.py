@@ -80,11 +80,17 @@ def share_theme():
     # Select title
     message = "    2) Write a title: "
     title = raw_input(message)
-    if not title:
+    if title:
+        # The API limits title to 200 characters (cut it here)
+        title = title[:200]
+    else:
         title = 'My snake'
     # Select description
     message = "    3) Write a description: "
     description = raw_input(message)
+    if description:
+        # The API limits description to 500 characters (cut it here)
+        description = description[:500]
     # Create json
     create_share_json(theme, title, description)
     # Share
