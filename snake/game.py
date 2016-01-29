@@ -2,9 +2,10 @@
 
 # game.py
 #
-# Copyright (C) 2013, 2014 Kano Computing Ltd.
-# License:   http://www.gnu.org/licenses/gpl-2.0.txt GNU General Public License v2
+# Copyright (C) 2013-2016 Kano Computing Ltd.
+# License: http://www.gnu.org/licenses/gpl-2.0.txt GNU GPL v2
 #
+
 
 import stage
 import gameloop
@@ -51,20 +52,19 @@ def eatApple(i):
 
     # adjust total score
     try:
-        gs.state['total_score'] += score_value
+        gs.STATUS['total_score'] += score_value
     except Exception:
         pass
 
     # adjust highest score
     try:
-        if score > gs.state['highest_score']:
-            gs.state['highest_score'] = score
+        gs.STATUS['highest_score'] = max(gs.STATUS['highest_score'], score)
     except Exception:
         pass
 
     # adjust total number of apples
     try:
-        gs.state['total_number_of_apples'] += 1
+        gs.STATUS['total_number_of_apples'] += 1
     except Exception:
         pass
 
@@ -91,14 +91,16 @@ def moveSnake():
 
         # adjust longest snake
         try:
-            if len(snake) > gs.state['longest_snake']:
-                gs.state['longest_snake'] = len(snake)
+            gs.STATUS['longest_snake'] = max(
+                gs.STATUS['longest_snake'],
+                len(snake)
+            )
         except Exception:
             pass
 
         # adjust total length
         try:
-            gs.state['total_length'] += 1
+            gs.STATUS['total_length'] += 1
         except Exception:
             pass
 

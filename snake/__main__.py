@@ -2,8 +2,8 @@
 
 # __main__.py
 #
-# Copyright (C) 2014 Kano Computing Ltd.
-# License: http://www.gnu.org/licenses/gpl-2.0.txt GNU General Public License v2
+# Copyright (C) 2014-2016 Kano Computing Ltd.
+# License: http://www.gnu.org/licenses/gpl-2.0.txt GNU GPL v2
 #
 
 import os
@@ -28,7 +28,7 @@ def exit(save_state=True):
     except:
         pass
     if save_state:
-        gs.save_state()
+        gs.update_profile_stats()
     sys.exit()
 
 
@@ -44,7 +44,6 @@ def run():
         theme.init()
         stage.init()
         game.reset()
-        gs.load_state()
 
         # Start the game
         gameloop.start()
