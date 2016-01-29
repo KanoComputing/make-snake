@@ -96,6 +96,17 @@ function colourEcho
     colour_echo "$1"
 }
 
+function ensureContentDir
+{
+    # ensure that the content dir exists and it contains the default theme
+    for f in ~/Snake-content/*.xml; do
+        if [ ! -e "$f" ]; then
+            mkdir ~/Snake-content
+            cp /usr/share/make-snake/custom-theme.xml ~/Snake-content/
+        fi
+    done
+}
+
 function getLastCreatedTheme
 {
     filename=`ls -t ~/Snake-content/*.xml | head -n1`
@@ -107,6 +118,8 @@ stty intr undef
 
 stage=0
 mod_stage=0
+ensureContentDir
+
 # Check first level
 if [ `loadLevel` == "VARIABLE_NOT_FOUND" ]; then
     saveLevelFromArg 0
