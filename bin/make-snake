@@ -101,7 +101,7 @@ function ensureContentDir
     # ensure that the content dir exists and it contains the default theme
     for f in ~/Snake-content/*.xml; do
         if [ ! -e "$f" ]; then
-            mkdir ~/Snake-content
+            mkdir -p ~/Snake-content
             cp /usr/share/make-snake/custom-theme.xml ~/Snake-content/
         fi
     done
