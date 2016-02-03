@@ -40,8 +40,9 @@ def init():
         else:
             chosen_size = config.game_sizes_small[parser.args.board]
         passSize = parser.args.board
-    except:
-        print "Can't find board size: %s" % (parser.args.board)
+    except Exception:
+        from kano.logging import logger
+        logger.error("Can't find board size: {}".format(parser.args.board))
         __main__.exit()
 
     # Calculate width
