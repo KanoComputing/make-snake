@@ -13,9 +13,9 @@ import parser
 import __main__
 import os
 import time
+from gtk import gdk
 
 from kano.window import _get_window_by_child_pid, gdk_window_settings
-from kano_settings.system.display import get_status
 
 
 def init():
@@ -30,8 +30,8 @@ def init():
 
     try:
         # Check for screen resolution
-        resolution = get_status()['resolution']
-        h = int(resolution.split('x')[1])
+        h = gdk.screen_height()
+
         # Select a set of sizes depending on the screen resolution
         if h > 1024:
             chosen_size = config.game_sizes_big[parser.args.board]

@@ -10,9 +10,9 @@ import console
 import math
 import time
 import os
+from gtk import gdk
 
 from kano.window import _get_window_by_child_pid, gdk_window_settings
-from kano_settings.system.display import get_status
 
 
 def init():
@@ -24,9 +24,10 @@ def init():
     gdk_window_settings(win, maximized=True)
     time.sleep(0.1)
     available_size = (width, height) = console.getTerminalSize()
+
      # Check for screen resolution
-    resolution = get_status()['resolution']
-    resolution = int(resolution.split('x')[1])
+    resolution = gdk.screen_height()
+
     # Select a set of sizes depending on the screen resolution
     if resolution > 768:
         chosen_size = (20, 15)
