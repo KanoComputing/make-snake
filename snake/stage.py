@@ -35,7 +35,7 @@ def init():
         # Select a set of sizes depending on the screen resolution
         if h > 1024:
             chosen_size = config.game_sizes_big[parser.args.board]
-        if h <= 1024 and h > 720:
+        elif h <= 1024 and h > 720:
             chosen_size = config.game_sizes_medium[parser.args.board]
         else:
             chosen_size = config.game_sizes_small[parser.args.board]
