@@ -195,9 +195,9 @@ def drawBorders():
 
 def drawText():
     color = theme.get_color('border')
-    drawTile((stage.width / 2) - 4, (-stage.height / 2) - 1, "score:", color)
-    drawTile((-stage.width / 2), (-stage.height / 2) - 1, "lives:", color)
-    drawTile(-5, (stage.height / 2), " Press Q to quit ", color)
+    drawTile((stage.width / 2) - 4, (-stage.height / 2) - 1, _("score:"), color)
+    drawTile((-stage.width / 2), (-stage.height / 2) - 1, _("lives:"), color)
+    drawTile(-5, (stage.height / 2), _(" Press Q to quit "), color)
 
 
 def drawHeader():

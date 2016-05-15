@@ -19,6 +19,8 @@ clean: clean_locales
 define run-xgettext
 xgettext -f PYPOTFILES -L Python --force-po -o messages.pot \
     --package-name=$(APPNAME) --copyright-holder=$(ORG)
+xgettext -o messages.pot -j -L Shell -k --keyword=GETTEXT ../bin/make-snake \
+    --package-name=$(APPNAME) --copyright-holder=$(ORG)
 endef
 
 messages:
