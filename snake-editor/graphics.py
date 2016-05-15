@@ -101,7 +101,7 @@ def drawCurrentMenu():
             else:
                 text = '  ' + string[0]
             # Exception: show delete in red if theme is custom-theme
-            if string[0] == 'Delete Theme' and controls.theme_name == os.path.splitext(theme.CUSTOM_THEME)[0]:
+            if string[0] == _('Delete Theme') and controls.theme_name == os.path.splitext(theme.CUSTOM_THEME)[0]:
                 colour = theme.get_color('Red')
             else:
                 colour = theme.get_color('menu')

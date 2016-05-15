@@ -33,14 +33,14 @@ theme = {
         "border": (curses.COLOR_WHITE, curses.COLOR_YELLOW),
         "lives": (curses.COLOR_RED, curses.COLOR_RED),
         "menu": (curses.COLOR_WHITE, curses.COLOR_BLACK),
-        "Black": (curses.COLOR_WHITE, curses.COLOR_BLACK),
-        "Red": (curses.COLOR_WHITE, curses.COLOR_RED),
-        "Green": (curses.COLOR_WHITE, curses.COLOR_GREEN),
-        "Yellow": (curses.COLOR_WHITE, curses.COLOR_YELLOW),
-        "Blue": (curses.COLOR_WHITE, curses.COLOR_BLUE),
-        "Magenta": (curses.COLOR_WHITE, curses.COLOR_MAGENTA),
-        "Cyan": (curses.COLOR_WHITE, curses.COLOR_CYAN),
-        "White": (curses.COLOR_WHITE, curses.COLOR_WHITE),
+        _("Black"): (curses.COLOR_WHITE, curses.COLOR_BLACK),
+        _("Red"): (curses.COLOR_WHITE, curses.COLOR_RED),
+        _("Green"): (curses.COLOR_WHITE, curses.COLOR_GREEN),
+        _("Yellow"): (curses.COLOR_WHITE, curses.COLOR_YELLOW),
+        _("Blue"): (curses.COLOR_WHITE, curses.COLOR_BLUE),
+        _("Magenta"): (curses.COLOR_WHITE, curses.COLOR_MAGENTA),
+        _("Cyan"): (curses.COLOR_WHITE, curses.COLOR_CYAN),
+        _("White"): (curses.COLOR_WHITE, curses.COLOR_WHITE),
 
     },
     "tiles": {
@@ -66,7 +66,7 @@ def update():
     if name.endswith('.xml'):
         name = os.path.splitext(name)[0]
     # Ignore 'Back'
-    if name != 'Back' and name != 'webload':
+    if name != _('Back') and name != 'webload':
         # refreshes the name before writing to the file
         update_name()
         # create file
@@ -116,15 +116,15 @@ def set_color_theme(category, parameter, value):
             tree = ET.parse(theme_file)
             root = tree.getroot()
             idx = 1
-            if (category == 'Background'):
+            if (category == _('Background')):
                 idx = 0
-            elif (category == 'Snake'):
+            elif (category == _('Snake')):
                 idx = 1
-            elif (category == 'Apples'):
+            elif (category == _('Apples')):
                 idx = 2
-            elif (category == 'Border'):
+            elif (category == _('Border')):
                 idx = 3
-            elif (category == 'Lives'):
+            elif (category == _('Lives')):
                 idx = 4
             root[0][idx].set(parameter, value)
             tree.write(theme_file)
@@ -140,19 +140,19 @@ def set_tiles_theme(category, value):
             tree = ET.parse(theme_file)
             root = tree.getroot()
             idx = 0
-            if (category == 'Background symbol'):
+            if (category == _('Background symbol')):
                 idx = 0
-            elif (category == 'Snake body'):
+            elif (category == _('Snake body')):
                 idx = 1
-            elif (category == 'Apple symbol'):
+            elif (category == _('Apple symbol')):
                 idx = 2
-            elif (category == 'Horizontal symbol'):
+            elif (category == _('Horizontal symbol')):
                 idx = 3
-            elif (category == 'Vertical symbol'):
+            elif (category == _('Vertical symbol')):
                 idx = 4
-            elif (category == 'Corner symbol'):
+            elif (category == _('Corner symbol')):
                 idx = 5
-            elif (category == 'Lives symbol'):
+            elif (category == _('Lives symbol')):
                 idx = 6
             root[1][idx].text = value
             tree.write(theme_file)
@@ -195,19 +195,19 @@ def load_theme():
 
 
 def get_curses_color(string):
-    if string == 'Black':
+    if string == _('Black'):
         return curses.COLOR_BLACK
-    elif string == 'Red':
+    elif string == _('Red'):
         return curses.COLOR_RED
-    elif string == 'Green':
+    elif string == _('Green'):
         return curses.COLOR_GREEN
-    elif string == 'Yellow':
+    elif string == _('Yellow'):
         return curses.COLOR_YELLOW
-    elif string == 'Blue':
+    elif string == _('Blue'):
         return curses.COLOR_BLUE
-    elif string == 'Magenta':
+    elif string == _('Magenta'):
         return curses.COLOR_MAGENTA
-    elif string == 'Cyan':
+    elif string == _('Cyan'):
         return curses.COLOR_CYAN
     else:
         return curses.COLOR_WHITE

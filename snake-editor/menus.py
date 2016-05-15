@@ -14,47 +14,47 @@ THEMES_DIR = os.path.expanduser('~/Snake-content')
 # List of themes
 naming = []
 
-colors = [["Black", None], ["Red", None], ["Green", None], ["Yellow", None],
-          ["Blue", None], ["Magenta", None], ["Cyan", None], ["White", None]]
+colors = [[_("Black"), None], [_("Red"), None], [_("Green"), None], [_("Yellow"), None],
+          [_("Blue"), None], [_("Magenta"), None], [_("Cyan"), None], [_("White"), None]]
 
 # Elements
-snake = [["Background colour", colors],
-         ["Snake body", "symbols"],
-         ["Symbol colour", colors], ["Back", None]]
-lives = [["Background colour", colors],
-         ["Lives symbol", "symbols"],
-         ["Symbol colour", colors], ["Back", None]]
-apple = [["Background colour", colors],
-         ["Apple symbol", "symbols"],
-         ["Symbol colour", colors], ["Back", None]]
+snake = [[_("Background colour"), colors],
+         [_("Snake body"), "symbols"],
+         [_("Symbol colour"), colors], [_("Back"), None]]
+lives = [[_("Background colour"), colors],
+         [_("Lives symbol"), "symbols"],
+         [_("Symbol colour"), colors], [_("Back"), None]]
+apple = [[_("Background colour"), colors],
+         [_("Apple symbol"), "symbols"],
+         [_("Symbol colour"), colors], [_("Back"), None]]
 # Board
-border = [["Background colour", colors],
-          ["Horizontal symbol", "symbols"],
-          ["Vertical symbol", "symbols"],
-          ["Corner symbol", "symbols"],
-          ["Symbol colour", colors], ["Back", None]]
-background = [["Background colour", colors],
-              ["Symbol colour", colors],
-              ["Background symbol", "symbols"], ["Back", None]]
+border = [[_("Background colour"), colors],
+          [_("Horizontal symbol"), "symbols"],
+          [_("Vertical symbol"), "symbols"],
+          [_("Corner symbol"), "symbols"],
+          [_("Symbol colour"), colors], [_("Back"), None]]
+background = [[_("Background colour"), colors],
+              [_("Symbol colour"), colors],
+              [_("Background symbol"), "symbols"], [_("Back"), None]]
 
 # Edit Menu
-elements = [["Snake", snake],
-            ["Lives", lives],
-            ["Apples", apple], ["Back", None]]
-board = [["Background", background],
-         ["Border", border], ["Back", 0]]
-delete = [["Do you really want to delete this theme?", None],
-          ["Yes", "delete"], ["No", 0]]
+elements = [[_("Snake"), snake],
+            [_("Lives"), lives],
+            [_("Apples"), apple], [_("Back"), None]]
+board = [[_("Background"), background],
+         [_("Border"), border], [_("Back"), 0]]
+delete = [[_("Do you really want to delete this theme?"), None],
+          [_("Yes"), "delete"], [_("No"), 0]]
 
-editMain = [["Board", board], ["Elements", elements],
-            ["Delete Theme", delete],
-            ["Take Screenshot", "screenshot"], ["Back", 0]]
+editMain = [[_("Board"), board], [_("Elements"), elements],
+            [_("Delete Theme"), delete],
+            [_("Take Screenshot"), "screenshot"], [_("Back"), 0]]
 
 # New theme
-newName = [["Choose a Name", "name"], ["Back", 0]]
+newName = [[_("Choose a Name"), "name"], [_("Back"), 0]]
 
 # Main
-main = [["New Theme", newName], ["Saved Themes", naming], ["Exit", None]]
+main = [[_("New Theme"), newName], [_("Saved Themes"), naming], [_("Exit"), None]]
 
 
 def update_naming():
@@ -87,5 +87,5 @@ def update_naming():
                 # Remove .xml extension and add to list
                 s = os.path.splitext(s)[0]
                 naming.append([s, "existing"])
-    naming.append(["Back", 0])
+    naming.append([_("Back"), 0])
     return

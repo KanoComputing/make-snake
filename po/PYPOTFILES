@@ -1,0 +1,8 @@
+../snake/graphics.py
+../snake/parser.py
+../snake/stage.py
+../snake/utils.py
+../snake-editor/controls.py
+../snake-editor/graphics.py
+../snake-editor/menus.py
+../snake-editor/theme.py

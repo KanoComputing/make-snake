@@ -42,7 +42,7 @@ def init():
         passSize = parser.args.board
     except Exception:
         from kano.logging import logger
-        logger.error("Can't find board size: {}".format(parser.args.board))
+        logger.error(_("Can't find board size: {}").format(parser.args.board))
         __main__.exit()
 
     # Calculate width

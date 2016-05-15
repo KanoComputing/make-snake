@@ -32,8 +32,8 @@ def drawTile(x, y, tile='', color=None):
 
 
 def drawInitGame():
-    drawTile(-5, -2, "  Welcome to SNAKE ", theme.get_color('border'))
-    drawTile(-4, 2, " Press [ENTER] ", theme.get_color('border'))
+    drawTile(-5, -2, _("  Welcome to SNAKE "), theme.get_color('border'))
+    drawTile(-4, 2, _(" Press [ENTER] "), theme.get_color('border'))
     left = u"\u2190"
     up = u"\u2191"
     down = u"\u2193"
@@ -62,16 +62,16 @@ def drawGameOver():
         sizeStr = 'Medium'
     elif(size == 'l'):
         sizeStr = 'Large'
-    drawTile(-4, -10, "  GAME OVER  ", theme.get_color('border'))
-    drawTile(-3, -8, "Score:" + str(game.score), theme.get_color('border'))
-    drawTile(-3, -6, "Speed:" + speedStr, theme.get_color('border'))
-    drawTile(-3, -4, "Size:" + sizeStr, theme.get_color('border'))
-    drawTile(-3, -2, "Lives:" + livesStr, theme.get_color('border'))
+    drawTile(-4, -10, _("  GAME OVER  "), theme.get_color('border'))
+    drawTile(-3, -8, _("Score:") + str(game.score), theme.get_color('border'))
+    drawTile(-3, -6, _("Speed:") + speedStr, theme.get_color('border'))
+    drawTile(-3, -4, _("Size:") + sizeStr, theme.get_color('border'))
+    drawTile(-3, -2, _("Lives:") + livesStr, theme.get_color('border'))
 
     if parser.args.tutorial:
-        drawTile(-6, 2, " Press [ENTER] to exit ", theme.get_color('border'))
+        drawTile(-6, 2, _(" Press [ENTER] to exit "), theme.get_color('border'))
     else:
-        drawTile(-7, 2, " Press [ENTER] to continue ", theme.get_color('border'))
+        drawTile(-7, 2, _(" Press [ENTER] to continue "), theme.get_color('border'))
 
 
 def drawScore():

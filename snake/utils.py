@@ -53,7 +53,7 @@ def check_valid_theme(theme):
     if theme not in theme_list:
         coloured_error, _, _ = run_cmd('colour_echo "{{8 x }} {{7 error: }}"')
         print "\n    " + coloured_error.strip('\n') + \
-              'Theme %s not found (names are case sensitive)\n' % theme
+              _('Theme %s not found (names are case sensitive)\n') % theme
         exit(2)
 
 
@@ -61,24 +61,24 @@ def share_theme():
     # Check for internet
     if not is_internet():
         coloured_error, _, _ = run_cmd('colour_echo "{{8 x }} {{7 error: }}"')
-        print "\n    " + coloured_error.strip('\n') + 'You need internet connection'
+        print "\n    " + coloured_error.strip('\n') + _('You need internet connection')
         exit(2)
     # Check for login
     success, _ = login_using_token()
     if not success:
         coloured_error, _, _ = run_cmd('colour_echo "{{8 x }} {{7 error: }}"')
-        print "\n    " + coloured_error.strip('\n') + 'You need to login to Kano World'
+        print "\n    " + coloured_error.strip('\n') + _('You need to login to Kano World')
         exit(2)
     # Print themes
     print_themes(False, False)
     # Select theme dialogue
-    message = "    1) Select a theme: "
+    message = _("    1) Select a theme: ")
     theme = raw_input(message)
     theme += '.xml'
     # Check theme exists
     check_valid_theme(theme)
     # Select title
-    message = "    2) Write a title: "
+    message = _("    2) Write a title: ")
     title = raw_input(message)
     if title:
         # The API limits title to 200 characters (cut it here)
@@ -86,7 +86,7 @@ def share_theme():
     else:
         title = 'My snake'
     # Select description
-    message = "    3) Write a description: "
+    message = _("    3) Write a description: ")
     description = raw_input(message)
     if description:
         # The API limits description to 500 characters (cut it here)
@@ -98,7 +98,7 @@ def share_theme():
     success, msg = upload_share(filepath, title, 'make-snake')
     if not success:
         coloured_error, _, _ = run_cmd('colour_echo "{{8 x }} {{7 error: }}"')
-        print "\n    " + coloured_error.strip('\n') + 'Sharing of %s failed. %s\n' % (theme, msg)
+        print "\n    " + coloured_error.strip('\n') + _('Sharing of {} failed. {}\n') % (theme, msg)
         exit(2)
     message, _, _ = run_cmd('colour_echo "{{4 + }} {{3 You have shared your theme successfully }}"')
     print "\n    " + message.strip('\n')
