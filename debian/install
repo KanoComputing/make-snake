@@ -14,3 +14,6 @@ icon/make-snake.app usr/share/applications
 games/* usr/share/applications
 
 media /usr/share/make-snake/
+
+locale/* usr/share/locale/
+
