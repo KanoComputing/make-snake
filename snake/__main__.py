@@ -18,16 +18,8 @@ import sys
 import gamestate as gs
 from kano.utils import is_gui
 
-if __name__ == '__main__' and __package__ is None:
-    DIR_PATH = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
-
-    if not DIR_PATH.startswith('/usr'):
-        sys.path.insert(1, DIR_PATH)
-        LOCALE_PATH = os.path.join(DIR_PATH, 'locale')
-    else:
-        LOCALE_PATH = None
-
 import kano_i18n.init
+LOCALE_PATH = '/usr/share/locale'
 kano_i18n.init.install('make-snake', LOCALE_PATH)
 
 
