@@ -28,7 +28,7 @@ msgstr " [ENTER]キーを "
 #: ../snake/graphics.py:41
 #, python-brace-format
 msgid " Use [{0}{1}{2}{3}] to move "
-msgstr "   [{0}{1}{2}{3}]で動ける "
+msgstr "   [{0}{1}{2}{3}]で動ける   "
 
 #: ../snake/graphics.py:65
 msgid "  GAME OVER  "
