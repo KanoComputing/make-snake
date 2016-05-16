@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: make-snake\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-16 00:14+0900\n"
+"POT-Creation-Date: 2016-05-16 21:15+0900\n"
 "PO-Revision-Date: 2016-05-14 08:40+0900\n"
 "Last-Translator: Choppin Antoine <antoine@japonophile.com>\n"
 "Language-Team: Japanese\n"
@@ -304,207 +304,200 @@ msgstr "保存したテーマ"
 msgid "Exit"
 msgstr "終了"
 
-#: ../bin/make-snake:55
+#: ../bin/make-snake:57
+#, sh-format
 msgid ""
-"{{6 - }} {{5 Need to enter a command: }} {{2 $1 }} {{5 or }} {{2 exit }}"
+"{{6 - }} {{5 Need to enter a command: }} {{2 $commandstr }} {{5 or }} {{2 "
+"exit }}"
 msgstr ""
-"{{6 - }} {{5 次のコマンドを入力する: }} {{2 $1 }} {{5 又は }} {{2 exit }}"
+"{{6 - }} {{5 次のコマンドを入力する: }} {{2 $commandstr }} {{5 又は }} {{2 "
+"exit }}"
 
-#: ../bin/make-snake:61
-msgid "{{2 $1 }}をタイプしてから{{1 ENTER }}を"
-msgstr ""
-
-#: ../bin/make-snake:91
+#: ../bin/make-snake:93
 #, sh-format
 msgid "Fantastic! You gained {{2 $gained_exp }} experience points!"
 msgstr "素晴らしい！{{2 $gained_exp }}点を獲得できた！"
 
-#: ../bin/make-snake:122
+#: ../bin/make-snake:124
 msgid "Where were we..."
 msgstr "では続けよう…"
 
-#: ../bin/make-snake:131
+#: ../bin/make-snake:133
 msgid "{{3Challenge [1/9]: Let's play!}}"
 msgstr "{{3チャレンジ [1/9]: 遊ぼう！}}"
 
-#: ../bin/make-snake:134
+#: ../bin/make-snake:136
 msgid "Snake is one of the oldest and coolest games."
 msgstr "ヘビゲームは一番古くて楽しいゲームの一つだ。"
 
-#: ../bin/make-snake:135
+#: ../bin/make-snake:137
 msgid "Eat apples, but don't bite your tail!"
 msgstr "リンゴを食べて、自分の尻尾を噛むな！"
 
-#: ../bin/make-snake:136
+#: ../bin/make-snake:138
 msgid "Press {{1 ENTER }} to see what you'll make!"
-msgstr "これから作るゲームを確認しよう。{{1 ENTER }}キーでスタート"
+msgstr "{{1 ENTER }}キーで、これから作るゲームを確認しよう！"
 
-#: ../bin/make-snake:148
+#: ../bin/make-snake:150
 msgid "{{3Challenge [2/9]: Your first spell}}"
 msgstr ""
 
-#: ../bin/make-snake:151
+#: ../bin/make-snake:153
 msgid "Ready to make it?"
 msgstr ""
 
-#: ../bin/make-snake:152
+#: ../bin/make-snake:154
 msgid "Let's start simple."
 msgstr ""
 
-#: ../bin/make-snake:153
+#: ../bin/make-snake:155
 msgid "Type {{2 python snake }} then press {{1 ENTER }}."
 msgstr ""
 
-#: ../bin/make-snake:154
+#: ../bin/make-snake:156
 msgid ""
 "This is a Linux command - a spell that your computer's brain understands."
 msgstr ""
 
-#: ../bin/make-snake:155
+#: ../bin/make-snake:157
 msgid "You can type {{2 exit }} at any point to quit."
 msgstr ""
 
-#: ../bin/make-snake:167
+#: ../bin/make-snake:169
 msgid "{{3Challenge [3/9]: Game changer}}"
 msgstr ""
 
-#: ../bin/make-snake:170
+#: ../bin/make-snake:172
 msgid "Want to make the game tougher?"
 msgstr ""
 
-#: ../bin/make-snake:171
+#: ../bin/make-snake:173
 msgid "{{2 python snake }} launches the game."
 msgstr ""
 
-#: ../bin/make-snake:172
+#: ../bin/make-snake:174
 msgid ""
 "But you can write parameters after {{2 python snake }} to change how the "
 "game works."
 msgstr ""
 
-#: ../bin/make-snake:173
+#: ../bin/make-snake:175
 msgid "You can make the board medium size with {{2 python snake -b m }}"
 msgstr ""
 
-#: ../bin/make-snake:185
+#: ../bin/make-snake:187
 msgid "{{3Challenge [4/9]: Long live Snake}}"
 msgstr ""
 
-#: ../bin/make-snake:188
+#: ../bin/make-snake:190
 msgid "Another way to change the game is to add extra lives!"
 msgstr ""
 
-#: ../bin/make-snake:189
+#: ../bin/make-snake:191
 msgid ""
 "You can add extra lives by adding {{2 --lives }} and a number after {{2 "
 "python snake }}."
 msgstr ""
 
-#: ../bin/make-snake:190
+#: ../bin/make-snake:192
 msgid "{{2 python snake }} is a command, and {{2 --lives }} is an argument."
 msgstr ""
 
-#: ../bin/make-snake:191
+#: ../bin/make-snake:193
 msgid "Type {{2 python snake --lives 3 }} to make a game with three lives."
 msgstr ""
 
-#: ../bin/make-snake:203
+#: ../bin/make-snake:205
 msgid "{{3Challenge [5/9]: Speed it up}}"
 msgstr ""
 
-#: ../bin/make-snake:206
+#: ../bin/make-snake:208
 msgid "Another way to increase difficulty is by changing the Snake's speed."
 msgstr ""
 
-#: ../bin/make-snake:207
+#: ../bin/make-snake:209
 msgid "We use the {{2 -s}} argument, with an {{2 f}} option to choose fast."
 msgstr ""
 
-#: ../bin/make-snake:208
+#: ../bin/make-snake:210
 msgid "Let's try a fast game! {{2 python snake -s f }}"
 msgstr ""
 
-#: ../bin/make-snake:219
+#: ../bin/make-snake:221
 msgid "{{3Challenge [6/9]: Amazon style}}"
 msgstr ""
 
-#: ../bin/make-snake:222
+#: ../bin/make-snake:224
 msgid "You are changing Snake using computer commands."
 msgstr ""
 
-#: ../bin/make-snake:223
+#: ../bin/make-snake:225
 msgid "Now try modifying its theme (how Snake looks)."
 msgstr ""
 
-#: ../bin/make-snake:224
+#: ../bin/make-snake:226
 msgid "Type {{2 python snake -t jungle }} to play Amazon style!"
 msgstr ""
 
-#: ../bin/make-snake:235
+#: ../bin/make-snake:237
 msgid "{{3Challenge [7/9]: Make my own theme}}"
 msgstr ""
 
-#: ../bin/make-snake:238
+#: ../bin/make-snake:240
 msgid "Do you know you can even create your own themes?"
 msgstr ""
 
-#: ../bin/make-snake:239
+#: ../bin/make-snake:241
 msgid "Type {{2 python snake -e }} to open the theme editor."
 msgstr ""
 
-#: ../bin/make-snake:250
+#: ../bin/make-snake:252
 msgid "{{3Challenge [8/9]: Show your colours}}"
 msgstr ""
 
-#: ../bin/make-snake:254
+#: ../bin/make-snake:256
 msgid "It's looking good!"
 msgstr ""
 
-#: ../bin/make-snake:255
-#, sh-format
-msgid ""
-"Type {{2 python snake -t $theme_name }} to play with the design that you "
-"saved in the editor."
-msgstr ""
-
-#: ../bin/make-snake:265
+#: ../bin/make-snake:267
 msgid "{{3Challenge [9/9]: Life saver}}"
 msgstr ""
 
-#: ../bin/make-snake:268
+#: ../bin/make-snake:270
 msgid ""
 "Use the help option to learn all the different spells, with commands, "
 "arguments, and options."
 msgstr ""
 
-#: ../bin/make-snake:269
+#: ../bin/make-snake:271
 msgid "Type {{2 python snake --help }} to get help."
 msgstr ""
 
-#: ../bin/make-snake:277
+#: ../bin/make-snake:279
 msgid "{{4 + }} {{3 Great! You've completed Make Snake!}}"
 msgstr ""
 
-#: ../bin/make-snake:278
+#: ../bin/make-snake:280
 msgid "Press {{1 ENTER }} to continue"
 msgstr ""
 
-#: ../bin/make-snake:285 ../bin/make-snake:324
+#: ../bin/make-snake:287 ../bin/make-snake:326
 msgid "{{3Playground mode}}"
 msgstr ""
 
-#: ../bin/make-snake:288
+#: ../bin/make-snake:290
 msgid "Try what you have learned, type {{2 python snake --help }} for help"
 msgstr ""
 
-#: ../bin/make-snake:319
+#: ../bin/make-snake:321
 msgid "{{4 + }} {{3 Make Snake has been reset, closing now...}}"
 msgstr ""
 
-#: ../bin/make-snake:327
+#: ../bin/make-snake:329
 msgid "Remember: type {{2 python snake --help }} for help\\n"
 msgstr ""
 
-#: ../bin/make-snake:330
+#: ../bin/make-snake:332
 msgid "Need help? Type {{2 python snake --help }} or {{2 exit }} to finish."
 msgstr ""
+
