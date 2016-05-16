@@ -75,7 +75,7 @@ def drawCurrentMenu():
                     text += ' : ' + controls.tile[0]
                     if len(controls.tile) > 1:
                         text += ' ' + controls.tile[1]
-                        text += '   >> Press [ENTER]'
+                        text += '   >> ' + _('Press [ENTER]')
                     else:
                         text += ' _'
                 else:

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: make-snake\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-16 23:18+0900\n"
+"POT-Creation-Date: 2016-05-17 07:51+0900\n"
 "PO-Revision-Date: 2016-05-14 08:40+0900\n"
 "Last-Translator: Choppin Antoine <antoine@japonophile.com>\n"
 "Language-Team: Japanese\n"
@@ -155,6 +155,10 @@ msgstr "メークスネーク"
 #: ../snake-editor/controls.py:249 ../snake-editor/menus.py:51
 msgid "Take Screenshot"
 msgstr "スクリーンショットを撮る"
+
+#: ../snake-editor/graphics.py:78
+msgid "Press [ENTER]"
+msgstr "[ENTER]キーを押して"
 
 #: ../snake-editor/graphics.py:104 ../snake-editor/menus.py:50
 msgid "Delete Theme"
@@ -316,7 +320,7 @@ msgstr ""
 #: ../bin/make-snake:63
 #, sh-format
 msgid "Type {{2 $commandstr }} then {{1 ENTER }}"
-msgstr ""
+msgstr "{{2 $commandstr }}をタイプし、{{1 ENTER }}キーを押して"
 
 #: ../bin/make-snake:93
 #, sh-format
@@ -470,7 +474,7 @@ msgstr "{{3チャレンジ [8/9]: 自分の色を自慢しよう}}"
 
 #: ../bin/make-snake:256
 msgid "It's looking good!"
-msgstr "かっこいいね！"
+msgstr "いい感じに出来たね！"
 
 #: ../bin/make-snake:257
 #, sh-format
@@ -478,6 +482,8 @@ msgid ""
 "Type {{2 python snake -t $theme_name }} to play with the design that you "
 "saved in the editor."
 msgstr ""
+"エディターで作ったテーマでプレイするには、{{2 python snake -t $theme_name }}を"
+"タイプしてみよう。"
 
 #: ../bin/make-snake:267
 msgid "{{3Challenge [9/9]: Life saver}}"
