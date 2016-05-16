@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: make-snake\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-16 21:15+0900\n"
+"POT-Creation-Date: 2016-05-16 23:18+0900\n"
 "PO-Revision-Date: 2016-05-14 08:40+0900\n"
 "Last-Translator: Choppin Antoine <antoine@japonophile.com>\n"
 "Language-Team: Japanese\n"
@@ -28,7 +28,7 @@ msgstr " [ENTER]キーを "
 #: ../snake/graphics.py:41
 #, python-brace-format
 msgid " Use [{0}{1}{2}{3}] to move "
-msgstr " [{0}{1}{2}{3}]で動ける "
+msgstr "   [{0}{1}{2}{3}]で動ける "
 
 #: ../snake/graphics.py:65
 msgid "  GAME OVER  "
@@ -313,6 +313,11 @@ msgstr ""
 "{{6 - }} {{5 次のコマンドを入力する: }} {{2 $commandstr }} {{5 又は }} {{2 "
 "exit }}"
 
+#: ../bin/make-snake:63
+#, sh-format
+msgid "Type {{2 $commandstr }} then {{1 ENTER }}"
+msgstr ""
+
 #: ../bin/make-snake:93
 #, sh-format
 msgid "Fantastic! You gained {{2 $gained_exp }} experience points!"
@@ -357,8 +362,7 @@ msgstr "{{2 python snake }}を入力し、{{1 ENTER }}を押して下さい。"
 #: ../bin/make-snake:156
 msgid ""
 "This is a Linux command - a spell that your computer's brain understands."
-msgstr ""
-"これはリナックスのコマンドで、パソコンの頭脳が分かるおまじないなんだ。"
+msgstr "これはリナックスのコマンドで、パソコンの頭脳が分かるおまじないなんだ。"
 
 #: ../bin/make-snake:157
 msgid "You can type {{2 exit }} at any point to quit."
@@ -381,12 +385,13 @@ msgid ""
 "But you can write parameters after {{2 python snake }} to change how the "
 "game works."
 msgstr ""
-"でも{{2 python snake }}の後にパラメーターを加えれば、ゲームの動きを"
-"変えられるんだ。"
+"でも{{2 python snake }}の後にパラメーターを加えれば、ゲームの動きを変えられる"
+"んだ。"
 
 #: ../bin/make-snake:175
 msgid "You can make the board medium size with {{2 python snake -b m }}"
-msgstr "例えば、{{2 python snake -b m }}でボードの大きさを中（medium）に設定できる"
+msgstr ""
+"例えば、{{2 python snake -b m }}でボードの大きさを中（medium）に設定できる"
 
 #: ../bin/make-snake:187
 msgid "{{3Challenge [4/9]: Long live Snake}}"
@@ -406,11 +411,14 @@ msgstr ""
 
 #: ../bin/make-snake:192
 msgid "{{2 python snake }} is a command, and {{2 --lives }} is an argument."
-msgstr "{{2 python snake }}は「コマンド」で、{{2 --lives }}は「引数」と言うんだ。"
+msgstr ""
+"{{2 python snake }}は「コマンド」で、{{2 --lives }}は「引数」と言うんだ。"
 
 #: ../bin/make-snake:193
 msgid "Type {{2 python snake --lives 3 }} to make a game with three lives."
-msgstr "３つのいのちのゲームを作るには{{2 python snake --lives 3 }}をタイプしてみよう。"
+msgstr ""
+"３つのいのちのゲームを作るには{{2 python snake --lives 3 }}をタイプしてみよ"
+"う。"
 
 #: ../bin/make-snake:205
 msgid "{{3Challenge [5/9]: Speed it up}}"
@@ -464,6 +472,13 @@ msgstr "{{3チャレンジ [8/9]: 自分の色を自慢しよう}}"
 msgid "It's looking good!"
 msgstr "かっこいいね！"
 
+#: ../bin/make-snake:257
+#, sh-format
+msgid ""
+"Type {{2 python snake -t $theme_name }} to play with the design that you "
+"saved in the editor."
+msgstr ""
+
 #: ../bin/make-snake:267
 msgid "{{3Challenge [9/9]: Life saver}}"
 msgstr "{{3チャレンジ [9/9]: いのち救い}}"
@@ -493,7 +508,8 @@ msgstr "{{3遊び場モード}}"
 
 #: ../bin/make-snake:290
 msgid "Try what you have learned, type {{2 python snake --help }} for help"
-msgstr "学んだことを試してみよう。{{2 python snake --help }}でコマンドを確認しよう"
+msgstr ""
+"学んだことを試してみよう。{{2 python snake --help }}でコマンドを確認しよう"
 
 #: ../bin/make-snake:321
 msgid "{{4 + }} {{3 Make Snake has been reset, closing now...}}"
@@ -505,5 +521,5 @@ msgstr "忘れずに：ヘルプを見るには{{2 python snake --help }}をタ�
 
 #: ../bin/make-snake:332
 msgid "Need help? Type {{2 python snake --help }} or {{2 exit }} to finish."
-msgstr "ヘルプが必要？{{2 python snake --help }}をタイプして、又は{{2 exit }}で終了。"
-
+msgstr ""
+"ヘルプが必要？{{2 python snake --help }}をタイプして、又は{{2 exit }}で終了。"

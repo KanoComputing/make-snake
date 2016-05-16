@@ -38,7 +38,7 @@ def drawInitGame():
     up = u"\u2191"
     down = u"\u2193"
     right = u"\u2192"
-    drawTile(-5, 4, _(" Use [{0}{1}{2}{3}] to move ") % (left, up, down, right), theme.get_color('border'))
+    drawTile(-5, 4, _(" Use [{0}{1}{2}{3}] to move ").format(left, up, down, right), theme.get_color('border'))
 
 
 def drawGameOver():

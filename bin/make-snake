@@ -52,15 +52,15 @@ function inputLoop
     while true; do
         read -erp $'    \1\e[96m\2>\1\e[0m\2 ' command
         history -s $command
+        commandstr=$1
         if [ -z "$command" ]; then
-            commandstr=$1
             colourEcho "`eval_gettext "{{6 - }} {{5 Need to enter a command: }} {{2 \\\$commandstr }} {{5 or }} {{2 exit }}"`"
         elif [ "$command" == "$1" ] || [ "$command" == "$2" ]; then
             break
         elif [ "$command" == "exit" ]; then
             exit
         fi
-        colourEcho "`gettext "Type {{2 \$1 }} then {{1 ENTER }}"`"
+        colourEcho "`eval_gettext "Type {{2 \\\$commandstr }} then {{1 ENTER }}"`"
         breakline
     done
 }
@@ -267,7 +267,7 @@ if [ "$mod_stage" -eq 7 ]; then
     breakline
     getLastCreatedTheme
     typewriter_echo "`gettext "It's looking good!"`" 0 2 1 0
-    typewriter_echo "`gettext "Type {{2 python snake -t \$theme_name }} to play with the design that you saved in the editor."`" 0 2 1 0
+    typewriter_echo "`eval_gettext "Type {{2 python snake -t \\\$theme_name }} to play with the design that you saved in the editor."`" 0 2 1 0
     inputLoop "python snake -t $theme_name" "python snake --theme $theme_name"
     python -B $dir -mt $theme_name
     saveLevel
