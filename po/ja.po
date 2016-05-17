@@ -110,11 +110,6 @@ msgstr "チャレンジ１にゲームを戻す"
 msgid "Share your favourite theme with the world"
 msgstr "好きなテーマを他の人と共有する"
 
-#: ../snake/stage.py:44
-#, python-format
-msgid "Can't find board size: {}"
-msgstr "このボードの大きさは見つかりません: {}"
-
 #: ../snake/utils.py:56
 #, python-format
 msgid "Theme %s not found (names are case sensitive)\n"
