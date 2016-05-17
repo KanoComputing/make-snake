@@ -18,6 +18,10 @@ import sys
 import gamestate as gs
 from kano.utils import is_gui
 
+import kano_i18n.init
+LOCALE_PATH = '/usr/share/locale'
+kano_i18n.init.install('make-snake', LOCALE_PATH)
+
 
 def exit(save_state=True):
     """Attempts to tidy up the graphics, and then save the app state.

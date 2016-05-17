@@ -136,7 +136,7 @@ def update():
             # Screenshot
             elif currentMenu[currentIdx][1] == "screenshot":
                 take_screenshot()
-                menus.editMain[3] = ["Take Screenshot [TAKEN]", "screenshot"]
+                menus.editMain[3] = [_("Take Screenshot [TAKEN]"), "screenshot"]
                 return
             # Modify existing theme
             elif currentMenu[currentIdx][1] == "existing":
@@ -228,7 +228,7 @@ def take_screenshot():
     # Remove screenshot if exists
     if os.path.exists(path):
         os.remove(path)
-    window_name = "Make Snake"
+    window_name = _("Make Snake")
     # TODO: add parameter -cx,y,width,height depending on screen size
     # For 1920x1036: -c500,50,1000,800
     cmd = '/usr/bin/kano-screenshot -p %s -a %s &' % (path, window_name)
@@ -246,7 +246,7 @@ def navigate_back():
     currentIdx = 0
     # Reset Screenshot title just in case
     if currentMenu == menus.editMain:
-        menus.editMain[3] = ["Take Screenshot", "screenshot"]
+        menus.editMain[3] = [_("Take Screenshot"), "screenshot"]
     # Redraw with first theme on the list
     if currentMenu == menus.naming:
         theme_name = currentMenu[0][0]

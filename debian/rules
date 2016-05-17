@@ -1,4 +1,5 @@
 #!/usr/bin/make -f
 
 %:
+	cd po && make
 	dh $@

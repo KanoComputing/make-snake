@@ -18,6 +18,9 @@ trap kanotracker EXIT
 
 dir="/usr/share/make-snake"
 
+. gettext.sh
+export TEXTDOMAIN="make-snake"
+
 function breakline
 {
     echo -ne "\n"
@@ -49,14 +52,15 @@ function inputLoop
     while true; do
         read -erp $'    \1\e[96m\2>\1\e[0m\2 ' command
         history -s $command
+        commandstr=$1
         if [ -z "$command" ]; then
-            colourEcho "{{6 - }} {{5 Need to enter a command: }} {{2 $1 }} {{5 or }} {{2 exit }}"
+            colourEcho "`eval_gettext "{{6 - }} {{5 Need to enter a command: }} {{2 \\\$commandstr }} {{5 or }} {{2 exit }}"`"
         elif [ "$command" == "$1" ] || [ "$command" == "$2" ]; then
             break
         elif [ "$command" == "exit" ]; then
             exit
         fi
-        colourEcho "Type {{2 $1 }} then {{1 ENTER }}"
+        colourEcho "`eval_gettext "Type {{2 \\\$commandstr }} then {{1 ENTER }}"`"
         breakline
     done
 }
@@ -86,7 +90,7 @@ function printGainedExp
 {
     if [ "$gained_exp" -gt 0 ]; then
         breakline
-        typewriter_echo "Fantastic! You gained {{2 $gained_exp }} experience points!" 0 2 1 0
+        typewriter_echo "`eval_gettext "Fantastic! You gained {{2 \\\$gained_exp }} experience points!"`" 0 2 1 0
     fi
 }
 
@@ -130,7 +134,7 @@ else
     mod_stage=$(($stage % 10))
     if [ ! "$mod_stage" -ge 8 ] && [ ! "$mod_stage" -eq 0 ]; then
         header
-        typewriter_echo "Where were we..." 0 2 1 0
+        typewriter_echo "`gettext "Where were we..."`" 0 2 1 0
     fi
 fi
 
@@ -139,12 +143,12 @@ kano-stop-splash
 # Exercise 1: 'press ENTER'
 if [ "$mod_stage" -eq 0 ]; then
     header
-    colourEcho "{{3Challenge [1/9]: Let's play!}}"
+    colourEcho "`gettext "{{3Challenge [1/9]: Let's play!}}"`"
     breakline
     breakline
-    typewriter_echo "Snake is one of the oldest and coolest games." 0 2 1 0
-    typewriter_echo "Eat apples, but don't bite your tail!" 0 2 1 0
-    typewriter_echo "Press {{1 ENTER }} to see what you'll make!" 0 0 1 0
+    typewriter_echo "`gettext "Snake is one of the oldest and coolest games."`" 0 2 1 0
+    typewriter_echo "`gettext "Eat apples, but don't bite your tail!"`" 0 2 1 0
+    typewriter_echo "`gettext "Press {{1 ENTER }} to see what you'll make!"`" 0 0 1 0
 
     read
     # tutorial mode (-m), slow (-s s), large (-b l), 80s (-t 80s)
@@ -156,14 +160,14 @@ fi
 # Exercise 2: 'python snake'
 if [ "$mod_stage" -eq 1 ]; then
     header
-    colourEcho "{{3Challenge [2/9]: Your first spell}}"
+    colourEcho "`gettext "{{3Challenge [2/9]: Your first spell}}"`"
     breakline
     breakline
-    typewriter_echo "Ready to make it?" 0 2 1 0
-    typewriter_echo "Let's start simple." 0 2 1 0
-    typewriter_echo "Type {{2 python snake }} then press {{1 ENTER }}." 0 2 1 0
-    typewriter_echo "This is a Linux command – a spell that your computer's brain understands." 0 2 1 0
-    typewriter_echo "You can type {{2 exit }} at any point to quit." 0 2 1 0
+    typewriter_echo "`gettext "Ready to make it?"`" 0 2 1 0
+    typewriter_echo "`gettext "Let's start simple."`" 0 2 1 0
+    typewriter_echo "`gettext "Type {{2 python snake }} then press {{1 ENTER }}."`" 0 2 1 0
+    typewriter_echo "`gettext "This is a Linux command - a spell that your computer's brain understands."`" 0 2 1 0
+    typewriter_echo "`gettext "You can type {{2 exit }} at any point to quit."`" 0 2 1 0
 
     inputLoop 'python snake'
     # tutorial mode (-m), slow (-s s)
@@ -175,13 +179,13 @@ fi
 # Exercise 3: 'python snake -b m'
 if [ "$mod_stage" -eq 2 ]; then
     header
-    colourEcho "{{3Challenge [3/9]: Game changer}}"
+    colourEcho "`gettext "{{3Challenge [3/9]: Game changer}}"`"
     breakline
     breakline
-    typewriter_echo "Want to make the game tougher?" 0 2 1 0
-    typewriter_echo "{{2 python snake }} launches the game." 0 2 1 0
-    typewriter_echo "But you can write parameters after {{2 python snake }} to change how the game works." 0 2 1 0
-    typewriter_echo "You can make the board medium size with {{2 python snake -b m }}" 0 2 1 0
+    typewriter_echo "`gettext "Want to make the game tougher?"`" 0 2 1 0
+    typewriter_echo "`gettext "{{2 python snake }} launches the game."`" 0 2 1 0
+    typewriter_echo "`gettext "But you can write parameters after {{2 python snake }} to change how the game works."`" 0 2 1 0
+    typewriter_echo "`gettext "You can make the board medium size with {{2 python snake -b m }}"`" 0 2 1 0
 
     inputLoop 'python snake -b m' 'python snake --board m'
     # tutorial mode (-m), medium (-b m), slow (-s s)
@@ -193,13 +197,13 @@ fi
 # Exercise 4: 'python snake -l 3'
 if [ "$mod_stage" -eq 3 ]; then
     header
-    colourEcho "{{3Challenge [4/9]: Long live Snake}}"
+    colourEcho "`gettext "{{3Challenge [4/9]: Long live Snake}}"`"
     breakline
     breakline
-    typewriter_echo "Another way to change the game is to add extra lives!" 0 2 1 0
-    typewriter_echo "You can add extra lives by adding {{2 --lives }} and a number after {{2 python snake }}." 0 2 1 0
-    typewriter_echo "{{2 python snake }} is a command, and {{2 --lives }} is an argument." 0 2 1 0
-    typewriter_echo "Type {{2 python snake --lives 3 }} to make a game with three lives." 0 2 1 0
+    typewriter_echo "`gettext "Another way to change the game is to add extra lives!"`" 0 2 1 0
+    typewriter_echo "`gettext "You can add extra lives by adding {{2 --lives }} and a number after {{2 python snake }}."`" 0 2 1 0
+    typewriter_echo "`gettext "{{2 python snake }} is a command, and {{2 --lives }} is an argument."`" 0 2 1 0
+    typewriter_echo "`gettext "Type {{2 python snake --lives 3 }} to make a game with three lives."`" 0 2 1 0
 
     inputLoop 'python snake --lives 3' 'python snake -l 3'
     # tutorial mode (-m), 3 lives (-l 3)
@@ -211,12 +215,12 @@ fi
 # Exercise 5: 'python snake -s f'
 if [ "$mod_stage" -eq 4 ]; then
     header
-    colourEcho "{{3Challenge [5/9]: Speed it up}}"
+    colourEcho "`gettext "{{3Challenge [5/9]: Speed it up}}"`"
     breakline
     breakline
-    typewriter_echo "Another way to increase difficulty is by changing the Snake's speed." 0 2 1 0
-    typewriter_echo "We use the {{2 -s}} argument, with an {{2 f}} option to choose fast." 0 2 1 0
-    typewriter_echo "Let's try a fast game! {{2 python snake -s f }}" 0 2 1 0
+    typewriter_echo "`gettext "Another way to increase difficulty is by changing the Snake's speed."`" 0 2 1 0
+    typewriter_echo "`gettext "We use the {{2 -s}} argument, with an {{2 f}} option to choose fast."`" 0 2 1 0
+    typewriter_echo "`gettext "Let's try a fast game! {{2 python snake -s f }}"`" 0 2 1 0
 
     inputLoop 'python snake -s f' 'python snake --speed f'
     python -B $dir -ms f
@@ -227,12 +231,12 @@ fi
 # Exercise 6: 'python snake -t jungle'
 if [ "$mod_stage" -eq 5 ]; then
     header
-    colourEcho "{{3Challenge [6/9]: Amazon style}}"
+    colourEcho "`gettext "{{3Challenge [6/9]: Amazon style}}"`"
     breakline
     breakline
-    typewriter_echo "You are changing Snake using computer commands." 0 2 1 0
-    typewriter_echo "Now try modifying its theme (how Snake looks)." 0 2 1 0
-    typewriter_echo "Type {{2 python snake -t jungle }} to play Amazon style!" 0 2 1 0
+    typewriter_echo "`gettext "You are changing Snake using computer commands."`" 0 2 1 0
+    typewriter_echo "`gettext "Now try modifying its theme (how Snake looks)."`" 0 2 1 0
+    typewriter_echo "`gettext "Type {{2 python snake -t jungle }} to play Amazon style!"`" 0 2 1 0
 
     inputLoop 'python snake -t jungle' 'python snake --theme jungle'
     python -B $dir -mt jungle
@@ -243,11 +247,11 @@ fi
 # Exercise 7: 'python snake -e'
 if [ "$mod_stage" -eq 6 ]; then
     header
-    colourEcho "{{3Challenge [7/9]: Make my own theme}}"
+    colourEcho "`gettext "{{3Challenge [7/9]: Make my own theme}}"`"
     breakline
     breakline
-    typewriter_echo "Do you know you can even create your own themes?" 0 2 1 0
-    typewriter_echo "Type {{2 python snake -e }} to open the theme editor." 0 2 1 0
+    typewriter_echo "`gettext "Do you know you can even create your own themes?"`" 0 2 1 0
+    typewriter_echo "`gettext "Type {{2 python snake -e }} to open the theme editor."`" 0 2 1 0
 
     inputLoop 'python snake -e' 'python snake --editor'
     python -B $dir -me
@@ -258,12 +262,12 @@ fi
 # Exercise 8: 'python snake -t custom-theme'
 if [ "$mod_stage" -eq 7 ]; then
     header
-    colourEcho "{{3Challenge [8/9]: Show your colours}}"
+    colourEcho "`gettext "{{3Challenge [8/9]: Show your colours}}"`"
     breakline
     breakline
     getLastCreatedTheme
-    typewriter_echo "It's looking good!" 0 2 1 0
-    typewriter_echo "Type {{2 python snake -t $theme_name }} to play with the design that you saved in the editor." 0 2 1 0
+    typewriter_echo "`gettext "It's looking good!"`" 0 2 1 0
+    typewriter_echo "`eval_gettext "Type {{2 python snake -t \\\$theme_name }} to play with the design that you saved in the editor."`" 0 2 1 0
     inputLoop "python snake -t $theme_name" "python snake --theme $theme_name"
     python -B $dir -mt $theme_name
     saveLevel
@@ -273,11 +277,11 @@ fi
 # Exercise 9: 'python snake --help'
 if [ "$mod_stage" -eq 8 ]; then
     header
-    colourEcho "{{3Challenge [9/9]: Life saver}}"
+    colourEcho "`gettext "{{3Challenge [9/9]: Life saver}}"`"
     breakline
     breakline
-    typewriter_echo "Use the help option to learn all the different spells, with commands, arguments, and options." 0 2 1 0
-    typewriter_echo "Type {{2 python snake --help }} to get help." 0 2 1 0
+    typewriter_echo "`gettext "Use the help option to learn all the different spells, with commands, arguments, and options."`" 0 2 1 0
+    typewriter_echo "`gettext "Type {{2 python snake --help }} to get help."`" 0 2 1 0
 
     inputLoop 'python snake --help' 'python snake -h'
     python -B $dir --help | sed "s/^/    /"
@@ -285,18 +289,18 @@ if [ "$mod_stage" -eq 8 ]; then
     printGainedExp
 
     breakline
-    typewriter_echo "{{4 + }} {{3 Great! You've completed Make Snake!}}" 1 2 1 0
-    typewriter_echo "Press {{1 ENTER }} to continue" 0 0 1 0
+    typewriter_echo "`gettext "{{4 + }} {{3 Great! You've completed Make Snake!}}"`" 1 2 1 0
+    typewriter_echo "`gettext "Press {{1 ENTER }} to continue"`" 0 0 1 0
     read
 fi
 
 # Playground
 if [ "$mod_stage" -ge 9 ]; then
     header
-    colourEcho "{{3Playground mode}}"
+    colourEcho "`gettext "{{3Playground mode}}"`"
     breakline
     breakline
-    typewriter_echo "Try what you have learned, type {{2 python snake --help }} for help" 0 2 1 0
+    typewriter_echo "`gettext "Try what you have learned, type {{2 python snake --help }} for help"`" 0 2 1 0
     # Infinite loop
     while true; do
         # Read command
@@ -327,18 +331,18 @@ if [ "$mod_stage" -ge 9 ]; then
                 breakline
             # Check if command contains reset option
             elif [[ $param == *"--reset"* ]] || [[ $param == *"-r"* ]]; then
-                typewriter_echo "{{4 + }} {{3 Make Snake has been reset, closing now...}}" 1 2 1 0
+                typewriter_echo "`gettext "{{4 + }} {{3 Make Snake has been reset, closing now...}}"`" 1 2 1 0
                 exit 0
             else
                 # Clean terminal + header
                 header
-                colourEcho "{{3Playground mode}}"
+                colourEcho "`gettext "{{3Playground mode}}"`"
                 breakline
                 breakline
-                colourEcho "Remember: type {{2 python snake --help }} for help\n" 0 2 1 0
+                colourEcho "`gettext "Remember: type {{2 python snake --help }} for help\n"`" 0 2 1 0
             fi
         else
-            colourEcho "Need help? Type {{2 python snake --help }} or {{2 exit }} to finish." 0 2 1 0
+            colourEcho "`gettext "Need help? Type {{2 python snake --help }} or {{2 exit }} to finish."`" 0 2 1 0
             breakline
         fi
     done

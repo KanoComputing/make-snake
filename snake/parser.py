@@ -41,7 +41,7 @@ class SnakeArgumentParser(ArgumentParser):
         coloured_error, _, _ = run_cmd('colour_echo "{{8 x }} {{7 error: }}"')
         print "\n    " + coloured_error.strip('\n') + message + '\n'
 
-        run_bg('echo "    `colour_echo "Press {{1 ENTER }} to try again."`"')
+        run_bg('echo "    `colour_echo "' + _('Press {{1 ENTER }} to try again.') + '"`"')
         raw_input()
         self.exit(2)
 
@@ -54,40 +54,40 @@ def init():
     parser.add_argument("-b", "--board",
                         action="store", dest="board", default='l',
                         choices=['s', 'm', 'l'],
-                        help="Board size (s | m | l)")
+                        help=_("Board size (s | m | l)"))
 
     parser.add_argument("-s", "--speed",
                         action="store", dest="speed", default='m',
                         choices=['s', 'm', 'f'],
-                        help="Game speed (s | m | f)")
+                        help=_("Game speed (s | m | f)"))
 
     parser.add_argument("-l", "--lives",
                         action="store", dest="lives", default=1, type=int,
-                        help="Number of lives (1 | 2 | 3 | 4 | 5 )")
+                        help=_("Number of lives (1 | 2 | 3 | 4 | 5 )"))
 
     parser.add_argument("-t", "--theme",
                         action="store", dest="theme", default='minimal',
-                        help="Game themes (classic | minimal | jungle | 80s ) + custom themes")
+                        help=_("Game themes (classic | minimal | jungle | 80s ) + custom themes"))
 
     parser.add_argument("-p", "--print",
                         action="store_true", dest="print_themes", default=False,
-                        help="Print all available themes")
+                        help=_("Print all available themes"))
 
     parser.add_argument("-e", "--editor",
                         action="store_true", dest="editor", default=False,
-                        help="Enter editor mode")
+                        help=_("Enter editor mode"))
 
     parser.add_argument("-m", "--modeTutorial",
                         action="store_true", dest="tutorial", default=False,
-                        help="Closes game after game over")
+                        help=_("Closes game after game over"))
 
     parser.add_argument("-r", "--reset",
                         action="store_true", dest="reset", default=False,
-                        help="Resets the game to challenge 1")
+                        help=_("Resets the game to challenge 1"))
 
     parser.add_argument("--share",
                         action="store_true", dest="share", default=False,
-                        help="Share your favourite theme with the world")
+                        help=_("Share your favourite theme with the world"))
 
     args = parser.parse_args()
 

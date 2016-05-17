@@ -1,0 +1,526 @@
+# Japanese translations for make-snake package.
+# Copyright (C) 2016 Kano Computing Ltd.
+# This file is distributed under the same license as the make-snake package.
+# Choppin Antoine <antoine@japonophile.com>, 2016.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: make-snake\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-05-17 07:51+0900\n"
+"PO-Revision-Date: 2016-05-14 08:40+0900\n"
+"Last-Translator: Choppin Antoine <antoine@japonophile.com>\n"
+"Language-Team: Japanese\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: ../snake/graphics.py:35
+msgid "  Welcome to SNAKE "
+msgstr "  SNAKEへようこそ "
+
+#: ../snake/graphics.py:36
+msgid " Press [ENTER] "
+msgstr " [ENTER]キーを "
+
+#: ../snake/graphics.py:41
+#, python-brace-format
+msgid " Use [{0}{1}{2}{3}] to move "
+msgstr "   [{0}{1}{2}{3}]で動ける   "
+
+#: ../snake/graphics.py:65
+msgid "  GAME OVER  "
+msgstr "ゲームオーバー"
+
+#: ../snake/graphics.py:66
+msgid "Score:"
+msgstr "スコア:"
+
+#: ../snake/graphics.py:67
+msgid "Speed:"
+msgstr "スピード:"
+
+#: ../snake/graphics.py:68
+msgid "Size:"
+msgstr "長さ:"
+
+#: ../snake/graphics.py:69
+msgid "Lives:"
+msgstr "いのち:"
+
+#: ../snake/graphics.py:72
+msgid " Press [ENTER] to exit "
+msgstr " 終了するには[ENTER]を "
+
+#: ../snake/graphics.py:74
+msgid " Press [ENTER] to continue "
+msgstr " 続くには[ENTER]を押して "
+
+#: ../snake/graphics.py:169 ../snake-editor/graphics.py:198
+msgid "score:"
+msgstr "スコア:"
+
+#: ../snake/graphics.py:170 ../snake-editor/graphics.py:199
+msgid "lives:"
+msgstr "いのち:"
+
+#: ../snake/graphics.py:171 ../snake-editor/graphics.py:200
+msgid " Press Q to quit "
+msgstr " 終了するにはQを"
+
+#: ../snake/parser.py:44
+msgid "Press {{1 ENTER }} to try again."
+msgstr "やり直すには{{1 ENTER }}を押して"
+
+#: ../snake/parser.py:57
+msgid "Board size (s | m | l)"
+msgstr "ボードの大きさ (s=小 | m=中 | l=大)"
+
+#: ../snake/parser.py:62
+msgid "Game speed (s | m | f)"
+msgstr "ゲームスピード (s=遅 | m=中 | f=速)"
+
+#: ../snake/parser.py:66
+msgid "Number of lives (1 | 2 | 3 | 4 | 5 )"
+msgstr "いのちの数 (1 | 2 | 3 | 4 | 5 )"
+
+#: ../snake/parser.py:70
+msgid "Game themes (classic | minimal | jungle | 80s ) + custom themes"
+msgstr "ゲームのテーマ (classic | minimal | jungle | 80s ) + カスタムテーマ"
+
+#: ../snake/parser.py:74
+msgid "Print all available themes"
+msgstr "全てのテーマを表示"
+
+#: ../snake/parser.py:78
+msgid "Enter editor mode"
+msgstr "エディターモードに入る"
+
+#: ../snake/parser.py:82
+msgid "Closes game after game over"
+msgstr "ゲームオーバー後にゲームを終了する"
+
+#: ../snake/parser.py:86
+msgid "Resets the game to challenge 1"
+msgstr "チャレンジ１にゲームを戻す"
+
+#: ../snake/parser.py:90
+msgid "Share your favourite theme with the world"
+msgstr "好きなテーマを他の人と共有する"
+
+#: ../snake/utils.py:56
+#, python-format
+msgid "Theme %s not found (names are case sensitive)\n"
+msgstr "テーマ %s が見つかりません（テーマ名で大文字と小文字の区別に注意）\n"
+
+#: ../snake/utils.py:64
+msgid "You need internet connection"
+msgstr "インターネット接続が必要です"
+
+#: ../snake/utils.py:70
+msgid "You need to login to Kano World"
+msgstr "Kanoワールドにログインして下さい"
+
+#: ../snake/utils.py:75
+msgid "    1) Select a theme: "
+msgstr "    1) テーマを選択する: "
+
+#: ../snake/utils.py:81
+msgid "    2) Write a title: "
+msgstr "    2) タイトルを入力する: "
+
+#: ../snake/utils.py:86
+msgid "    3) Write a description: "
+msgstr "    3) 説明を入力する: "
+
+#: ../snake/utils.py:95
+msgid "Sharing of {} failed. {}\n"
+msgstr "{}を共有に失敗しました。{}\n"
+
+#: ../snake-editor/controls.py:139
+msgid "Take Screenshot [TAKEN]"
+msgstr "スクリーンショットを撮る [完了]"
+
+#: ../snake-editor/controls.py:231
+msgid "Make Snake"
+msgstr "メークスネーク"
+
+#: ../snake-editor/controls.py:249 ../snake-editor/menus.py:51
+msgid "Take Screenshot"
+msgstr "スクリーンショットを撮る"
+
+#: ../snake-editor/graphics.py:78
+msgid "Press [ENTER]"
+msgstr "[ENTER]キーを押して"
+
+#: ../snake-editor/graphics.py:104 ../snake-editor/menus.py:50
+msgid "Delete Theme"
+msgstr "テーマを削除する"
+
+#: ../snake-editor/menus.py:17 ../snake-editor/theme.py:36
+#: ../snake-editor/theme.py:198
+msgid "Black"
+msgstr "黒"
+
+#: ../snake-editor/menus.py:17 ../snake-editor/theme.py:37
+#: ../snake-editor/theme.py:200
+msgid "Red"
+msgstr "赤"
+
+#: ../snake-editor/menus.py:17 ../snake-editor/theme.py:38
+#: ../snake-editor/theme.py:202
+msgid "Green"
+msgstr "緑"
+
+#: ../snake-editor/menus.py:17 ../snake-editor/theme.py:39
+#: ../snake-editor/theme.py:204
+msgid "Yellow"
+msgstr "黄色"
+
+#: ../snake-editor/menus.py:18 ../snake-editor/theme.py:40
+#: ../snake-editor/theme.py:206
+msgid "Blue"
+msgstr "青"
+
+#: ../snake-editor/menus.py:18 ../snake-editor/theme.py:41
+#: ../snake-editor/theme.py:208
+msgid "Magenta"
+msgstr "マジェンタ"
+
+#: ../snake-editor/menus.py:18 ../snake-editor/theme.py:42
+#: ../snake-editor/theme.py:210
+msgid "Cyan"
+msgstr "シアン"
+
+#: ../snake-editor/menus.py:18 ../snake-editor/theme.py:43
+msgid "White"
+msgstr "白"
+
+#: ../snake-editor/menus.py:21 ../snake-editor/menus.py:24
+#: ../snake-editor/menus.py:27 ../snake-editor/menus.py:31
+#: ../snake-editor/menus.py:36
+msgid "Background colour"
+msgstr "背景の色"
+
+#: ../snake-editor/menus.py:22 ../snake-editor/theme.py:145
+msgid "Snake body"
+msgstr "蛇の体"
+
+#: ../snake-editor/menus.py:23 ../snake-editor/menus.py:26
+#: ../snake-editor/menus.py:29 ../snake-editor/menus.py:35
+#: ../snake-editor/menus.py:37
+msgid "Symbol colour"
+msgstr "シンボルの色"
+
+#: ../snake-editor/menus.py:23 ../snake-editor/menus.py:26
+#: ../snake-editor/menus.py:29 ../snake-editor/menus.py:35
+#: ../snake-editor/menus.py:38 ../snake-editor/menus.py:43
+#: ../snake-editor/menus.py:45 ../snake-editor/menus.py:51
+#: ../snake-editor/menus.py:54 ../snake-editor/menus.py:90
+#: ../snake-editor/theme.py:69
+msgid "Back"
+msgstr "戻る"
+
+#: ../snake-editor/menus.py:25 ../snake-editor/theme.py:155
+msgid "Lives symbol"
+msgstr "いのちのシンボル"
+
+#: ../snake-editor/menus.py:28 ../snake-editor/theme.py:147
+msgid "Apple symbol"
+msgstr "リンゴのシンボル"
+
+#: ../snake-editor/menus.py:32 ../snake-editor/theme.py:149
+msgid "Horizontal symbol"
+msgstr "横棒のシンボル"
+
+#: ../snake-editor/menus.py:33 ../snake-editor/theme.py:151
+msgid "Vertical symbol"
+msgstr "縦棒のシンボル"
+
+#: ../snake-editor/menus.py:34 ../snake-editor/theme.py:153
+msgid "Corner symbol"
+msgstr "角のシンボル"
+
+#: ../snake-editor/menus.py:38 ../snake-editor/theme.py:143
+msgid "Background symbol"
+msgstr "背景のシンボル"
+
+#: ../snake-editor/menus.py:41 ../snake-editor/theme.py:121
+msgid "Snake"
+msgstr "蛇"
+
+#: ../snake-editor/menus.py:42 ../snake-editor/theme.py:127
+msgid "Lives"
+msgstr "いのち"
+
+#: ../snake-editor/menus.py:43 ../snake-editor/theme.py:123
+msgid "Apples"
+msgstr "リンゴ"
+
+#: ../snake-editor/menus.py:44 ../snake-editor/theme.py:119
+msgid "Background"
+msgstr "背景"
+
+#: ../snake-editor/menus.py:45 ../snake-editor/theme.py:125
+msgid "Border"
+msgstr "ボーダー"
+
+#: ../snake-editor/menus.py:46
+msgid "Do you really want to delete this theme?"
+msgstr "このテーマを本当に削除しますか？"
+
+#: ../snake-editor/menus.py:47
+msgid "Yes"
+msgstr "はい"
+
+#: ../snake-editor/menus.py:47
+msgid "No"
+msgstr "いいえ"
+
+#: ../snake-editor/menus.py:49
+msgid "Board"
+msgstr "ボード"
+
+#: ../snake-editor/menus.py:49
+msgid "Elements"
+msgstr "部品"
+
+#: ../snake-editor/menus.py:54
+msgid "Choose a Name"
+msgstr "名前を選ぶ"
+
+#: ../snake-editor/menus.py:57
+msgid "New Theme"
+msgstr "新しいテーマ"
+
+#: ../snake-editor/menus.py:57
+msgid "Saved Themes"
+msgstr "保存したテーマ"
+
+#: ../snake-editor/menus.py:57
+msgid "Exit"
+msgstr "終了"
+
+#: ../bin/make-snake:57
+#, sh-format
+msgid ""
+"{{6 - }} {{5 Need to enter a command: }} {{2 $commandstr }} {{5 or }} {{2 "
+"exit }}"
+msgstr ""
+"{{6 - }} {{5 次のコマンドを入力する: }} {{2 $commandstr }} {{5 又は }} {{2 "
+"exit }}"
+
+#: ../bin/make-snake:63
+#, sh-format
+msgid "Type {{2 $commandstr }} then {{1 ENTER }}"
+msgstr "{{2 $commandstr }}をタイプし、{{1 ENTER }}キーを押して"
+
+#: ../bin/make-snake:93
+#, sh-format
+msgid "Fantastic! You gained {{2 $gained_exp }} experience points!"
+msgstr "素晴らしい！{{2 $gained_exp }}点を獲得できた！"
+
+#: ../bin/make-snake:124
+msgid "Where were we..."
+msgstr "では続けよう…"
+
+#: ../bin/make-snake:133
+msgid "{{3Challenge [1/9]: Let's play!}}"
+msgstr "{{3チャレンジ [1/9]: 遊ぼう！}}"
+
+#: ../bin/make-snake:136
+msgid "Snake is one of the oldest and coolest games."
+msgstr "ヘビゲームは一番古くて楽しいゲームの一つだ。"
+
+#: ../bin/make-snake:137
+msgid "Eat apples, but don't bite your tail!"
+msgstr "リンゴを食べて、自分の尻尾を噛むな！"
+
+#: ../bin/make-snake:138
+msgid "Press {{1 ENTER }} to see what you'll make!"
+msgstr "{{1 ENTER }}キーで、これから作るゲームを確認しよう！"
+
+#: ../bin/make-snake:150
+msgid "{{3Challenge [2/9]: Your first spell}}"
+msgstr "{{3チャレンジ [2/9]: 初めてのおまじない}}"
+
+#: ../bin/make-snake:153
+msgid "Ready to make it?"
+msgstr "準備はいいかい？"
+
+#: ../bin/make-snake:154
+msgid "Let's start simple."
+msgstr "簡単なところから始めよう。"
+
+#: ../bin/make-snake:155
+msgid "Type {{2 python snake }} then press {{1 ENTER }}."
+msgstr "{{2 python snake }}を入力し、{{1 ENTER }}を押して下さい。"
+
+#: ../bin/make-snake:156
+msgid ""
+"This is a Linux command - a spell that your computer's brain understands."
+msgstr "これはリナックスのコマンドで、パソコンの頭脳が分かるおまじないなんだ。"
+
+#: ../bin/make-snake:157
+msgid "You can type {{2 exit }} at any point to quit."
+msgstr "{{2 exit }}をタイプすれば、いつでも中断できる。"
+
+#: ../bin/make-snake:169
+msgid "{{3Challenge [3/9]: Game changer}}"
+msgstr "{{3チャレンジ [3/9]: ゲームチェンジャー}}"
+
+#: ../bin/make-snake:172
+msgid "Want to make the game tougher?"
+msgstr "ゲームを難しくしようか？"
+
+#: ../bin/make-snake:173
+msgid "{{2 python snake }} launches the game."
+msgstr "{{2 python snake }}をタイプすると、ゲームが始まる。"
+
+#: ../bin/make-snake:174
+msgid ""
+"But you can write parameters after {{2 python snake }} to change how the "
+"game works."
+msgstr ""
+"でも{{2 python snake }}の後にパラメーターを加えれば、ゲームの動きを変えられる"
+"んだ。"
+
+#: ../bin/make-snake:175
+msgid "You can make the board medium size with {{2 python snake -b m }}"
+msgstr ""
+"例えば、{{2 python snake -b m }}でボードの大きさを中（medium）に設定できる"
+
+#: ../bin/make-snake:187
+msgid "{{3Challenge [4/9]: Long live Snake}}"
+msgstr "{{3チャレンジ [4/9]: スネーク万歳！}}"
+
+#: ../bin/make-snake:190
+msgid "Another way to change the game is to add extra lives!"
+msgstr "もう一つ出来ることは、余分のいのち（live）を追加することだ！"
+
+#: ../bin/make-snake:191
+msgid ""
+"You can add extra lives by adding {{2 --lives }} and a number after {{2 "
+"python snake }}."
+msgstr ""
+"{{2 python snake }}の後に、{{2 --lives }}に数字をタイプすれば、いのちを加える"
+"ことが出来るんだ。"
+
+#: ../bin/make-snake:192
+msgid "{{2 python snake }} is a command, and {{2 --lives }} is an argument."
+msgstr ""
+"{{2 python snake }}は「コマンド」で、{{2 --lives }}は「引数」と言うんだ。"
+
+#: ../bin/make-snake:193
+msgid "Type {{2 python snake --lives 3 }} to make a game with three lives."
+msgstr ""
+"３つのいのちのゲームを作るには{{2 python snake --lives 3 }}をタイプしてみよ"
+"う。"
+
+#: ../bin/make-snake:205
+msgid "{{3Challenge [5/9]: Speed it up}}"
+msgstr "{{3チャレンジ [5/9]: もっと速く}}"
+
+#: ../bin/make-snake:208
+msgid "Another way to increase difficulty is by changing the Snake's speed."
+msgstr "ゲームを難しくするには、蛇の動く速度を変えることも出来るんだ。"
+
+#: ../bin/make-snake:209
+msgid "We use the {{2 -s}} argument, with an {{2 f}} option to choose fast."
+msgstr "{{2 -s}}と言う引数に、{{2 f}}オプションでゲームが速く（fast）なる。"
+
+#: ../bin/make-snake:210
+msgid "Let's try a fast game! {{2 python snake -s f }}"
+msgstr "{{2 python snake -s f }}をタイプしてゲームを速くしよう！"
+
+#: ../bin/make-snake:221
+msgid "{{3Challenge [6/9]: Amazon style}}"
+msgstr "{{3チャレンジ [6/9]: アマゾンスタイル}}"
+
+#: ../bin/make-snake:224
+msgid "You are changing Snake using computer commands."
+msgstr "これまでコマンドでゲームの動きを変えたんだね。"
+
+#: ../bin/make-snake:225
+msgid "Now try modifying its theme (how Snake looks)."
+msgstr "次はゲームのテーマ（見た目）を変えてみよう。"
+
+#: ../bin/make-snake:226
+msgid "Type {{2 python snake -t jungle }} to play Amazon style!"
+msgstr "{{2 python snake -t jungle }}をタイプし、アマゾン森のテーマを選ぼう！"
+
+#: ../bin/make-snake:237
+msgid "{{3Challenge [7/9]: Make my own theme}}"
+msgstr "{{3チャレンジ [7/9]: 自分だけのテーマを作ろう}}"
+
+#: ../bin/make-snake:240
+msgid "Do you know you can even create your own themes?"
+msgstr "自分の好きなテーマが作れるって知ってたの？"
+
+#: ../bin/make-snake:241
+msgid "Type {{2 python snake -e }} to open the theme editor."
+msgstr "{{2 python snake -e }}をタイプして、テーマのエディターを開こう。"
+
+#: ../bin/make-snake:252
+msgid "{{3Challenge [8/9]: Show your colours}}"
+msgstr "{{3チャレンジ [8/9]: 自分の色を自慢しよう}}"
+
+#: ../bin/make-snake:256
+msgid "It's looking good!"
+msgstr "いい感じに出来たね！"
+
+#: ../bin/make-snake:257
+#, sh-format
+msgid ""
+"Type {{2 python snake -t $theme_name }} to play with the design that you "
+"saved in the editor."
+msgstr ""
+"エディターで作ったテーマでプレイするには、{{2 python snake -t $theme_name }}を"
+"タイプしてみよう。"
+
+#: ../bin/make-snake:267
+msgid "{{3Challenge [9/9]: Life saver}}"
+msgstr "{{3チャレンジ [9/9]: いのち救い}}"
+
+#: ../bin/make-snake:270
+msgid ""
+"Use the help option to learn all the different spells, with commands, "
+"arguments, and options."
+msgstr ""
+"ヘルプオプションを使えば、全てのコマンド、引数とオプションを確認できるんだ。"
+
+#: ../bin/make-snake:271
+msgid "Type {{2 python snake --help }} to get help."
+msgstr "{{2 python snake --help }}をタイプし、ヘルプを求めよう。"
+
+#: ../bin/make-snake:279
+msgid "{{4 + }} {{3 Great! You've completed Make Snake!}}"
+msgstr "{{4 + }} {{3 すごい！これでメークスネークは完了！}}"
+
+#: ../bin/make-snake:280
+msgid "Press {{1 ENTER }} to continue"
+msgstr "続くには{{1 ENTER }}を押して"
+
+#: ../bin/make-snake:287 ../bin/make-snake:326
+msgid "{{3Playground mode}}"
+msgstr "{{3遊び場モード}}"
+
+#: ../bin/make-snake:290
+msgid "Try what you have learned, type {{2 python snake --help }} for help"
+msgstr ""
+"学んだことを試してみよう。{{2 python snake --help }}でコマンドを確認しよう"
+
+#: ../bin/make-snake:321
+msgid "{{4 + }} {{3 Make Snake has been reset, closing now...}}"
+msgstr "{{4 + }} {{3 メークスネークがリセットされました。終了します…"
+
+#: ../bin/make-snake:329
+msgid "Remember: type {{2 python snake --help }} for help\\n"
+msgstr "忘れずに：ヘルプを見るには{{2 python snake --help }}をタイプして\\n"
+
+#: ../bin/make-snake:332
+msgid "Need help? Type {{2 python snake --help }} or {{2 exit }} to finish."
+msgstr ""
+"ヘルプが必要？{{2 python snake --help }}をタイプして、又は{{2 exit }}で終了。"

@@ -75,7 +75,7 @@ def drawCurrentMenu():
                     text += ' : ' + controls.tile[0]
                     if len(controls.tile) > 1:
                         text += ' ' + controls.tile[1]
-                        text += '   >> Press [ENTER]'
+                        text += '   >> ' + _('Press [ENTER]')
                     else:
                         text += ' _'
                 else:
@@ -101,7 +101,7 @@ def drawCurrentMenu():
             else:
                 text = '  ' + string[0]
             # Exception: show delete in red if theme is custom-theme
-            if string[0] == 'Delete Theme' and controls.theme_name == os.path.splitext(theme.CUSTOM_THEME)[0]:
+            if string[0] == _('Delete Theme') and controls.theme_name == os.path.splitext(theme.CUSTOM_THEME)[0]:
                 colour = theme.get_color('Red')
             else:
                 colour = theme.get_color('menu')
@@ -195,9 +195,9 @@ def drawBorders():
 
 def drawText():
     color = theme.get_color('border')
-    drawTile((stage.width / 2) - 4, (-stage.height / 2) - 1, "score:", color)
-    drawTile((-stage.width / 2), (-stage.height / 2) - 1, "lives:", color)
-    drawTile(-5, (stage.height / 2), " Press Q to quit ", color)
+    drawTile((stage.width / 2) - 4, (-stage.height / 2) - 1, _("score:"), color)
+    drawTile((-stage.width / 2), (-stage.height / 2) - 1, _("lives:"), color)
+    drawTile(-5, (stage.height / 2), _(" Press Q to quit "), color)
 
 
 def drawHeader():
