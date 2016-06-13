@@ -32,6 +32,7 @@ def print_themes(show_default=True, terminate=True):
         custom_themes += '{{2' + l + "}} | "
     custom_themes = custom_themes[:-2]
     # Print info
+    # NB 'junk' used here instead of  '_' here to avoid problems with i18n.
     default_themes, junk1, junk2 = run_cmd('colour_echo "%s"' % default_themes)
     custom_themes, junk1, junk2 = run_cmd('colour_echo "%s"' % custom_themes)
     # Print default themes
