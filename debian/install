@@ -11,8 +11,6 @@ icon/application-x-kano-make-snake.png usr/share/icons/Kano/88x88/mimetypes/
 icon/Snake-hover.png usr/share/kano-desktop/icons/
 icon/make-snake.app usr/share/applications
 
-games/* usr/share/applications
-
 media /usr/share/make-snake/
 
 locale/* usr/share/locale/
