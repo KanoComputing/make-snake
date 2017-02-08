@@ -24,7 +24,7 @@ msgid "Press {{1 ENTER }} to try again."
 msgstr "Aprieta {{1 ENTER }} para intentar de nuevo."
 
 # Delfina: I chose tablero in the end because it's shorter and will fit better on the screen
-# 
+#
 #: ../snake/parser.py:57
 msgid "Board size (s | m | l)"
 msgstr "Tamaño del tablero (s | m | l)"
@@ -428,7 +428,7 @@ msgstr "{{2 python snake }} es un comando y {{2 --lives }} es un parámetro."
 #: ../bin/make-snake:206
 msgid "Type {{2 python snake --lives 3 }} to make a game with three lives."
 msgstr ""
-"Escribe Type {{2 python snake --lives 3 }} para crear un juego con tres "
+"Escribe {{2 python snake --lives 3 }} para crear un juego con tres "
 "vidas."
 
 #: ../bin/make-snake:218
