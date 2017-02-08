@@ -514,7 +514,7 @@ msgstr "Escribe {{2 python snake --help }} para conseguir ayuda."
 
 #: ../bin/make-snake:292
 msgid "{{4 + }} {{3 Great! You've completed Make Snake!}}"
-msgstr "{4 + }} {{3 ¡Fenómeno! ¡Terminaste Make Snake!}}"
+msgstr "{{4 + }} {{3 ¡Fenómeno! ¡Terminaste Make Snake!}}"
 
 #: ../bin/make-snake:293
 msgid "Press {{1 ENTER }} to continue"
