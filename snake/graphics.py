@@ -50,18 +50,18 @@ def drawGameOver():
     livesStr = str(lives)
     # set speed string
     if(speed == .2):
-        speedStr = 'Slow'
+        speedStr = _('Slow')
     elif(speed == .12):
-        speedStr = 'Medium'
+        speedStr = _('Medium')
     elif(speed == .07):
-        speedStr = 'Fast'
+        speedStr = _('Fast')
     # set size string
     if(size == 's'):
-        sizeStr = 'Small'
+        sizeStr = _('Small')
     elif(size == 'm'):
-        sizeStr = 'Medium'
+        sizeStr = _('Medium')
     elif(size == 'l'):
-        sizeStr = 'Large'
+        sizeStr = _('Large')
     drawTile(-4, -10, _("  GAME OVER  "), theme.get_color('border'))
     drawTile(-3, -8, _("Score:") + str(game.score), theme.get_color('border'))
     drawTile(-3, -6, _("Speed:") + speedStr, theme.get_color('border'))
