@@ -1,7 +1,7 @@
 
 # graphics.py
 #
-# Copyright (C) 2013 Kano Computing Ltd.
+# Copyright (C) 2013 - 2017 Kano Computing Ltd.
 # License:   http://www.gnu.org/licenses/gpl-2.0.txt GNU General Public License v2
 #
 # Contributors: https://github.com/alexaverill
