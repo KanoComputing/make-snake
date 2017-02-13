@@ -14,8 +14,8 @@ THEMES_DIR = os.path.expanduser('~/Snake-content')
 # List of themes
 naming = []
 
-colors = [[_("Black"), None], [_("Red"), None], [_("Green"), None], [_("Yellow"), None],
-          [_("Blue"), None], [_("Magenta"), None], [_("Cyan"), None], [_("White"), None]]
+colors = [[N_("Black"), None], [N_("Red"), None], [N_("Green"), None], [N_("Yellow"), None],
+          [N_("Blue"), None], [N_("Magenta"), None], [N_("Cyan"), None], [N_("White"), None]]
 
 # Elements
 snake = [[_("Background colour"), colors],

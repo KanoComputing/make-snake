@@ -63,7 +63,7 @@ def drawCurrentMenu():
                 head = '> ['
             else:
                 head = '  ['
-            text = '    ] ' + string[0]
+            text = '    ] ' + _(string[0])
             drawTile(x, y, text, theme.get_color('menu'))
             drawTile(x, y, '    ', theme.get_color(color))
             drawTile(x, y, head, theme.get_color('menu'))

@@ -195,19 +195,19 @@ def load_theme():
 
 
 def get_curses_color(string):
-    if string == _('Black'):
+    if string == N_('Black'):
         return curses.COLOR_BLACK
-    elif string == _('Red'):
+    elif string == N_('Red'):
         return curses.COLOR_RED
-    elif string == _('Green'):
+    elif string == N_('Green'):
         return curses.COLOR_GREEN
-    elif string == _('Yellow'):
+    elif string == N_('Yellow'):
         return curses.COLOR_YELLOW
-    elif string == _('Blue'):
+    elif string == N_('Blue'):
         return curses.COLOR_BLUE
-    elif string == _('Magenta'):
+    elif string == N_('Magenta'):
         return curses.COLOR_MAGENTA
-    elif string == _('Cyan'):
+    elif string == N_('Cyan'):
         return curses.COLOR_CYAN
     else:
         return curses.COLOR_WHITE
