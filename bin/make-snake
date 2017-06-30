@@ -15,6 +15,7 @@ function kanotracker {
 }
 trap kanotracker EXIT
 
+wmctrl -r "Make Snake" -b toggle,maximized_vert,maximized_horz
 
 dir="/usr/share/make-snake"
 
