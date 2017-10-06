@@ -1,7 +1,7 @@
 table Icon
   Caption:
   AppID: Make Snake
-  Command: /usr/bin/kano-launcher "/usr/share/make-snake/snake-launch.sh" "make-snake"
+  Command: /bin/bash -i -c "/usr/bin/kano-launcher \"/usr/share/make-snake/snake-launch.sh\" \"make-snake\""
   Singleton: true
   Icon: /usr/share/kano-desktop/icons/snake.png
   IconHover: /usr/share/kano-desktop/icons/Snake-hover.png

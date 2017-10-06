@@ -4,6 +4,12 @@ make-snake (3.12.1-0) unstable; urgency=low
 
  -- Team Kano <dev@kano.me>  Mon, 25 Sep 2017 15:29:00 +0000
 
+make-snake (3.9.2-0) unstable; urgency=low
+
+  * Fixed launching app with localisation from kdesktop (backport)
+
+ -- Team Kano <dev@kano.me>  Fri, 6 Oct 2017 11:52:00 +0000
+
 make-snake (3.0.0-1) unstable; urgency=low
 
   * Added game launcher for Kano Overworld
