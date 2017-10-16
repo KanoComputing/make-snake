@@ -1,3 +1,9 @@
+make-snake (3.14.0-0) unstable; urgency=low
+
+  * Applied changes from v3.9.2 es_AR backports to latest
+
+ -- Team Kano <dev@kano.me>  Mon, 16 Oct 2017 15:12:00 +0100
+
 make-snake (3.12.1-0) unstable; urgency=low
 
   * Replaced Dashboard position of Youtube with Make Snake
