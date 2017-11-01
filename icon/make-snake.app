@@ -15,5 +15,5 @@
     "launch_command": "kano-launcher \"/usr/share/make-snake/snake-launch.sh\" \"make-snake\"",
     "overrides": [],
     "desktop": false,
-    "priority": 800
+    "priority": 350
 }

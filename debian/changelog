@@ -1,8 +1,9 @@
 make-snake (3.14.0-0) unstable; urgency=low
 
   * Applied changes from v3.9.2 es_AR backports to latest
+  * Moved application icon from 1st page on Dashboard to 2nd page
 
- -- Team Kano <dev@kano.me>  Mon, 16 Oct 2017 15:12:00 +0100
+ -- Team Kano <dev@kano.me>  Wed, 1 Nov 2017 17:12:00 +0100
 
 make-snake (3.12.1-0) unstable; urgency=low
 
