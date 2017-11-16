@@ -1,4 +1,4 @@
-#!/usr/bin/kano-splash /usr/share/make-snake/media/splash.png /bin/sh
+#!/usr/bin/kano-splash loader-animation /bin/sh
 # snake-launch-overworld.sh
 #
 # Copyright (C) 2016 Kano Computing Ltd.
