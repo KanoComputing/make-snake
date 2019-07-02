@@ -1,9 +1,9 @@
 #!/usr/bin/env python
-
+#
 # parser.py
 #
-# Copyright (C) 2013, 2014 Kano Computing Ltd.
-# License:   http://www.gnu.org/licenses/gpl-2.0.txt GNU General Public License v2
+# Copyright (C) 2013-2019 Kano Computing Ltd.
+# License: http://www.gnu.org/licenses/gpl-2.0.txt GNU GPL v2
 #
 # Contributors: https://github.com/alexaverill
 #
@@ -85,15 +85,17 @@ def init():
                         action="store_true", dest="reset", default=False,
                         help=_("Resets the game to challenge 1"))
 
-    parser.add_argument("--share",
-                        action="store_true", dest="share", default=False,
-                        help=_("Share your favourite theme with the world"))
+    # Disable sharing:
+    # parser.add_argument("--share",
+    #                     action="store_true", dest="share", default=False,
+    #                     help=_("Share your favourite theme with the world"))
 
     args = parser.parse_args()
 
+    # Disable sharing:
     # Check for share argument
-    if (args.share):
-        utils.share_theme()
+    # if (args.share):
+    #     utils.share_theme()
 
     # Check for valid theme
     if (args.theme and args.theme != 'minimal'):

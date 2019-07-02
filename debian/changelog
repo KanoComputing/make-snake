@@ -1,3 +1,9 @@
+make-snake (4.3.0-0) unstable; urgency=low
+
+  * Remove option to share from the python snake command
+
+ -- Team Kano <dev@kano.me>  Tue, 2 Jul 2019 15:17:00 +0100
+
 make-snake (3.14.0-0) unstable; urgency=low
 
   * Applied changes from v3.9.2 es_AR backports to latest
